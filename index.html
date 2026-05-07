@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDP Redesign – Mamas &amp; Papas Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .hub-hero {
+        padding: 52px 0 40px;
+        border-bottom: 1px solid var(--line);
+        margin-bottom: 48px;
+      }
+      .hub-hero h1 {
+        font-size: 42px;
+        font-weight: 400;
+        letter-spacing: -0.8px;
+        margin: 0 0 10px;
+      }
+      .hub-hero p {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0;
+        max-width: 560px;
+      }
+      .hub-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.4px;
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+      .variant-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-bottom: 60px;
+      }
+      .variant-card {
+        border: 1px solid var(--line);
+        padding: 28px 24px;
+        display: block;
+        color: inherit;
+        transition: border-color 150ms, box-shadow 150ms;
+      }
+      .variant-card:hover {
+        border-color: var(--teal);
+        box-shadow: 0 2px 12px rgba(59,183,169,0.1);
+      }
+      .variant-card-label {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        color: var(--teal-dark);
+        margin-bottom: 10px;
+      }
+      .variant-card h3 {
+        font-size: 19px;
+        font-weight: 500;
+        margin: 0 0 10px;
+        letter-spacing: -0.3px;
+      }
+      .variant-card p {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 0;
+        line-height: 1.6;
+      }
+      .variant-card-arrow {
+        margin-top: 18px;
+        font-size: 13px;
+        color: var(--teal-dark);
+        font-weight: 600;
+      }
+      @media (max-width: 768px) {
+        .variant-grid { grid-template-columns: 1fr; }
+        .hub-hero h1 { font-size: 28px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="top-strip">Mamas &amp; Papas — PDP Redesign Prototype</div>
+      <header class="header-main">
+        <div class="header-left">
+          <span>GB</span>
+          <span>My Account</span>
+        </div>
+        <a href="./index.html" class="mobile-hamburger" aria-label="Home">☰</a>
+        <div class="site-logo">mamas<br />&papas</div>
+        <div class="header-right">
+          <span class="mobile-search-icon">🔍</span>
+          <input class="search-box" placeholder="Search" />
+          <span>Contact</span>
+          <span>Stores</span>
+          <span class="header-bag-link" data-open-bag-drawer aria-label="View bag">👜</span>
+        </div>
+      </header>
+      <nav class="mega-nav">
+        <div class="row">
+          <a href="#">Sale</a>
+          <a href="#">Pushchairs &amp; Travel</a>
+          <a href="#">Furniture</a>
+          <a href="#">Clothing</a>
+          <a href="#">Nursery</a>
+          <a href="#">Car Seats</a>
+          <a href="#">Bathing &amp; Changing</a>
+          <a href="#">Baby Safety</a>
+          <a href="#">Feeding &amp; Weaning</a>
+          <a href="#">Toys</a>
+        </div>
+      </nav>
+      <div class="sale-strip">Save up to 40% in our Sale! Shop Now</div>
+
+      <main class="container">
+        <div class="hub-hero">
+          <h1>PDP Redesign — Prototype</h1>
+          <p>Working wireframes for the revised product detail page. Select a variant below to review.</p>
+        </div>
+
+        <div class="hub-label">Prototype variants</div>
+        <div class="variant-grid">
+          <a href="./pdp.html" class="variant-card">
+            <div class="variant-card-label">Variant A</div>
+            <h3>Current Layout</h3>
+            <p>Baseline PDP — gallery left, product details right. Standard accordion below. Starting reference point.</p>
+            <div class="variant-card-arrow">Open prototype →</div>
+          </a>
+          <a href="./pdp-b.html" class="variant-card">
+            <div class="variant-card-label">Variant B</div>
+            <h3>TBC</h3>
+            <p>Placeholder — add your next design direction here.</p>
+            <div class="variant-card-arrow">Not yet built</div>
+          </a>
+          <a href="./pdp-c.html" class="variant-card">
+            <div class="variant-card-label">Variant C</div>
+            <h3>TBC</h3>
+            <p>Placeholder — add your next design direction here.</p>
+            <div class="variant-card-arrow">Not yet built</div>
+          </a>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-top">
+          <div>
+            <h4>Sign up &amp; Save</h4>
+            <p>Sign up to our mailing list for exclusive offers and parenting advice.</p>
+            <button class="pill">Sign up now</button>
+          </div>
+          <div>
+            <h4>Shopping to suit you</h4>
+            <ul>
+              <li>Ways to Pay</li>
+              <li>Store Locator</li>
+              <li>Buying for Baby Appointments</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Customer Care</h4>
+            <ul>
+              <li>Track Your Order</li>
+              <li>Returns</li>
+              <li>Delivery Information</li>
+              <li>Help</li>
+            </ul>
+          </div>
+          <div>
+            <h4>About Mamas &amp; Papas</h4>
+            <ul>
+              <li>Our Story</li>
+              <li>Careers</li>
+              <li>Affiliates</li>
+              <li>Media &amp; Press</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">© Mamas &amp; Papas 2026</div>
+      </footer>
+    </div>
+
+    <div class="drawer-overlay" data-close-drawer></div>
+
+    <aside class="bag-drawer">
+      <header>
+        <span>In My Bag</span>
+        <button class="icon-btn" data-close-drawer aria-label="Close">×</button>
+      </header>
+      <div class="drawer-items">
+        <p class="drawer-empty">Your bag is empty.</p>
+      </div>
+      <div class="drawer-footer">
+        <div class="totals">
+          <div class="row" style="font-size: 20px"><strong>Total:</strong><strong>£0.00</strong></div>
+          <div style="font-size: 13px; color: #666">Delivery calculated at checkout</div>
+        </div>
+        <a href="#">View Bag</a>
+      </div>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

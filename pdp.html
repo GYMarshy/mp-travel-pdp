@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocarro Pushchair – Mamas &amp; Papas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="top-strip">Order by 4pm for next day delivery.</div>
+      <header class="header-main">
+        <div class="header-left">
+          <span>GB</span>
+          <span>My Account</span>
+        </div>
+        <a href="./index.html" class="mobile-hamburger" aria-label="Menu">☰</a>
+        <a href="./index.html" class="site-logo">mamas<br />&papas</a>
+        <div class="header-right">
+          <span class="mobile-search-icon">🔍</span>
+          <input class="search-box" placeholder="Search" />
+          <span>Contact</span>
+          <span>Stores</span>
+          <span class="header-bag-link" data-open-bag-drawer aria-label="View bag">👜 <span id="bag-count" style="font-size:12px"></span></span>
+        </div>
+      </header>
+      <nav class="mega-nav">
+        <div class="row">
+          <a href="#">Sale</a>
+          <a href="#">Pushchairs &amp; Travel</a>
+          <a href="#">Furniture</a>
+          <a href="#">Clothing</a>
+          <a href="#">Nursery</a>
+          <a href="#">Car Seats</a>
+          <a href="#">Bathing &amp; Changing</a>
+          <a href="#">Baby Safety</a>
+          <a href="#">Feeding &amp; Weaning</a>
+          <a href="#">Toys</a>
+        </div>
+      </nav>
+      <div class="sale-strip">Save up to 40% in our Sale! Shop Now</div>
+      <div class="value-strip">
+        <div class="row">
+          <div>Book a Buying for Baby appointment</div>
+          <div>Price Match Promise</div>
+          <div>Sign Up &amp; Save</div>
+          <div>Free Delivery over £60</div>
+        </div>
+      </div>
+
+      <main class="container">
+        <div class="breadcrumbs">
+          <a href="#">Home</a> &rsaquo;
+          <a href="#">Pushchairs &amp; Travel</a> &rsaquo;
+          <a href="#">Pushchairs</a> &rsaquo;
+          Ocarro Pushchair
+        </div>
+
+        <section class="pdp-layout">
+          <!-- Gallery -->
+          <div>
+            <div class="gallery-main">
+              <img
+                id="gallery-main-img"
+                src="https://placehold.co/640x700/f4f0ec/999999?text=Ocarro+Main"
+                alt="Ocarro Pushchair – Newborn Grey"
+              />
+            </div>
+            <div class="thumbs" id="gallery-thumbs">
+              <img
+                src="https://placehold.co/80x80/f4f0ec/999999?text=1"
+                alt="View 1"
+                class="is-active"
+                data-full="https://placehold.co/640x700/f4f0ec/999999?text=Ocarro+Main"
+              />
+              <img
+                src="https://placehold.co/80x80/e8e4df/999999?text=2"
+                alt="View 2"
+                data-full="https://placehold.co/640x700/e8e4df/999999?text=Ocarro+Side"
+              />
+              <img
+                src="https://placehold.co/80x80/dde8e6/999999?text=3"
+                alt="View 3"
+                data-full="https://placehold.co/640x700/dde8e6/999999?text=Ocarro+Detail"
+              />
+              <img
+                src="https://placehold.co/80x80/ece8e2/999999?text=4"
+                alt="View 4"
+                data-full="https://placehold.co/640x700/ece8e2/999999?text=Ocarro+Fold"
+              />
+              <img
+                src="https://placehold.co/80x80/e8ecf4/999999?text=5"
+                alt="Lifestyle"
+                data-full="https://placehold.co/640x700/e8ecf4/999999?text=Ocarro+Lifestyle"
+              />
+            </div>
+          </div>
+
+          <!-- Product details -->
+          <div>
+            <div class="pdp-brand">Mamas &amp; Papas</div>
+            <h1 class="pdp-title">Ocarro Pushchair</h1>
+
+            <div class="pdp-price">
+              £795.00
+            </div>
+
+            <div class="stock">
+              <span class="dot"></span> In stock — dispatches within 1–2 days
+            </div>
+            <div class="stock">
+              <span class="dot"></span> Free delivery
+            </div>
+            <div class="stock">
+              <span class="dot"></span> Free 100-day returns
+            </div>
+
+            <!-- Colour picker -->
+            <div class="variant-block">
+              <div class="variant-label">Colour: <strong id="selected-colour">Newborn Grey</strong></div>
+              <div class="colour-swatches">
+                <button
+                  class="swatch is-active"
+                  style="background: #c0b9af;"
+                  data-colour="Newborn Grey"
+                  aria-label="Newborn Grey"
+                  title="Newborn Grey"
+                ></button>
+                <button
+                  class="swatch"
+                  style="background: #2a2926;"
+                  data-colour="Midnight Black"
+                  aria-label="Midnight Black"
+                  title="Midnight Black"
+                ></button>
+                <button
+                  class="swatch"
+                  style="background: #9db5b2;"
+                  data-colour="Sage Green"
+                  aria-label="Sage Green"
+                  title="Sage Green"
+                ></button>
+                <button
+                  class="swatch"
+                  style="background: #a89aac;"
+                  data-colour="Dusty Lilac"
+                  aria-label="Dusty Lilac"
+                  title="Dusty Lilac"
+                ></button>
+                <button
+                  class="swatch"
+                  style="background: #c8a882;"
+                  data-colour="Caramel"
+                  aria-label="Caramel"
+                  title="Caramel"
+                ></button>
+              </div>
+            </div>
+
+            <!-- Seat configuration -->
+            <div class="variant-block" style="margin-top: 16px;">
+              <div class="variant-label">Configuration: <strong id="selected-config">Pushchair only</strong></div>
+              <div class="swatch-text-list">
+                <button class="swatch-text is-active" data-config="Pushchair only">Pushchair only</button>
+                <button class="swatch-text" data-config="+ Carrycot">+ Carrycot</button>
+                <button class="swatch-text" data-config="+ Car Seat">+ Car Seat</button>
+                <button class="swatch-text" data-config="Full Travel System">Full Travel System</button>
+              </div>
+            </div>
+
+            <!-- Qty + CTA -->
+            <div class="size-block">
+              <div class="qty-row">
+                <div class="stepper" data-stepper>
+                  <button data-step-minus>−</button>
+                  <span data-qty-value>1</span>
+                  <button data-step-plus>+</button>
+                </div>
+                <button class="btn-primary" data-add-to-bag>Add to Bag</button>
+              </div>
+              <button class="btn-secondary">Add to My Baby List</button>
+            </div>
+
+            <!-- USPs -->
+            <div style="margin-top: 24px; padding: 18px; background: #f9f8f7; border: 1px solid #ede9e3; font-size: 13px; color: #444; line-height: 1.8;">
+              <div>✓ &nbsp;Suitable from birth to 22 kg</div>
+              <div>✓ &nbsp;Reversible seat — parent or world-facing</div>
+              <div>✓ &nbsp;One-handed fold</div>
+              <div>✓ &nbsp;Puncture-proof foam-fill tyres</div>
+              <div>✓ &nbsp;Compatible with Mamas &amp; Papas car seats</div>
+            </div>
+
+            <!-- Accordion -->
+            <div class="accordion">
+              <div class="acc-item is-open" data-acc>
+                <h4>Description</h4>
+                <div class="acc-body">
+                  <p>The Ocarro is our most premium pushchair — designed for parents who want outstanding comfort and capability. With a generous, fully reclining seat suitable from newborn, an extendable UPF 50+ hood, and all-wheel suspension, Ocarro handles everything from cobblestones to country paths with ease.</p>
+                  <p style="margin-top: 10px;">The seat rotates to face you or the world, and the adjustable handlebar suits parents of any height. A spacious shopping basket and easy one-handed fold complete the package.</p>
+                </div>
+              </div>
+              <div class="acc-item" data-acc>
+                <h4>Dimensions &amp; weight</h4>
+                <div class="acc-body">
+                  <ul>
+                    <li>Open: H105 × W62 × D94 cm</li>
+                    <li>Folded: H80 × W35 × D62 cm</li>
+                    <li>Weight: 13.9 kg</li>
+                    <li>Seat width: 35 cm</li>
+                    <li>Seat depth: 22 cm</li>
+                    <li>Basket capacity: 5 kg</li>
+                    <li>Max child weight: 22 kg</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="acc-item" data-acc>
+                <h4>In the box</h4>
+                <div class="acc-body">
+                  <ul>
+                    <li>Ocarro pushchair frame</li>
+                    <li>Seat unit with head hugger &amp; newborn insert</li>
+                    <li>Extendable UPF 50+ hood</li>
+                    <li>Rain cover</li>
+                    <li>Cup holder</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="acc-item" data-acc>
+                <h4>Delivery &amp; returns</h4>
+                <div class="acc-body">
+                  <ul>
+                    <li>Free standard delivery (3–5 working days)</li>
+                    <li>Next-day delivery available — order by 4pm</li>
+                    <li>Free 100-day returns</li>
+                    <li>Click &amp; Collect available in selected stores</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="acc-item" data-acc>
+                <h4>Reviews (284)</h4>
+                <div class="acc-body">
+                  <p>⭐⭐⭐⭐⭐ &nbsp;4.8 out of 5</p>
+                  <p style="margin-top: 8px; color: #666;">Review content would appear here.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Carousel -->
+        <section class="carousel">
+          <h3>Complete the Look</h3>
+          <div class="carousel-row">
+            <div class="card">
+              <span class="tag tag-new">New In!</span>
+              <img src="https://placehold.co/220x192/f4f0ec/999999?text=Carrycot" alt="Ocarro Carrycot" />
+              <div class="brand">Mamas &amp; Papas</div>
+              <div class="name">Ocarro Carrycot</div>
+              <div class="price-row"><strong>£199.00</strong></div>
+            </div>
+            <div class="card">
+              <img src="https://placehold.co/220x192/e8f0ec/999999?text=Car+Seat" alt="Aton 5 Car Seat" />
+              <div class="brand">Cybex</div>
+              <div class="name">Aton 5 Infant Car Seat</div>
+              <div class="price-row"><strong>£179.00</strong></div>
+            </div>
+            <div class="card">
+              <span class="tag">Sale</span>
+              <img src="https://placehold.co/220x192/ecf0e8/999999?text=Footmuff" alt="Footmuff" />
+              <div class="brand">Mamas &amp; Papas</div>
+              <div class="name">Ocarro Footmuff</div>
+              <div class="price-row"><strong>£59.00</strong><span class="old-price">£79.00</span></div>
+              <div class="save">Save £20.00</div>
+            </div>
+            <div class="card">
+              <img src="https://placehold.co/220x192/f0ece8/999999?text=Bag" alt="Changing Bag" />
+              <div class="brand">Mamas &amp; Papas</div>
+              <div class="name">Backpack Changing Bag</div>
+              <div class="price-row"><strong>£89.00</strong></div>
+            </div>
+            <div class="card">
+              <img src="https://placehold.co/220x192/e8ecf4/999999?text=Organiser" alt="Pushchair Organiser" />
+              <div class="brand">Mamas &amp; Papas</div>
+              <div class="name">Pushchair Organiser</div>
+              <div class="price-row"><strong>£29.00</strong></div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container" style="padding: 18px 0 10px; font-size: 13px; color: #5b5b5b">
+          At Mamas &amp; Papas, we've been helping parents grow their families for over 40 years. With award-winning prams &amp; pushchairs, moses baskets, baby clothing and nursery furniture, as well as expert advice on everything from car seats to cot beds, we've got all the essentials you need to make the most of life with a little one.
+        </div>
+        <div class="footer-top">
+          <div>
+            <h4>Sign up &amp; Save</h4>
+            <p>Sign up to our mailing list for exclusive offers and parenting advice.</p>
+            <button class="pill">Sign up now</button>
+          </div>
+          <div>
+            <h4>Shopping to suit you</h4>
+            <ul>
+              <li>Ways to Pay</li>
+              <li>Store Locator</li>
+              <li>Buying for Baby Appointments</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Customer Care</h4>
+            <ul>
+              <li>Track Your Order</li>
+              <li>Returns</li>
+              <li>Delivery Information</li>
+              <li>Help</li>
+            </ul>
+          </div>
+          <div>
+            <h4>About Mamas &amp; Papas</h4>
+            <ul>
+              <li>Our Story</li>
+              <li>Careers</li>
+              <li>Affiliates</li>
+              <li>Media &amp; Press</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">© Mamas &amp; Papas 2026</div>
+      </footer>
+    </div>
+
+    <div class="drawer-overlay" data-close-drawer></div>
+
+    <aside class="bag-drawer">
+      <header>
+        <span>In My Bag</span>
+        <button class="icon-btn" data-close-drawer aria-label="Close">×</button>
+      </header>
+      <div class="drawer-items" id="drawer-items">
+        <p class="drawer-empty" id="drawer-empty">Your bag is empty.</p>
+      </div>
+      <div class="drawer-footer">
+        <div class="totals">
+          <div class="row" style="font-size: 20px"><strong>Total:</strong><strong id="drawer-total">£0.00</strong></div>
+          <div style="font-size: 13px; color: #666">Delivery calculated at checkout</div>
+        </div>
+        <a href="#">View Bag</a>
+      </div>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
