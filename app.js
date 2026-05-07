@@ -48,6 +48,32 @@
     if (label) label.textContent = btn.dataset.config;
   });
 
+  /* ---- Config builder (step-builder for Variant B) ---- */
+
+  document.addEventListener('click', function (e) {
+    var opt = e.target.closest('.config-option');
+    if (!opt) return;
+
+    var builder = opt.closest('.config-builder');
+    builder.querySelectorAll('.config-option').forEach(function (o) { o.classList.remove('is-active'); });
+    opt.classList.add('is-active');
+
+    var configKey = opt.dataset.config;
+    var label     = document.getElementById('selected-config-label');
+    var priceEl   = document.getElementById('pdp-price-main');
+    var prefixEl  = document.getElementById('pdp-price-prefix');
+    var subEl     = document.getElementById('pdp-price-sub');
+
+    if (label && opt.dataset.title)    label.textContent    = opt.dataset.title;
+    if (priceEl && opt.dataset.price)  priceEl.textContent  = '£' + opt.dataset.price;
+    if (prefixEl)                      prefixEl.textContent = configKey === 'pushchair' ? 'From' : '';
+    if (subEl && opt.dataset.pricesub) subEl.textContent    = opt.dataset.pricesub;
+
+    document.querySelectorAll('[data-whats-included]').forEach(function (panel) {
+      panel.hidden = panel.dataset.whatsIncluded !== configKey;
+    });
+  });
+
   /* ---- Gallery thumbnails ---- */
 
   document.addEventListener('click', function (e) {

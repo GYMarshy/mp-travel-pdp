@@ -750,6 +750,453 @@ body.drawer-open .bag-drawer {
   line-height: 1;
 }
 
+/* ---- Validation-first PDP additions ---- */
+
+.pdp-title-concise {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+  margin: 6px 0 12px;
+}
+
+.rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 14px;
+}
+
+.rating-row .stars {
+  color: #f5a623;
+  letter-spacing: 1px;
+}
+
+.rating-row a {
+  color: var(--teal-dark);
+  text-decoration: underline;
+}
+
+.price-block {
+  margin: 6px 0 18px;
+}
+
+.price-main {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.price-from {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 400;
+  margin-right: 4px;
+}
+
+.price-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #555;
+}
+
+.why-buy-me {
+  margin-top: 8px;
+  padding: 18px 20px;
+  background: #f9f8f7;
+  border: 1px solid #ede9e3;
+}
+
+.why-buy-me h4 {
+  margin: 0 0 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.why-buy-me ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.why-buy-me li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14px;
+  color: #222;
+  line-height: 1.45;
+}
+
+.why-buy-me li::before {
+  content: "✓";
+  color: var(--teal-dark);
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.config-builder {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.config-option {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color 120ms, background 120ms;
+  font-family: inherit;
+  text-align: left;
+}
+
+.config-option:hover {
+  border-color: #999;
+}
+
+.config-option.is-active {
+  border-color: var(--teal);
+  background: #f8fcfb;
+  box-shadow: inset 0 0 0 1px var(--teal);
+}
+
+.config-option-marker {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.config-option.is-active .config-option-marker {
+  border-color: var(--teal);
+}
+
+.config-option.is-active .config-option-marker::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--teal);
+  border-radius: 50%;
+}
+
+.config-option-content {
+  min-width: 0;
+}
+
+.config-option-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+}
+
+.config-option-desc {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+  line-height: 1.4;
+}
+
+.config-option-price {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  flex-shrink: 0;
+}
+
+.whats-included {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.whats-included[hidden] {
+  display: none;
+}
+
+.whats-included-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.whats-included-head h4 {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.whats-included-head .muted {
+  font-size: 12px;
+  color: #888;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.whats-included ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+
+.whats-included li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #444;
+}
+
+.whats-included li::before {
+  content: "•";
+  color: var(--teal);
+  font-weight: 700;
+}
+
+.payment-options {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.payment-options p {
+  margin: 4px 0;
+}
+
+.payment-options strong {
+  color: #111;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin-top: 56px;
+  background: #fafaf8;
+}
+
+.trust-strip-item {
+  text-align: center;
+  padding: 22px 16px;
+  font-size: 13px;
+  color: #333;
+  border-right: 1px solid var(--line);
+}
+
+.trust-strip-item:last-child {
+  border-right: 0;
+}
+
+.trust-strip-item .icon {
+  font-size: 26px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.trust-strip-item strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.trust-strip-item span {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.lifestyle-hero {
+  margin: 60px 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  background: #f5f3ef;
+}
+
+.lifestyle-hero-img {
+  overflow: hidden;
+}
+
+.lifestyle-hero-img img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+  display: block;
+}
+
+.lifestyle-hero-text {
+  padding: 56px 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.lifestyle-hero-text .eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.6px;
+  color: var(--teal-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.lifestyle-hero-text h2 {
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0 0 18px;
+  letter-spacing: -0.6px;
+  line-height: 1.1;
+}
+
+.lifestyle-hero-text p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: #444;
+  margin: 0 0 18px;
+}
+
+.lifestyle-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 60px;
+}
+
+.lifestyle-tile img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.lifestyle-tile h3 {
+  font-size: 22px;
+  font-weight: 400;
+  margin: 18px 0 6px;
+  letter-spacing: -0.3px;
+}
+
+.lifestyle-tile p {
+  font-size: 13px;
+  color: #555;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.reviews-summary {
+  margin-top: 60px;
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.reviews-summary-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 26px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.reviews-summary-head h2 {
+  font-size: 28px;
+  font-weight: 400;
+  margin: 0;
+  letter-spacing: -0.4px;
+}
+
+.reviews-summary-stats {
+  font-size: 14px;
+  color: #555;
+}
+
+.reviews-summary-stats .stars {
+  color: #f5a623;
+  letter-spacing: 1.4px;
+  margin-right: 8px;
+}
+
+.reviews-summary-stats strong {
+  color: #111;
+  font-size: 16px;
+}
+
+.reviews-summary-link {
+  font-size: 13px;
+  color: var(--teal-dark);
+  text-decoration: underline;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.review-card {
+  border: 1px solid var(--line);
+  padding: 22px;
+  background: #fff;
+}
+
+.review-card .stars {
+  color: #f5a623;
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  margin-bottom: 10px;
+}
+
+.review-card .review-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.review-card .review-body {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.55;
+  margin-bottom: 12px;
+}
+
+.review-card .review-author {
+  font-size: 12px;
+  color: #888;
+}
+
 /* ---- Mobile overrides ---- */
 
 .mobile-hamburger {
@@ -900,5 +1347,71 @@ body.drawer-open .bag-drawer {
     border-bottom: 1px solid #e5e5e5;
     padding-bottom: 8px;
     margin-bottom: 12px;
+  }
+
+  .pdp-title-concise {
+    font-size: 24px;
+  }
+
+  .price-main {
+    font-size: 28px;
+  }
+
+  .trust-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .trust-strip-item:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .trust-strip-item:nth-child(-n+2) {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .lifestyle-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .lifestyle-hero-img img {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .lifestyle-hero-text {
+    padding: 28px 20px;
+  }
+
+  .lifestyle-hero-text h2 {
+    font-size: 26px;
+  }
+
+  .lifestyle-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .config-option {
+    grid-template-columns: 22px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .config-option-content {
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .config-option-price {
+    grid-column: 2;
+    grid-row: 2;
+    text-align: left;
+    margin-top: 4px;
+  }
+
+  .config-option-marker {
+    grid-row: 1 / span 2;
   }
 }
