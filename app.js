@@ -108,6 +108,59 @@
     item.classList.toggle('is-open');
   });
 
+  /* ---- Configurator (Variant E): live preview + total ---- */
+
+  function recalcConfigTotal() {
+    var activeOpt = document.querySelector('.config-rail .config-option.is-active');
+    if (!activeOpt) return;
+    var base = parseInt(activeOpt.dataset.base, 10) || 0;
+    var extras = 0;
+    document.querySelectorAll('.config-extras input[type="checkbox"]:checked').forEach(function (cb) {
+      extras += parseInt(cb.dataset.extraPrice, 10) || 0;
+    });
+    var total = base + extras;
+    var totalEl = document.getElementById('config-total');
+    if (totalEl) totalEl.textContent = '£' + total.toLocaleString();
+
+    var savings = { 'pushchair': 0, 'carrycot': 30, 'carseat': 80, 'travel': 290 };
+    var key = activeOpt.dataset.config;
+    var savingEl = document.getElementById('config-saving');
+    if (savingEl) savingEl.textContent = savings[key] ? 'Save £' + savings[key] + ' vs separately' : '';
+  }
+
+  document.addEventListener('click', function (e) {
+    var rail = e.target.closest('.config-rail');
+    if (!rail) return;
+
+    var swatch = e.target.closest('.swatch[data-colour]');
+    if (swatch) {
+      var colourLabel = document.getElementById('config-colour-label');
+      var bundleColour = document.getElementById('config-bundle-colour');
+      var preview = document.getElementById('config-preview-img');
+      if (colourLabel)  colourLabel.textContent  = swatch.dataset.colour;
+      if (bundleColour) bundleColour.textContent = swatch.dataset.colour;
+      if (preview && swatch.dataset.preview) {
+        preview.src = 'https://placehold.co/420x420/' + swatch.dataset.preview + '/d8c8b8?text=Live+Preview';
+      }
+    }
+
+    var opt = e.target.closest('.config-option');
+    if (opt) {
+      var bundleTitle = document.getElementById('config-bundle-title');
+      var bundlePieces = document.getElementById('config-bundle-pieces');
+      if (bundleTitle  && opt.dataset.title)  bundleTitle.textContent  = opt.dataset.title;
+      if (bundlePieces && opt.dataset.pieces) bundlePieces.textContent = opt.dataset.pieces;
+      recalcConfigTotal();
+    }
+  });
+
+  document.addEventListener('change', function (e) {
+    if (!e.target.closest('.config-extras')) return;
+    var label = e.target.closest('.config-extra');
+    if (label) label.classList.toggle('is-on', e.target.checked);
+    recalcConfigTotal();
+  });
+
   /* ---- Add to bag (prototype simulation) ---- */
 
   var bagItems = [];

@@ -34,6 +34,11 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
+        margin-bottom: 28px;
+      }
+      .variant-grid + .variant-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: calc(66% + 10px);
         margin-bottom: 60px;
       }
       .variant-card {
@@ -121,22 +126,36 @@
         <div class="hub-label">Prototype variants</div>
         <div class="variant-grid">
           <a href="./pdp-b.html" class="variant-card">
-            <div class="variant-card-label">Variant A</div>
-            <h3>Validation-first PDP</h3>
-            <p>"Why buy me?" leads the buybox. Bundle picker becomes a step-builder with dynamic "what's included." Photo-led What's in the Box and tabbed Features sections take cues from Silver Cross.</p>
+            <div class="variant-card-label">Variant A · Validation-first</div>
+            <h3>Lead with why-buy-me</h3>
+            <p>"Why buy me?" anchors the buybox. Bundle picker becomes a step-builder with dynamic "What's included." Silver-Cross-style photo grid and tabbed features. Long copy collapsed behind progressive disclosure.</p>
             <div class="variant-card-arrow">Open prototype →</div>
           </a>
           <a href="./pdp-c.html" class="variant-card">
-            <div class="variant-card-label">Variant B</div>
-            <h3>TBC</h3>
-            <p>Placeholder — bundle clarity / comparison-driven direction.</p>
-            <div class="variant-card-arrow">Not yet built</div>
+            <div class="variant-card-label">Variant B · Bundle comparison</div>
+            <h3>Compare side-by-side</h3>
+            <p>The 6 lookalike bundle tiles become a 4-column comparison grid. Each column shows price, savings, what's in (and what's not), and who it's best for. Buybox is minimal — the comparison is the commerce moment.</p>
+            <div class="variant-card-arrow">Open prototype →</div>
           </a>
           <a href="./pdp-d.html" class="variant-card">
-            <div class="variant-card-label">Variant C</div>
-            <h3>TBC</h3>
-            <p>Placeholder — trust-activated premium / imagery-led direction.</p>
-            <div class="variant-card-arrow">Not yet built</div>
+            <div class="variant-card-label">Variant C · Editorial</div>
+            <h3>Brand does the selling</h3>
+            <p>Full-bleed lifestyle hero, sticky price-and-CTA pill, alternating 50/50 story blocks, big quote, stats strip. Configure section sits at the bottom. Targets identity-purchase, trust and emotional permission themes.</p>
+            <div class="variant-card-arrow">Open prototype →</div>
+          </a>
+        </div>
+        <div class="variant-grid">
+          <a href="./pdp-e.html" class="variant-card">
+            <div class="variant-card-label">Variant D · Scenario-led</div>
+            <h3>Recognise yourself</h3>
+            <p>Standard buybox at top, then four parent-life scenarios: newborn weeks, first walks, school run, toddler years. Each is a 50/50 image-text block showing the pram in context. Validation by use case.</p>
+            <div class="variant-card-arrow">Open prototype →</div>
+          </a>
+          <a href="./pdp-f.html" class="variant-card">
+            <div class="variant-card-label">Variant E · Configurator</div>
+            <h3>Build it live</h3>
+            <p>Sticky right rail follows you down: live preview image, colour, bundle step-builder, accessory checkboxes with running total. Main column scrolls through features, what's included, specs and reviews.</p>
+            <div class="variant-card-arrow">Open prototype →</div>
           </a>
         </div>
       </main>
