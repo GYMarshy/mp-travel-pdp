@@ -1197,6 +1197,135 @@ body.drawer-open .bag-drawer {
   color: #888;
 }
 
+/* ---- Rich "What's in the box" grid (Silver Cross style) ---- */
+
+.section-block {
+  margin-top: 80px;
+}
+
+.section-block-head {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.section-block-head h2 {
+  font-size: 36px;
+  font-weight: 400;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+}
+
+.section-block-head p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.whats-included-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 28px;
+}
+
+.wi-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f5f3ef;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.wi-card h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #111;
+  letter-spacing: -0.1px;
+}
+
+.wi-card p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.wi-card-note {
+  margin-top: 32px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* ---- Features section with component tabs ---- */
+
+.features-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 40px;
+}
+
+.features-tab {
+  background: none;
+  border: 0;
+  padding: 14px 28px;
+  font-size: 14px;
+  color: #777;
+  cursor: pointer;
+  font-family: inherit;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 120ms;
+}
+
+.features-tab:hover {
+  color: #333;
+}
+
+.features-tab.is-active {
+  color: #111;
+  font-weight: 600;
+  border-bottom-color: var(--teal);
+}
+
+.features-panel[hidden] {
+  display: none;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 28px;
+}
+
+.feature-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  background: #f5f3ef;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.feature-card h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0 0 6px;
+  color: #111;
+  letter-spacing: -0.1px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.55;
+  margin: 0;
+}
+
 /* ---- Mobile overrides ---- */
 
 .mobile-hamburger {
@@ -1413,5 +1542,36 @@ body.drawer-open .bag-drawer {
 
   .config-option-marker {
     grid-row: 1 / span 2;
+  }
+
+  .section-block {
+    margin-top: 56px;
+  }
+
+  .section-block-head h2 {
+    font-size: 26px;
+  }
+
+  .whats-included-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 14px;
+  }
+
+  .features-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    margin-bottom: 28px;
+    scrollbar-width: none;
+  }
+
+  .features-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .features-tab {
+    padding: 12px 18px;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 }

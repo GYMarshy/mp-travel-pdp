@@ -74,6 +74,20 @@
     });
   });
 
+  /* ---- Features tabs ---- */
+
+  document.addEventListener('click', function (e) {
+    var tab = e.target.closest('.features-tab');
+    if (!tab) return;
+    var key = tab.dataset.featuresTab;
+    var section = tab.closest('.section-block');
+    section.querySelectorAll('.features-tab').forEach(function (t) { t.classList.remove('is-active'); });
+    tab.classList.add('is-active');
+    section.querySelectorAll('.features-panel').forEach(function (p) {
+      p.hidden = p.dataset.featuresPanel !== key;
+    });
+  });
+
   /* ---- Gallery thumbnails ---- */
 
   document.addEventListener('click', function (e) {
