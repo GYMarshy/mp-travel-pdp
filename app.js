@@ -200,13 +200,14 @@
     }
   });
 
-  /* ---- Wizard (Variant I) ---- */
+  /* ---- Wizard (Variant I + Variant J modal) ---- */
 
-  function showWizardStep(step) {
-    document.querySelectorAll('.wizard-step').forEach(function (s) {
+  function showWizardStep(step, container) {
+    var scope = container || document;
+    scope.querySelectorAll('.wizard-step').forEach(function (s) {
       s.hidden = s.dataset.wizardStep !== String(step);
     });
-    var progress = document.getElementById('wizard-progress');
+    var progress = scope.querySelector('.wizard-progress');
     if (progress) {
       var steps = progress.querySelectorAll('span');
       var done = step === 'result' ? 3 : (parseInt(step, 10) || 1);
@@ -214,9 +215,77 @@
         sp.classList.toggle('is-done', i < done);
       });
     }
-    var wizard = document.getElementById('wizard');
-    if (wizard) wizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    var wizardSection = scope.id === 'wizard' ? scope : scope.querySelector('#wizard');
+    if (wizardSection) wizardSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  /* ---- Wizard modal (Variant J) ---- */
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#wizard-open')) {
+      var modal = document.getElementById('wizard-modal');
+      if (modal) {
+        modal.classList.add('is-open');
+        showWizardStep(1, modal);
+      }
+      return;
+    }
+    if (e.target.closest('#wizard-close') ||
+        (e.target.matches('[data-wizard-modal-overlay]'))) {
+      var modal2 = document.getElementById('wizard-modal');
+      if (modal2) modal2.classList.remove('is-open');
+    }
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      var modal = document.getElementById('wizard-modal');
+      if (modal) modal.classList.remove('is-open');
+    }
+  });
+
+  /* ---- Accessories total (Variant J) ---- */
+
+  function recalcJAccessoriesTotal() {
+    var total = 0;
+    document.querySelectorAll('.j-accessory input[type="checkbox"]:checked').forEach(function (cb) {
+      var label = cb.closest('.j-accessory');
+      total += parseInt(label.dataset.extraPrice, 10) || 0;
+    });
+    var totalEl = document.getElementById('j-accessories-total');
+    if (totalEl) totalEl.textContent = '£' + total.toLocaleString();
+  }
+
+  document.addEventListener('change', function (e) {
+    var acc = e.target.closest('.j-accessory');
+    if (!acc) return;
+    acc.classList.toggle('is-on', e.target.checked);
+    recalcJAccessoriesTotal();
+  });
+
+  /* ---- Details swap on config change (Variant J) ---- */
+
+  document.addEventListener('click', function (e) {
+    var opt = e.target.closest('.j-buybox .config-option');
+    if (!opt) return;
+    var key = opt.dataset.config;
+    document.querySelectorAll('details.j-included').forEach(function (d) {
+      d.hidden = d.dataset.whatsIncluded !== key;
+    });
+  });
+
+  /* ---- Carousel scroll buttons (Variant J) ---- */
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-carousel]');
+    if (!btn) return;
+    var carousel = document.getElementById(btn.dataset.carousel);
+    if (!carousel) return;
+    var firstCard = carousel.querySelector('.j-carousel-card');
+    var step = firstCard ? firstCard.offsetWidth + 18 : 280;
+    var dir = parseInt(btn.dataset.dir, 10) || 1;
+    carousel.scrollBy({ left: step * dir, behavior: 'smooth' });
+  });
 
   document.addEventListener('click', function (e) {
     var opt = e.target.closest('.wizard-option');
