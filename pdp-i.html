@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocarro 2 Pushchair – Mamas &amp; Papas</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      /* Variant H: render mobile-first hero on desktop too for prototype clarity */
+      body.mobile-first-shell .top-strip,
+      body.mobile-first-shell .mega-nav,
+      body.mobile-first-shell .value-strip { display: none; }
+
+      body.mobile-first-shell .header-main {
+        height: 56px;
+        max-width: 100%;
+        padding: 0 16px;
+        grid-template-columns: auto 1fr auto;
+      }
+
+      body.mobile-first-shell .header-left,
+      body.mobile-first-shell .search-box,
+      body.mobile-first-shell .header-right span:not(:last-child) { display: none; }
+
+      body.mobile-first-shell .mobile-hamburger,
+      body.mobile-first-shell .mobile-search-icon { display: block; }
+
+      body.mobile-first-shell .site-logo { font-size: 22px; }
+      body.mobile-first-shell .site-logo small { display: none; }
+
+      body.mobile-first-shell .container { max-width: 480px; padding: 0; }
+      body.mobile-first-shell .footer-top { grid-template-columns: 1fr; gap: 30px; text-align: center; }
+      body.mobile-first-shell .footer-top { padding: 28px 20px; }
+    </style>
+  </head>
+  <body class="mobile-first-shell">
+    <div class="site-shell">
+      <div class="top-strip">Born &amp; Nurtured in the UK</div>
+      <header class="header-main">
+        <a href="./index.html" class="mobile-hamburger" aria-label="Menu">☰</a>
+        <a href="./index.html" class="site-logo">mamas<br />&papas</a>
+        <div class="header-right">
+          <span class="mobile-search-icon">🔍</span>
+          <span class="header-bag-link" data-open-bag-drawer aria-label="View bag">👜</span>
+        </div>
+      </header>
+      <nav class="mega-nav">
+        <div class="row">
+          <a href="#">Sale</a><a href="#">Pushchairs &amp; Travel</a><a href="#">Furniture</a><a href="#">Our Beds</a><a href="#">Mum &amp; Baby Care</a><a href="#">Nursery &amp; Bedding</a>
+        </div>
+      </nav>
+
+      <!-- Full-bleed hero, NO title above -->
+      <section class="mobile-hero-stack">
+        <img src="https://placehold.co/600x720/3d3530/d8c8b8?text=Ocarro+2+Hero" alt="Ocarro 2 hero" />
+        <span class="mobile-hero-pagination">1 / 6</span>
+        <div class="mobile-hero-bottom">
+          <p class="brand">Mamas &amp; Papas</p>
+          <h1>Ocarro 2 Pushchair</h1>
+          <div class="price-line">
+            <span class="price-from">From</span><strong>£849</strong>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sticky bottom bar -->
+      <div class="mobile-sticky-bar">
+        <div class="mobile-sticky-bar-info">
+          <strong>£849</strong>
+          <span>Pushchair only · Americano</span>
+        </div>
+        <button class="btn-primary" data-add-to-bag>Add to Bag</button>
+      </div>
+
+      <main class="container">
+
+        <!-- Why buy me -->
+        <section class="mobile-section">
+          <h2>Why buy me?</h2>
+          <p class="lede">The four things parents love most about the Ocarro 2.</p>
+          <ul style="list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;">
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#222"><span style="color:var(--teal-dark);font-weight:700">✓</span> Suitable from birth to 22 kg — one pushchair through the toddler years</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#222"><span style="color:var(--teal-dark);font-weight:700">✓</span> All-wheel suspension for a smooth ride on any surface</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#222"><span style="color:var(--teal-dark);font-weight:700">✓</span> Reversible seat — face you or face the world</li>
+            <li style="display:flex;gap:12px;align-items:flex-start;font-size:14px;color:#222"><span style="color:var(--teal-dark);font-weight:700">✓</span> One-handed fold that fits most car boots</li>
+          </ul>
+        </section>
+
+        <!-- Choose colour -->
+        <section class="mobile-section">
+          <h2>Colour</h2>
+          <p class="lede">Selected: <strong id="selected-colour">Americano</strong></p>
+          <div class="colour-swatches">
+            <button class="swatch is-active" style="background: #3d3530; width: 44px; height: 44px;" data-colour="Americano" title="Americano"></button>
+            <button class="swatch" style="background: #1c1a18; width: 44px; height: 44px;" data-colour="Eclipse Black" title="Eclipse Black"></button>
+            <button class="swatch" style="background: #889b97; width: 44px; height: 44px;" data-colour="Sage" title="Sage"></button>
+            <button class="swatch" style="background: #b6a89e; width: 44px; height: 44px;" data-colour="Pebble" title="Pebble"></button>
+            <button class="swatch" style="background: #c8a882; width: 44px; height: 44px;" data-colour="Caramel" title="Caramel"></button>
+          </div>
+        </section>
+
+        <!-- Choose configuration -->
+        <section class="mobile-section">
+          <h2>Configuration</h2>
+          <p class="lede">Pick the bundle that fits your family.</p>
+          <div class="config-builder">
+            <button class="config-option is-active"
+              data-config="pushchair" data-title="Pushchair only" data-price="849" data-pricesub="Frame, seat, hood, rain cover">
+              <span class="config-option-marker"></span>
+              <span class="config-option-content">
+                <span class="config-option-title">Pushchair only</span>
+                <span class="config-option-desc">Frame, seat, hood &amp; rain cover</span>
+              </span>
+              <span class="config-option-price">£849</span>
+            </button>
+            <button class="config-option"
+              data-config="carrycot" data-title="+ Carrycot" data-price="1,048" data-pricesub="Adds lie-flat carrycot">
+              <span class="config-option-marker"></span>
+              <span class="config-option-content">
+                <span class="config-option-title">+ Carrycot</span>
+                <span class="config-option-desc">Adds a lie-flat carrycot for newborn sleep</span>
+              </span>
+              <span class="config-option-price">£1,048</span>
+            </button>
+            <button class="config-option"
+              data-config="carseat" data-title="+ Car Seat" data-price="1,349" data-pricesub="Adds Cybex Cloud T &amp; base">
+              <span class="config-option-marker"></span>
+              <span class="config-option-content">
+                <span class="config-option-title">+ Car Seat</span>
+                <span class="config-option-desc">Adds Cybex Cloud T car seat &amp; base</span>
+              </span>
+              <span class="config-option-price">£1,349</span>
+            </button>
+            <button class="config-option"
+              data-config="travel" data-title="Full Travel System" data-price="1,499" data-pricesub="Save £290 vs separately">
+              <span class="config-option-marker"></span>
+              <span class="config-option-content">
+                <span class="config-option-title">Full Travel System</span>
+                <span class="config-option-desc">Pushchair + carrycot + car seat — saves £290</span>
+              </span>
+              <span class="config-option-price">£1,499</span>
+            </button>
+          </div>
+        </section>
+
+        <!-- See it in action -->
+        <section class="mobile-section">
+          <h2>See it in action</h2>
+          <p class="lede">30-second videos. The fold, the car fit, the cobbles.</p>
+          <div class="video-grid" style="grid-template-columns: 1fr 1fr; gap: 8px;">
+            <button class="video-tile">
+              <img src="https://placehold.co/300x300/3d3530/d8c8b8?text=Fold" alt="" />
+              <span class="video-tile-duration">0:42</span>
+              <span class="video-tile-overlay"><span class="video-tile-play">▶</span><span class="video-tile-meta">Watch the fold</span></span>
+            </button>
+            <button class="video-tile">
+              <img src="https://placehold.co/300x300/2e2924/d8c8b8?text=Car+Fit" alt="" />
+              <span class="video-tile-duration">0:58</span>
+              <span class="video-tile-overlay"><span class="video-tile-play">▶</span><span class="video-tile-meta">In a Mini Cooper</span></span>
+            </button>
+            <button class="video-tile">
+              <img src="https://placehold.co/300x300/4a4138/d8c8b8?text=Reverse" alt="" />
+              <span class="video-tile-duration">0:35</span>
+              <span class="video-tile-overlay"><span class="video-tile-play">▶</span><span class="video-tile-meta">Reverse the seat</span></span>
+            </button>
+            <button class="video-tile">
+              <img src="https://placehold.co/300x300/5a4f44/d8c8b8?text=Cobbles" alt="" />
+              <span class="video-tile-duration">1:12</span>
+              <span class="video-tile-overlay"><span class="video-tile-play">▶</span><span class="video-tile-meta">On cobbles</span></span>
+            </button>
+          </div>
+        </section>
+
+        <!-- Smart cards: complete the look -->
+        <section class="mobile-section">
+          <h2>Complete the look</h2>
+          <p class="lede">Accessories scoped to the Ocarro 2 specifically.</p>
+          <div class="smart-card-row" style="grid-template-columns: 1fr 1fr;">
+            <div class="smart-card">
+              <div class="smart-card-img"><img src="https://placehold.co/300x300/3d3530/d8c8b8?text=Footmuff" alt="" /></div>
+              <div class="smart-card-pills">
+                <span class="smart-card-pill is-highlight">Bundle save · −10%</span>
+              </div>
+              <div class="smart-card-name">Footmuff</div>
+              <div class="smart-card-price">£59</div>
+              <div class="smart-card-swatches">
+                <span style="background:#3d3530"></span>
+                <span style="background:#1c1a18"></span>
+                <span style="background:#889b97"></span>
+              </div>
+              <div class="smart-card-meta">3 colours · matches your pram</div>
+            </div>
+            <div class="smart-card">
+              <div class="smart-card-img"><img src="https://placehold.co/300x300/2e2924/d8c8b8?text=Car+Seat" alt="" /></div>
+              <div class="smart-card-pills">
+                <span class="smart-card-pill">i-Size · R129</span>
+              </div>
+              <div class="smart-card-name">Cybex Cloud T</div>
+              <div class="smart-card-price">£300</div>
+              <div class="smart-card-meta">Other bundles available →</div>
+            </div>
+            <div class="smart-card">
+              <div class="smart-card-img"><img src="https://placehold.co/300x300/4a4138/d8c8b8?text=Bag" alt="" /></div>
+              <div class="smart-card-pills">
+                <span class="smart-card-pill is-highlight">Sale</span>
+              </div>
+              <div class="smart-card-name">Backpack Changing Bag</div>
+              <div class="smart-card-price">£72 <span style="text-decoration:line-through;color:#999;font-weight:400;">£89</span></div>
+              <div class="smart-card-swatches">
+                <span style="background:#3d3530"></span>
+                <span style="background:#000"></span>
+              </div>
+              <div class="smart-card-meta">2 colours</div>
+            </div>
+            <div class="smart-card">
+              <div class="smart-card-img"><img src="https://placehold.co/300x300/675b4e/d8c8b8?text=Organiser" alt="" /></div>
+              <div class="smart-card-pills">
+                <span class="smart-card-pill">Universal fit</span>
+              </div>
+              <div class="smart-card-name">Pushchair Organiser</div>
+              <div class="smart-card-price">£29</div>
+              <div class="smart-card-meta">Cup holders &amp; phone slot</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reviews -->
+        <section class="mobile-section">
+          <h2>Reviews</h2>
+          <p class="lede"><span class="stars" style="color:#f5a623;letter-spacing:1.4px">★★★★★</span> <strong>4.8</strong> from 284 reviews</p>
+          <div style="display: grid; gap: 14px;">
+            <div class="review-card">
+              <div class="stars" style="color:#f5a623">★★★★★</div>
+              <div class="review-title">Worth every penny</div>
+              <div class="review-body">"Three years in and it still looks new."</div>
+              <div class="review-author">Sarah M. · Verified buyer</div>
+            </div>
+            <div class="review-card">
+              <div class="stars" style="color:#f5a623">★★★★★</div>
+              <div class="review-title">Smooth on every surface</div>
+              <div class="review-body">"Cobbles, gravel, grass — baby naps right through it."</div>
+              <div class="review-author">James &amp; Hannah · Verified buyer</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-top">
+          <div><h4>Sign up &amp; Save</h4><p>Sign up to our mailing list for exclusive offers.</p><button class="pill">Sign up now</button></div>
+          <div><h4>Customer Care</h4><ul><li>Track Your Order</li><li>Returns</li><li>Help</li></ul></div>
+          <div><h4>About M&amp;P</h4><ul><li>Our Story</li><li>Careers</li></ul></div>
+        </div>
+        <div class="footer-bottom">© Mamas &amp; Papas 2026</div>
+      </footer>
+    </div>
+
+    <div class="drawer-overlay" data-close-drawer></div>
+    <aside class="bag-drawer">
+      <header><span>In My Bag</span><button class="icon-btn" data-close-drawer aria-label="Close">×</button></header>
+      <div class="drawer-items" id="drawer-items"><p class="drawer-empty" id="drawer-empty">Your bag is empty.</p></div>
+      <div class="drawer-footer">
+        <div class="totals"><div class="row" style="font-size: 20px"><strong>Total:</strong><strong id="drawer-total">£0.00</strong></div></div>
+        <a href="#">View Bag</a>
+      </div>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

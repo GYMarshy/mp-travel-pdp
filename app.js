@@ -161,6 +161,88 @@
     recalcConfigTotal();
   });
 
+  /* ---- Compatibility checker (Variant F) ---- */
+
+  document.addEventListener('submit', function (e) {
+    var form = e.target.closest('#compat-form');
+    if (!form) return;
+    e.preventDefault();
+    var make = document.getElementById('car-make').value;
+    var model = document.getElementById('car-model').value;
+    var result = document.getElementById('compat-result');
+    if (!result) return;
+    if (!make || !model) {
+      result.innerHTML = '<strong>Please pick both a make and model</strong> Then we can confirm the fit.';
+      result.hidden = false;
+      return;
+    }
+    result.innerHTML =
+      '<strong>✓ Yes, the Cybex Cloud T fits your ' + make + ' ' + model + '</strong>' +
+      'Compatible with both isofix and seatbelt installation. Front-passenger and rear-seat positions confirmed. ' +
+      '<a href="#" style="color:var(--teal-dark);text-decoration:underline;">View installation guide →</a>';
+    result.hidden = false;
+  });
+
+  /* ---- View toggle (Variant G — gallery lifestyle/studio) ---- */
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-view-toggle] button');
+    if (!btn) return;
+    var group = btn.closest('[data-view-toggle]');
+    group.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
+    btn.classList.add('is-active');
+    var main = document.getElementById('gallery-main-img');
+    if (!main) return;
+    if (btn.dataset.view === 'studio') {
+      main.src = 'https://placehold.co/640x700/eaeaea/666666?text=Studio+View';
+    } else {
+      main.src = 'https://placehold.co/640x700/3d3530/d8c8b8?text=Lifestyle+View';
+    }
+  });
+
+  /* ---- Wizard (Variant I) ---- */
+
+  function showWizardStep(step) {
+    document.querySelectorAll('.wizard-step').forEach(function (s) {
+      s.hidden = s.dataset.wizardStep !== String(step);
+    });
+    var progress = document.getElementById('wizard-progress');
+    if (progress) {
+      var steps = progress.querySelectorAll('span');
+      var done = step === 'result' ? 3 : (parseInt(step, 10) || 1);
+      steps.forEach(function (sp, i) {
+        sp.classList.toggle('is-done', i < done);
+      });
+    }
+    var wizard = document.getElementById('wizard');
+    if (wizard) wizard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  document.addEventListener('click', function (e) {
+    var opt = e.target.closest('.wizard-option');
+    if (opt) {
+      var current = opt.closest('.wizard-step');
+      var stepNum = parseInt(current.dataset.wizardStep, 10);
+      if (stepNum < 3) {
+        showWizardStep(stepNum + 1);
+      } else {
+        showWizardStep('result');
+      }
+      return;
+    }
+    var back = e.target.closest('[data-wizard-back]');
+    if (back) {
+      var current2 = back.closest('.wizard-step');
+      var stepNum2 = current2.dataset.wizardStep;
+      if (stepNum2 === 'result') {
+        showWizardStep(1);
+      } else {
+        var n = parseInt(stepNum2, 10);
+        showWizardStep(Math.max(1, n - 1));
+      }
+    }
+  });
+
   /* ---- Add to bag (prototype simulation) ---- */
 
   var bagItems = [];

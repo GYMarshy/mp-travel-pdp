@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ocarro 2 Pushchair – Mamas &amp; Papas</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="top-strip">Born &amp; Nurtured in the UK · Designed with families in mind</div>
+      <header class="header-main">
+        <div class="header-left"><span>GB</span><span>My Account</span></div>
+        <a href="./index.html" class="mobile-hamburger" aria-label="Menu">☰</a>
+        <a href="./index.html" class="site-logo">mamas<br />&papas</a>
+        <div class="header-right">
+          <span class="mobile-search-icon">🔍</span>
+          <input class="search-box" placeholder="Search" />
+          <span>Contact</span>
+          <span>Stores</span>
+          <span class="header-bag-link" data-open-bag-drawer aria-label="View bag">👜 <span id="bag-count" style="font-size:12px"></span></span>
+        </div>
+      </header>
+      <nav class="mega-nav">
+        <div class="row">
+          <a href="#">Sale</a><a href="#">Pushchairs &amp; Travel</a><a href="#">Furniture</a><a href="#">Our Beds</a><a href="#">Mum &amp; Baby Care</a><a href="#">Nursery &amp; Bedding</a><a href="#">Toys</a><a href="#">Gifting</a><a href="#">Brands</a>
+        </div>
+      </nav>
+
+      <main class="container">
+        <div class="breadcrumbs">
+          <a href="#">Home</a> &rsaquo; <a href="#">Pushchairs &amp; Travel</a> &rsaquo; <a href="#">Pushchairs &amp; Prams</a> &rsaquo; Ocarro 2
+        </div>
+
+        <!-- Wizard at top — buying-guide pattern -->
+        <section class="wizard-section" id="wizard">
+          <div class="wizard-head">
+            <div class="eyebrow">Help me choose</div>
+            <h2>Not sure which bundle is right?</h2>
+            <p>Three quick questions. We'll recommend the bundle that fits your family.</p>
+          </div>
+
+          <div class="wizard-progress" id="wizard-progress">
+            <span class="is-done"></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="wizard-step is-active" data-wizard-step="1">
+            <h3>How will you mostly use it?</h3>
+            <div class="wizard-options">
+              <button class="wizard-option" data-answer="city">
+                <span class="wizard-option-emoji">🏙️</span>
+                <span class="wizard-option-title">City living</span>
+                <span class="wizard-option-desc">Mostly walking, public transport, café-stops</span>
+              </button>
+              <button class="wizard-option" data-answer="drive">
+                <span class="wizard-option-emoji">🚗</span>
+                <span class="wizard-option-title">Daily car trips</span>
+                <span class="wizard-option-desc">Nursery run, supermarket, family visits</span>
+              </button>
+              <button class="wizard-option" data-answer="mixed">
+                <span class="wizard-option-emoji">🌳</span>
+                <span class="wizard-option-title">Town &amp; country</span>
+                <span class="wizard-option-desc">A bit of everything — parks, walks, occasional drives</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="wizard-step" data-wizard-step="2" hidden>
+            <h3>When are you due, or how old is your baby?</h3>
+            <div class="wizard-options">
+              <button class="wizard-option" data-answer="newborn">
+                <span class="wizard-option-emoji">👶</span>
+                <span class="wizard-option-title">Newborn</span>
+                <span class="wizard-option-desc">Pregnant or under 3 months</span>
+              </button>
+              <button class="wizard-option" data-answer="3-6m">
+                <span class="wizard-option-emoji">🍼</span>
+                <span class="wizard-option-title">3–6 months</span>
+                <span class="wizard-option-desc">Sitting up but not yet sturdy</span>
+              </button>
+              <button class="wizard-option" data-answer="6plus">
+                <span class="wizard-option-emoji">🧒</span>
+                <span class="wizard-option-title">6 months+</span>
+                <span class="wizard-option-desc">Sitting up confidently or already a toddler</span>
+              </button>
+            </div>
+            <button class="wizard-back" data-wizard-back>← Back</button>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="wizard-step" data-wizard-step="3" hidden>
+            <h3>Do you already have a car seat?</h3>
+            <div class="wizard-options">
+              <button class="wizard-option" data-answer="have">
+                <span class="wizard-option-emoji">✓</span>
+                <span class="wizard-option-title">Already have one</span>
+                <span class="wizard-option-desc">No need to buy another</span>
+              </button>
+              <button class="wizard-option" data-answer="need">
+                <span class="wizard-option-emoji">+</span>
+                <span class="wizard-option-title">Need a car seat</span>
+                <span class="wizard-option-desc">Want to buy one as part of this purchase</span>
+              </button>
+              <button class="wizard-option" data-answer="not-sure">
+                <span class="wizard-option-emoji">?</span>
+                <span class="wizard-option-title">Not sure yet</span>
+                <span class="wizard-option-desc">Show me what's available</span>
+              </button>
+            </div>
+            <button class="wizard-back" data-wizard-back>← Back</button>
+          </div>
+
+          <!-- Result -->
+          <div class="wizard-step" data-wizard-step="result" hidden>
+            <h3 style="margin-bottom: 8px;">We recommend the <span style="color: var(--teal-dark);">Full Travel System</span></h3>
+            <p style="text-align:center; font-size: 14px; color: var(--muted); margin: 0 0 24px;">Based on your answers — daily driver, newborn, needs a car seat.</p>
+            <div class="wizard-result">
+              <div class="wizard-result-img">
+                <img src="https://placehold.co/220x220/3d3530/d8c8b8?text=Travel+System" alt="Full Travel System" />
+              </div>
+              <div class="wizard-result-text">
+                <div class="eyebrow">Most popular for families like yours</div>
+                <h3>Full Travel System</h3>
+                <div class="price">£1,499 <span style="font-size:13px;color:var(--sale);font-weight:600;margin-left:8px;">Save £290</span></div>
+                <p class="reasoning">Includes the Ocarro 2 chassis, lie-flat carrycot for newborn sleep, and the Cybex Cloud T i-Size car seat with isofix base. The carrycot covers your newborn months; the car seat handles every car trip from day one. As baby grows, the seat unit takes them to 22 kg — about four years.</p>
+                <div class="wizard-result-actions">
+                  <button class="btn-primary" data-add-to-bag>Add Travel System to Bag</button>
+                  <button class="btn-secondary">See all bundles</button>
+                </div>
+              </div>
+            </div>
+            <button class="wizard-back" data-wizard-back style="margin-top: 18px;">← Start over</button>
+          </div>
+        </section>
+
+        <!-- Standard PDP below the wizard, for those who skip it -->
+        <section class="pdp-layout">
+          <div>
+            <div class="gallery-main">
+              <img id="gallery-main-img" src="https://placehold.co/640x700/3d3530/d8c8b8?text=Ocarro+2+%E2%80%94+Americano" alt="Ocarro 2" />
+            </div>
+            <div class="thumbs" id="gallery-thumbs">
+              <img src="https://placehold.co/80x80/3d3530/d8c8b8?text=1" alt="View 1" class="is-active" data-full="https://placehold.co/640x700/3d3530/d8c8b8?text=Ocarro+2" />
+              <img src="https://placehold.co/80x80/4a4138/d8c8b8?text=2" alt="View 2" data-full="https://placehold.co/640x700/4a4138/d8c8b8?text=Side" />
+              <img src="https://placehold.co/80x80/5a4f44/d8c8b8?text=3" alt="View 3" data-full="https://placehold.co/640x700/5a4f44/d8c8b8?text=Detail" />
+            </div>
+          </div>
+          <div>
+            <div class="pdp-brand">Mamas &amp; Papas</div>
+            <h1 class="pdp-title-concise">Ocarro 2 Pushchair</h1>
+            <div class="rating-row">
+              <span class="stars">★★★★★</span>
+              <span><strong style="color:#111">4.8</strong> · 284 reviews</span>
+            </div>
+            <div class="price-block">
+              <div class="price-main">
+                <span class="price-from">From</span>
+                <span>£849</span>
+              </div>
+              <div class="price-sub">or from £1,499 as a complete travel system</div>
+            </div>
+
+            <div class="stock"><span class="dot"></span> In stock · dispatches within 1–2 days</div>
+            <div class="stock"><span class="dot"></span> Free standard delivery &amp; 100-day returns</div>
+
+            <div class="variant-block">
+              <div class="variant-label">Colour: <strong id="selected-colour">Americano</strong></div>
+              <div class="colour-swatches">
+                <button class="swatch is-active" style="background: #3d3530;" data-colour="Americano" title="Americano"></button>
+                <button class="swatch" style="background: #1c1a18;" data-colour="Eclipse Black" title="Eclipse Black"></button>
+                <button class="swatch" style="background: #889b97;" data-colour="Sage" title="Sage"></button>
+                <button class="swatch" style="background: #b6a89e;" data-colour="Pebble" title="Pebble"></button>
+                <button class="swatch" style="background: #c8a882;" data-colour="Caramel" title="Caramel"></button>
+              </div>
+            </div>
+
+            <div class="variant-block">
+              <div class="variant-label">Configuration: <strong id="selected-config">Pushchair only</strong></div>
+              <div class="swatch-text-list">
+                <button class="swatch-text is-active" data-config="Pushchair only">Pushchair only · £849</button>
+                <button class="swatch-text" data-config="+ Carrycot">+ Carrycot · £1,048</button>
+                <button class="swatch-text" data-config="+ Car Seat">+ Car Seat · £1,349</button>
+                <button class="swatch-text" data-config="Full Travel System">Travel System · £1,499</button>
+              </div>
+              <p style="margin-top: 12px; font-size: 13px; color: var(--muted);">
+                Not sure which to pick? <a href="#wizard" style="color: var(--teal-dark); text-decoration: underline; font-weight: 600;">Use the bundle finder above</a> to get a personalised recommendation.
+              </p>
+            </div>
+
+            <div class="size-block">
+              <div class="qty-row">
+                <div class="stepper" data-stepper>
+                  <button data-step-minus>−</button>
+                  <span data-qty-value>1</span>
+                  <button data-step-plus>+</button>
+                </div>
+                <button class="btn-primary" data-add-to-bag>Add to Bag</button>
+              </div>
+              <button class="btn-secondary">Add to My Baby List</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- Reviews -->
+        <section class="reviews-summary">
+          <div class="reviews-summary-head">
+            <h2>What parents are saying</h2>
+            <div class="reviews-summary-stats">
+              <span class="stars">★★★★★</span><strong>4.8</strong> out of 5 · 284 reviews
+            </div>
+            <a class="reviews-summary-link">See all reviews →</a>
+          </div>
+          <div class="reviews-grid">
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <div class="review-title">Worth every penny</div>
+              <div class="review-body">"Three years in and it still looks new. The fold is genuinely one-handed."</div>
+              <div class="review-author">Sarah M. · Verified buyer</div>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★★</div>
+              <div class="review-title">Smooth on every surface</div>
+              <div class="review-body">"Cobbles, gravel, grass — baby naps right through it."</div>
+              <div class="review-author">James &amp; Hannah · Verified buyer</div>
+            </div>
+            <div class="review-card">
+              <div class="stars">★★★★☆</div>
+              <div class="review-title">Premium feel</div>
+              <div class="review-body">"Beautifully made and the fabrics are gorgeous. Heavier than expected but no regrets."</div>
+              <div class="review-author">Priya R. · Verified buyer</div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="footer-top">
+          <div><h4>Sign up &amp; Save</h4><p>Sign up to our mailing list for exclusive offers and parenting advice.</p><button class="pill">Sign up now</button></div>
+          <div><h4>Shopping to suit you</h4><ul><li>Ways to Pay</li><li>Store Locator</li><li>Buying for Baby Appointments</li></ul></div>
+          <div><h4>Customer Care</h4><ul><li>Track Your Order</li><li>Returns</li><li>Delivery Information</li><li>Help</li></ul></div>
+          <div><h4>About Mamas &amp; Papas</h4><ul><li>Our Story</li><li>Careers</li><li>Affiliates</li><li>Media &amp; Press</li></ul></div>
+        </div>
+        <div class="footer-bottom">© Mamas &amp; Papas 2026</div>
+      </footer>
+    </div>
+
+    <div class="drawer-overlay" data-close-drawer></div>
+    <aside class="bag-drawer">
+      <header><span>In My Bag</span><button class="icon-btn" data-close-drawer aria-label="Close">×</button></header>
+      <div class="drawer-items" id="drawer-items"><p class="drawer-empty" id="drawer-empty">Your bag is empty.</p></div>
+      <div class="drawer-footer">
+        <div class="totals"><div class="row" style="font-size: 20px"><strong>Total:</strong><strong id="drawer-total">£0.00</strong></div><div style="font-size: 13px; color: #666">Delivery calculated at checkout</div></div>
+        <a href="#">View Bag</a>
+      </div>
+    </aside>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
