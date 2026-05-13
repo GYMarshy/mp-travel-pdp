@@ -65,62 +65,36 @@
           <!-- Buybox -->
           <div class="k-buybox">
 
-            <!-- Title stack: brand → editorial line → H1 → subtitle -->
-            <div class="k-title-stack">
-              <p class="k-brand">Mamas &amp; Papas</p>
-              <!-- T1: Editorial headline (Black+Blum pattern) -->
-              <h2 class="k-editorial">
-                From first day home to the school run.
+            <header class="k-title-stack">
+              <p class="k-brand">Mamas &amp; Papas <span class="k-test-mark">T2</span></p>
+              <h1 class="k-h1">Ocarro 2 Pushchair</h1>
+              <p class="k-tagline">
+                Built to grow with your family — from first day home to the school run.
                 <span class="k-test-mark">T1</span>
-              </h2>
-              <!-- T2: Brand-first title hierarchy. H1 carries the product, subtitle carries the bundle -->
-              <h1 class="k-h1">Ocarro 2 Pushchair <span class="k-test-mark">T2</span></h1>
-              <p class="k-subtitle" id="k-subtitle">9-piece bundle with Cybex Cloud T car seat &amp; base — Americano</p>
-            </div>
+              </p>
+            </header>
 
-            <div class="k-rating-row">
+            <div class="k-rating">
               <span class="stars">★★★★★</span>
-              <strong style="color:#111">4.8</strong>
-              <span>·</span>
-              <a href="#" style="color:#444;text-decoration:underline;">284 reviews</a>
+              <strong>4.8</strong>
+              <span class="sep">·</span>
+              <a href="#">284 reviews</a>
             </div>
 
-            <!-- T12: Real-only trust badges (no fabricated claims) -->
-            <div class="k-real-trust">
-              <span>5 Year Guarantee</span>
-              <span>Quality Tested in the UK</span>
-              <span>i-Size · R129</span>
-              <span class="k-test-mark" style="margin-left:auto;">T12</span>
-            </div>
-
-            <!-- Price + inline saving (replaces tooltip pattern) -->
-            <div class="k-price-block">
+            <div class="k-price-area">
               <div class="k-price" id="k-price">£1,499</div>
-              <!-- T4: "less than buying separately" copy instead of "Save / Worth" -->
-              <div class="k-price-saving" id="k-price-saving">£290 less than buying everything separately <span class="k-test-mark">T4</span></div>
-              <div class="k-order-by">
-                <span class="clock">⏱</span> Order in <strong>8h 32m</strong> for next-day delivery
-              </div>
+              <p class="k-price-saving" id="k-price-saving">
+                £290 less than buying everything separately
+                <span class="k-test-mark">T4</span>
+              </p>
+              <p class="k-key-info">
+                Suitable from birth to 22 kg · i-Size R129 · 5-year guarantee
+                <span class="k-test-mark">T12</span>
+              </p>
             </div>
 
-            <!-- T3: Why-buy-me as subtle key-spec pills (replaces wordy block) -->
-            <div class="k-why-badges">
-              <span class="k-why-badge">Birth to 22 kg</span>
-              <span class="k-why-badge">All-wheel suspension</span>
-              <span class="k-why-badge">Reversible seat</span>
-              <span class="k-why-badge">One-handed fold</span>
-              <span class="k-test-mark">T3</span>
-            </div>
-
-            <!-- Stock + delivery -->
-            <div>
-              <div class="k-stock-line"><span class="dot"></span> In stock · dispatches within 1–2 days</div>
-              <div class="k-stock-line" style="margin-top:6px;"><span class="dot"></span> Free standard delivery &amp; 100-day returns</div>
-            </div>
-
-            <!-- Colour -->
-            <div class="k-colour-block">
-              <div class="k-colour-label">Colour: <strong id="k-colour-name">Americano</strong></div>
+            <div class="k-row">
+              <p class="k-row-label">Colour <span class="k-row-value" id="k-colour-name">Americano</span></p>
               <div class="colour-swatches">
                 <button class="swatch is-active" style="background: #3d3530;" data-colour="Americano" title="Americano"></button>
                 <button class="swatch" style="background: #1c1a18;" data-colour="Eclipse Black" title="Eclipse Black"></button>
@@ -130,69 +104,41 @@
               </div>
             </div>
 
-            <!-- T5: Bundle picker — base + delta pattern (Ken V2 model mock) -->
-            <div>
-              <div class="k-colour-label" style="margin-bottom: 10px;">
-                Bundle: <strong id="k-bundle-name">Full Travel System</strong>
+            <div class="k-row">
+              <p class="k-row-label">
+                Bundle <span class="k-row-value" id="k-bundle-name">Full Travel System</span>
                 <span class="k-test-mark">T5</span>
-              </div>
+              </p>
               <div class="k-bundle-picker">
+
                 <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="pushchair">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">Pushchair only</span>
                     <span class="k-bundle-price-line">£849</span>
                   </div>
-                  <div class="k-bundle-includes">
-                    <strong>Includes:</strong>
-                    <ul class="k-bundle-includes-list">
-                      <li>Frame &amp; seat unit</li>
-                      <li>Hood</li>
-                      <li>Rain cover</li>
-                      <li>Cup holder</li>
-                    </ul>
-                  </div>
+                  <p class="k-bundle-includes"><span>Includes:</span> Frame &amp; seat unit · Hood · Rain cover · Cup holder</p>
                 </div>
 
                 <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carrycot">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">+ Carrycot</span>
-                    <span class="k-bundle-price-line">
-                      £1,048
-                      <span class="delta">£30 less</span>
-                    </span>
+                    <span class="k-bundle-price-line">£1,048 <span class="delta">£30 less</span></span>
                   </div>
-                  <div class="k-bundle-includes">
-                    <strong>Everything in Pushchair only, plus:</strong>
-                    <ul class="k-bundle-includes-list">
-                      <li>+ Lie-flat carrycot</li>
-                      <li>+ Carrycot mattress</li>
-                    </ul>
-                  </div>
+                  <p class="k-bundle-includes"><span>Adds:</span> Lie-flat carrycot · Carrycot mattress</p>
                 </div>
 
-                <!-- T6: Car-seat sub-selector inside bundle option -->
                 <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carseat">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">+ Car Seat</span>
-                    <span class="k-bundle-price-line">
-                      from £1,349
-                      <span class="delta">£80 less</span>
-                    </span>
+                    <span class="k-bundle-price-line">from £1,349 <span class="delta">£80 less</span></span>
                   </div>
-                  <div class="k-bundle-includes">
-                    <strong>Everything in Pushchair only, plus:</strong>
-                    <ul class="k-bundle-includes-list">
-                      <li>+ i-Size car seat</li>
-                      <li>+ Isofix base</li>
-                      <li>+ Car seat adapters</li>
-                    </ul>
-                  </div>
+                  <p class="k-bundle-includes"><span>Adds:</span> i-Size car seat · Isofix base · Adapters</p>
                   <div class="k-sub-selector">
                     <div class="k-sub-row">
-                      <div class="k-sub-label">Car seat <strong id="k-cs-name-1">Cybex Cloud T</strong> <span class="k-test-mark">T6</span></div>
+                      <p class="k-sub-label">Car seat <span class="k-sub-value" id="k-cs-name-1">Cybex Cloud T</span> <span class="k-test-mark">T6</span></p>
                       <div class="k-sub-pills">
                         <button class="k-sub-pill is-active" data-carseat="cybex-t" data-cs-name="Cybex Cloud T" data-cs-delta="0">Cybex Cloud T</button>
                         <button class="k-sub-pill" data-carseat="maxi-pebble" data-cs-name="Maxi-Cosi Pebble 360" data-cs-delta="20">Maxi-Cosi Pebble 360 <span class="delta">+£20</span></button>
@@ -200,7 +146,7 @@
                       </div>
                     </div>
                     <div class="k-sub-row">
-                      <div class="k-sub-label">Car seat colour <strong id="k-cs-colour-1">Sand</strong></div>
+                      <p class="k-sub-label">Car seat colour <span class="k-sub-value" id="k-cs-colour-1">Sand</span></p>
                       <div class="k-sub-swatches">
                         <button class="is-active" style="background:#c8a882;" data-cs-colour="Sand" title="Sand"></button>
                         <button style="background:#222;" data-cs-colour="Black" title="Black"></button>
@@ -214,22 +160,12 @@
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">Full Travel System</span>
-                    <span class="k-bundle-price-line">
-                      from £1,499
-                      <span class="delta">£290 less</span>
-                    </span>
+                    <span class="k-bundle-price-line">from £1,499 <span class="delta">£290 less</span></span>
                   </div>
-                  <div class="k-bundle-includes">
-                    <strong>Everything in Pushchair only, plus:</strong>
-                    <ul class="k-bundle-includes-list">
-                      <li>+ Lie-flat carrycot &amp; mattress</li>
-                      <li>+ i-Size car seat &amp; base</li>
-                      <li>+ Adapters</li>
-                    </ul>
-                  </div>
+                  <p class="k-bundle-includes"><span>Adds:</span> Lie-flat carrycot &amp; mattress · i-Size car seat &amp; base · Adapters</p>
                   <div class="k-sub-selector">
                     <div class="k-sub-row">
-                      <div class="k-sub-label">Car seat <strong id="k-cs-name-2">Cybex Cloud T</strong></div>
+                      <p class="k-sub-label">Car seat <span class="k-sub-value" id="k-cs-name-2">Cybex Cloud T</span></p>
                       <div class="k-sub-pills">
                         <button class="k-sub-pill is-active" data-carseat="cybex-t" data-cs-name="Cybex Cloud T" data-cs-delta="0">Cybex Cloud T</button>
                         <button class="k-sub-pill" data-carseat="maxi-pebble" data-cs-name="Maxi-Cosi Pebble 360" data-cs-delta="20">Maxi-Cosi Pebble 360 <span class="delta">+£20</span></button>
@@ -237,7 +173,7 @@
                       </div>
                     </div>
                     <div class="k-sub-row">
-                      <div class="k-sub-label">Car seat colour <strong id="k-cs-colour-2">Sand</strong></div>
+                      <p class="k-sub-label">Car seat colour <span class="k-sub-value" id="k-cs-colour-2">Sand</span></p>
                       <div class="k-sub-swatches">
                         <button class="is-active" style="background:#c8a882;" data-cs-colour="Sand" title="Sand"></button>
                         <button style="background:#222;" data-cs-colour="Black" title="Black"></button>
@@ -246,10 +182,10 @@
                     </div>
                   </div>
                 </div>
+
               </div>
             </div>
 
-            <!-- T7: What's included as collapsible, swaps with selection -->
             <details class="k-included-wrap" id="k-included">
               <summary>
                 <span>What's included <span class="count" id="k-piece-count">9 pieces</span></span>
@@ -267,31 +203,27 @@
               </ul>
             </details>
 
-            <!-- T8: Help me choose button (opens modal) -->
-            <button class="k-help-cta" id="k-wizard-open">
-              <span class="icon">🤝</span>
-              Not sure which bundle is right?
-              <strong style="margin-left:6px;">Help me choose →</strong>
+            <button class="k-help-link" id="k-wizard-open">
+              Not sure which to pick? <strong>Help me choose →</strong>
               <span class="k-test-mark">T8</span>
             </button>
 
-            <!-- T16: No quantity stepper. Add to Bag + Baby List inline -->
             <div class="k-add-row">
               <button class="btn-primary" data-add-to-bag>Add to Bag <span class="k-test-mark">T16</span></button>
               <button class="k-baby-list">♡ Save for later</button>
             </div>
 
-            <div class="k-pay-options">
-              <span><strong>Pay in 3</strong> with Klarna · or 6–36 months PayPal Credit</span>
-              <span>📍 <strong>Click &amp; Collect</strong> available · 📅 <strong>Book a Buying for Baby appointment</strong></span>
-            </div>
+            <ul class="k-meta-row">
+              <li>In stock — dispatches within 1–2 days</li>
+              <li>Free standard delivery &amp; 100-day returns</li>
+              <li>Pay in 3 with Klarna · or PayPal Credit</li>
+              <li>Click &amp; Collect available · Book a Buying for Baby appointment</li>
+            </ul>
 
-            <!-- T9: Store availability at pram level (not bundle/colour) -->
             <div class="k-store-avail">
-              <span class="pin">📍</span>
               <div class="k-store-avail-text">
                 <strong>Available to view in store</strong>
-                The Ocarro 2 is on display at <strong>14 stores</strong> including Brent Cross, Manchester Trafford and Leeds.
+                On display at <strong>14 stores</strong> including Brent Cross, Manchester Trafford and Leeds.
                 <a href="#">Find your nearest →</a>
                 <span class="k-test-mark">T9</span>
               </div>
@@ -301,7 +233,7 @@
         </section>
 
         <!-- Existing M&P value strip (production pattern — reuse) -->
-        <section class="trust-strip" style="margin-top: 56px;">
+        <section class="trust-strip" style="margin-top: 96px;">
           <div class="trust-strip-item">
             <span class="icon">💚</span>
             <strong>Born &amp; Nurtured in the UK</strong>
@@ -325,7 +257,7 @@
         </section>
 
         <!-- T13: Proof video — tucked away iCandy-style (one hero + 2 thumbs + watch more) -->
-        <section class="proof-hero" style="margin-top: 64px;">
+        <section class="proof-hero" style="margin-top: 120px;">
           <button class="proof-hero-main">
             <img src="https://placehold.co/900x560/3d3530/d8c8b8?text=Watch+the+fold" alt="" />
             <span class="video-tile-duration">0:42</span>
@@ -411,7 +343,7 @@
         </section>
 
         <!-- What's in the box carousel — driven by selected config -->
-        <section class="section-block" style="margin-top: 56px;">
+        <section class="section-block" style="margin-top: 120px;">
           <div class="section-block-head">
             <h2>What's in the box</h2>
             <p>Showing the Full Travel System. Swipe through.</p>
@@ -436,7 +368,7 @@
         </section>
 
         <!-- T14: UGC — 3 large tiles, real-feeling handles, not 12-tile grid -->
-        <section class="section-block" style="margin-top: 64px;">
+        <section class="section-block" style="margin-top: 120px;">
           <div class="section-block-head">
             <h2>From real Ocarro families <span class="k-test-mark">T14</span></h2>
             <p>Tag <strong>#OcarroAtHome</strong> on Instagram and we'll feature you.</p>
@@ -506,7 +438,7 @@
         </section>
 
         <!-- Reviews -->
-        <section class="reviews-summary" style="margin-top: 64px;">
+        <section class="reviews-summary" style="margin-top: 120px;">
           <div class="reviews-summary-head">
             <h2>What parents are saying</h2>
             <div class="reviews-summary-stats">
