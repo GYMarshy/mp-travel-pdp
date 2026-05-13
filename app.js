@@ -432,6 +432,27 @@
     if (btn) btn.textContent = on ? 'Hide test framework' : 'Show test framework';
   });
 
+  /* ---- v3 (Variant K) — test mark click → scroll to tests section ---- */
+
+  document.addEventListener('click', function (e) {
+    var mark = e.target.closest('.k-test-mark');
+    if (!mark) return;
+    e.preventDefault();
+    e.stopPropagation();
+    var tests = document.getElementById('tests');
+    if (tests) tests.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ---- v3 (Variant K) — keyboard support for div-based bundle options ---- */
+
+  document.addEventListener('keydown', function (e) {
+    var opt = e.target.closest('.k-bundle-option');
+    if (!opt) return;
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    e.preventDefault();
+    opt.click();
+  });
+
   /* ---- Carousel scroll buttons (Variant J) ---- */
 
   document.addEventListener('click', function (e) {
