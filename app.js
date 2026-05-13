@@ -274,6 +274,164 @@
     });
   });
 
+  /* ---- v3 (Variant K) bundle picker — base + delta + car-seat sub-selector ---- */
+
+  var K_BUNDLES = {
+    pushchair: { name: 'Pushchair only',     pieces: 4,  basePrice:  849, saving:   0, hasCarSeat: false,
+                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder'] },
+    carrycot:  { name: 'Pushchair + Carrycot', pieces: 6, basePrice: 1048, saving:  30, hasCarSeat: false,
+                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'Lie-flat carrycot', 'Carrycot mattress'] },
+    carseat:   { name: 'Pushchair + Car Seat', pieces: 7, basePrice: 1349, saving:  80, hasCarSeat: true,
+                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'i-Size car seat', 'Isofix base', 'Car seat adapters'] },
+    travel:    { name: 'Full Travel System',   pieces: 9, basePrice: 1499, saving: 290, hasCarSeat: true,
+                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'Lie-flat carrycot', 'Carrycot mattress', 'i-Size car seat', 'Isofix base', 'Car seat adapters'] },
+  };
+
+  var kState = {
+    bundleKey: 'travel',
+    carSeatName: 'Cybex Cloud T',
+    carSeatDelta: 0,
+    carSeatColour: 'Sand',
+    pramColour: 'Americano',
+  };
+
+  function kRender() {
+    var bundle = K_BUNDLES[kState.bundleKey];
+    if (!bundle) return;
+
+    var totalPrice = bundle.basePrice + (bundle.hasCarSeat ? kState.carSeatDelta : 0);
+    var priceEl = document.getElementById('k-price');
+    if (priceEl) priceEl.textContent = '£' + totalPrice.toLocaleString();
+
+    var saveEl = document.getElementById('k-price-saving');
+    if (saveEl) {
+      if (bundle.saving > 0) {
+        saveEl.innerHTML = '£' + bundle.saving + ' less than buying everything separately <a href="#tests" class="k-test-mark">T4</a>';
+      } else {
+        saveEl.innerHTML = '<a href="#tests" class="k-test-mark">T4</a>';
+        saveEl.textContent = '';
+      }
+    }
+
+    var bnameEl = document.getElementById('k-bundle-name');
+    if (bnameEl) bnameEl.textContent = bundle.name;
+
+    var subtitle = document.getElementById('k-subtitle');
+    if (subtitle) {
+      var subStr = bundle.pieces + '-piece bundle';
+      if (bundle.hasCarSeat) subStr = bundle.pieces + '-piece bundle with ' + kState.carSeatName;
+      if (kState.bundleKey === 'pushchair') subStr = 'Frame, seat, hood &amp; rain cover';
+      subtitle.innerHTML = subStr + ' — ' + kState.pramColour;
+    }
+
+    var countEl = document.getElementById('k-piece-count');
+    if (countEl) countEl.textContent = bundle.pieces + ' pieces';
+
+    var listEl = document.getElementById('k-included-list');
+    if (listEl) {
+      listEl.innerHTML = '';
+      bundle.baseItems.forEach(function (item) {
+        var li = document.createElement('li');
+        var displayItem = item;
+        if (bundle.hasCarSeat && /car seat/i.test(item) && !/adapters/i.test(item)) {
+          displayItem = kState.carSeatName;
+        }
+        if (bundle.hasCarSeat && /isofix base/i.test(item)) {
+          displayItem = kState.carSeatName.indexOf('Maxi') === 0 ? 'Maxi-Cosi FamilyFix 360' : 'Cybex Base T isofix base';
+        }
+        li.textContent = displayItem;
+        listEl.appendChild(li);
+      });
+    }
+  }
+
+  document.addEventListener('click', function (e) {
+    var opt = e.target.closest('.k-bundle-option');
+    if (!opt) return;
+
+    // Don't trigger bundle change if click is on a sub-selector
+    if (e.target.closest('.k-sub-selector')) {
+      // sub-selector clicks (car seat / car seat colour)
+      var pill = e.target.closest('.k-sub-pill');
+      if (pill) {
+        var group = pill.closest('.k-sub-pills');
+        group.querySelectorAll('.k-sub-pill').forEach(function (p) { p.classList.remove('is-active'); });
+        pill.classList.add('is-active');
+        kState.carSeatName = pill.dataset.csName;
+        kState.carSeatDelta = parseInt(pill.dataset.csDelta, 10) || 0;
+        document.querySelectorAll('[id^="k-cs-name-"]').forEach(function (el) { el.textContent = kState.carSeatName; });
+        kRender();
+        return;
+      }
+      var sw = e.target.closest('.k-sub-swatches button');
+      if (sw) {
+        var group2 = sw.closest('.k-sub-swatches');
+        group2.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
+        sw.classList.add('is-active');
+        kState.carSeatColour = sw.dataset.csColour;
+        document.querySelectorAll('[id^="k-cs-colour-"]').forEach(function (el) { el.textContent = kState.carSeatColour; });
+        return;
+      }
+      return;
+    }
+
+    // Bundle option selected
+    document.querySelectorAll('.k-bundle-option').forEach(function (o) { o.classList.remove('is-active'); });
+    opt.classList.add('is-active');
+    kState.bundleKey = opt.dataset.bundle;
+    kRender();
+  });
+
+  // Track pram colour swatch changes
+  document.addEventListener('click', function (e) {
+    var sw = e.target.closest('.k-buybox .swatch[data-colour]');
+    if (!sw) return;
+    kState.pramColour = sw.dataset.colour;
+    kRender();
+  });
+
+  /* ---- v3 (Variant K) — show-more on compatibility list ---- */
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#k-compat-more')) return;
+    var extra = document.getElementById('k-compat-extra');
+    var btn = document.getElementById('k-compat-more');
+    if (!extra) return;
+    extra.classList.toggle('is-open');
+    btn.textContent = extra.classList.contains('is-open')
+      ? 'Show fewer ▴'
+      : 'Show more compatible seats ▾';
+  });
+
+  /* ---- v3 (Variant K) — compare drawer ---- */
+
+  function openCompare() {
+    document.getElementById('k-compare-drawer').classList.add('is-open');
+    document.getElementById('k-compare-overlay').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeCompare() {
+    var d = document.getElementById('k-compare-drawer');
+    var o = document.getElementById('k-compare-overlay');
+    if (d) d.classList.remove('is-open');
+    if (o) o.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function (e) {
+    if (e.target.closest('#k-compare-open')) openCompare();
+    if (e.target.closest('#k-compare-close') || e.target.closest('[data-close-compare]')) closeCompare();
+  });
+
+  /* ---- v3 (Variant K) — test framework toggle ---- */
+
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('#k-test-toggle')) return;
+    var on = document.body.classList.toggle('show-tests');
+    var btn = document.getElementById('k-test-toggle');
+    if (btn) btn.textContent = on ? 'Hide test framework' : 'Show test framework';
+  });
+
   /* ---- Carousel scroll buttons (Variant J) ---- */
 
   document.addEventListener('click', function (e) {

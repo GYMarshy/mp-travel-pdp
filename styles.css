@@ -3554,6 +3554,1099 @@ details.j-included li::before {
   color: #111;
 }
 
+/* ============================================================
+   VARIANT K — Refined v3 (consolidating Jade + Chris transcript feedback)
+   ============================================================ */
+
+/* Cropped lifestyle hero (iCandy pattern — not full-bleed overlay) */
+.k-pdp-layout {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 48px;
+  margin-top: 20px;
+}
+
+.k-gallery {
+  position: relative;
+}
+
+.k-gallery-main {
+  width: 100%;
+  aspect-ratio: 5 / 6;
+  background: #f5f3ef;
+  overflow: hidden;
+  position: relative;
+}
+
+.k-gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.k-gallery-pagination {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  padding: 4px 10px;
+  font-size: 11px;
+  letter-spacing: 0.4px;
+  border-radius: 999px;
+}
+
+.k-image-info-overlay {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.k-image-info-tag {
+  background: rgba(255,255,255,0.95);
+  color: #1f4a4f;
+  padding: 4px 9px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  border-radius: 2px;
+}
+
+.k-gallery-thumbs {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.k-gallery-thumbs img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  background: #f5f3ef;
+}
+
+.k-gallery-thumbs img.is-active {
+  border-color: var(--teal);
+}
+
+/* Title stack: brand → editorial line → H1 → subtitle */
+.k-buybox {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.k-title-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.k-brand {
+  font-size: 11px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin: 0;
+}
+
+.k-editorial {
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: -0.6px;
+  line-height: 1.05;
+  margin: 4px 0 6px;
+  text-transform: uppercase;
+  color: #111;
+}
+
+.k-h1 {
+  font-size: 22px;
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  margin: 0;
+  color: #444;
+}
+
+.k-subtitle {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.k-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #555;
+  margin: 2px 0;
+}
+
+.k-rating-row .stars {
+  color: #f5a623;
+  letter-spacing: 1.2px;
+}
+
+/* Real-only trust badges row */
+.k-real-trust {
+  display: flex;
+  gap: 14px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+  color: #333;
+  flex-wrap: wrap;
+}
+
+.k-real-trust span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.k-real-trust span::before {
+  content: "✓";
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+/* Price + inline saving (replaces "Worth" tooltip pattern) */
+.k-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.k-price {
+  font-size: 38px;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -0.6px;
+  color: #111;
+}
+
+.k-price-saving {
+  font-size: 13px;
+  color: var(--sale);
+  font-weight: 600;
+  min-height: 18px;
+}
+
+.k-order-by {
+  font-size: 13px;
+  color: #333;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.k-order-by .clock {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.k-order-by strong {
+  color: #111;
+}
+
+/* Why-buy-me as icon badges (replaces wordy block) */
+.k-why-badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 14px 0;
+}
+
+.k-why-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.k-why-badge .icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+.k-why-badge .label {
+  font-size: 11px;
+  color: #333;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+/* Stock signals */
+.k-stock-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #222;
+}
+
+.k-stock-line .dot {
+  width: 8px;
+  height: 8px;
+  background: #2bb24b;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Colour swatches with name */
+.k-colour-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.k-colour-label {
+  font-size: 13px;
+  color: #444;
+}
+
+.k-colour-label strong {
+  color: #111;
+  margin-left: 4px;
+}
+
+/* Bundle picker — base + delta pattern */
+.k-bundle-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.k-bundle-option {
+  display: block;
+  padding: 16px 4px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  background: #fff;
+  font-family: inherit;
+  text-align: left;
+  width: 100%;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+}
+
+.k-bundle-option:last-child {
+  border-bottom: 0;
+}
+
+.k-bundle-option:hover {
+  background: #fafafa;
+}
+
+.k-bundle-option.is-active {
+  background: #f8fcfb;
+}
+
+.k-bundle-option-head {
+  display: grid;
+  grid-template-columns: 22px 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.k-bundle-marker {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.k-bundle-option.is-active .k-bundle-marker {
+  border-color: var(--teal);
+}
+
+.k-bundle-option.is-active .k-bundle-marker::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--teal);
+  border-radius: 50%;
+}
+
+.k-bundle-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.k-bundle-price-line {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.k-bundle-price-line .delta {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--sale);
+  margin-top: 2px;
+}
+
+.k-bundle-includes {
+  font-size: 13px;
+  color: #555;
+  margin: 8px 0 0 34px;
+  line-height: 1.5;
+}
+
+.k-bundle-includes strong {
+  color: #111;
+  font-weight: 600;
+}
+
+.k-bundle-includes-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 8px;
+  margin-top: 4px;
+}
+
+.k-bundle-includes-list li {
+  list-style: none;
+  font-size: 12px;
+  color: #555;
+}
+
+.k-bundle-includes-list li::after {
+  content: "·";
+  margin-left: 6px;
+  color: #aaa;
+}
+
+.k-bundle-includes-list li:last-child::after {
+  content: "";
+}
+
+/* Car-seat sub-selector (V2 Ken model mock) */
+.k-sub-selector {
+  margin: 14px 0 0 34px;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  display: none;
+}
+
+.k-bundle-option.is-active .k-sub-selector {
+  display: block;
+}
+
+.k-sub-row {
+  margin-bottom: 12px;
+}
+
+.k-sub-row:last-child {
+  margin-bottom: 0;
+}
+
+.k-sub-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.k-sub-label strong {
+  color: #111;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.k-sub-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.k-sub-pill {
+  border: 1px solid #ccc;
+  background: #fff;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  font-family: inherit;
+  color: #222;
+}
+
+.k-sub-pill:hover {
+  border-color: #888;
+}
+
+.k-sub-pill.is-active {
+  border-color: var(--teal);
+  background: #f0faf8;
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+
+.k-sub-pill .delta {
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 4px;
+  font-size: 11px;
+}
+
+.k-sub-swatches {
+  display: flex;
+  gap: 6px;
+}
+
+.k-sub-swatches button {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  outline: 2px solid #ddd;
+  outline-offset: 1px;
+  cursor: pointer;
+  padding: 0;
+}
+
+.k-sub-swatches button.is-active {
+  outline-color: var(--teal);
+}
+
+/* What's included — driven by selection */
+.k-included-wrap {
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.k-included-wrap > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.k-included-wrap > summary::-webkit-details-marker {
+  display: none;
+}
+
+.k-included-wrap > summary::after {
+  content: "+";
+  color: #999;
+  font-size: 18px;
+}
+
+.k-included-wrap[open] > summary::after {
+  content: "−";
+}
+
+.k-included-wrap .count {
+  color: var(--muted);
+  font-weight: 400;
+  margin-left: 8px;
+}
+
+.k-included-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px 14px;
+  padding: 0 16px 14px;
+}
+
+.k-included-grid li {
+  font-size: 12px;
+  color: #555;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.k-included-grid li::before {
+  content: "✓";
+  color: var(--teal);
+  font-weight: 700;
+}
+
+/* Help-me-choose CTA (button that opens modal) */
+.k-help-cta {
+  background: none;
+  border: 1px dashed #cbcbcb;
+  padding: 10px 14px;
+  color: var(--teal-dark);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.k-help-cta:hover {
+  border-color: var(--teal);
+  background: #f8fcfb;
+}
+
+.k-help-cta .icon {
+  font-size: 16px;
+}
+
+/* CTAs */
+.k-add-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.k-add-row .btn-primary {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.k-baby-list {
+  background: #fff;
+  border: 1px solid #ccc;
+  height: 48px;
+  padding: 0 18px;
+  font-size: 13px;
+  cursor: pointer;
+  font-family: inherit;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.k-baby-list:hover {
+  border-color: #888;
+}
+
+.k-pay-options {
+  font-size: 12px;
+  color: #555;
+  line-height: 1.7;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.k-pay-options strong {
+  color: #111;
+}
+
+/* Store availability — pram-level (not bundle/colour) */
+.k-store-avail {
+  background: #fafaf8;
+  border: 1px solid #ebe6df;
+  padding: 12px 14px;
+  font-size: 13px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.k-store-avail .pin {
+  font-size: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.k-store-avail-text strong {
+  color: #111;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.k-store-avail-text {
+  color: #555;
+  line-height: 1.4;
+}
+
+.k-store-avail-text a {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  margin-left: 4px;
+}
+
+/* iCandy-style compatible car seats list */
+.k-compat-section {
+  margin-top: 56px;
+}
+
+.k-compat-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.k-compat-head h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  margin: 0 0 6px;
+}
+
+.k-compat-head p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.k-compat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.k-compat-tile {
+  border: 1px solid var(--line);
+  padding: 16px;
+  text-align: center;
+  background: #fff;
+}
+
+.k-compat-tile-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.k-compat-tile-status {
+  font-size: 11px;
+  font-weight: 600;
+  color: #1f7a5c;
+  letter-spacing: 0.6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.k-compat-tile-status::before {
+  content: "✓";
+}
+
+.k-compat-tile-meta {
+  display: block;
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.k-compat-tile.is-stocked {
+  border-color: #d4dee0;
+  background: #f5f9fa;
+}
+
+.k-compat-more {
+  display: block;
+  margin: 16px auto 0;
+  background: none;
+  border: 0;
+  font-size: 13px;
+  color: var(--teal-dark);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.k-compat-extra {
+  display: none;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  max-width: 920px;
+  margin: 12px auto 0;
+}
+
+.k-compat-extra.is-open {
+  display: grid;
+}
+
+.k-compat-fallback {
+  max-width: 920px;
+  margin: 24px auto 0;
+  padding: 18px 20px;
+  background: #fafaf8;
+  border: 1px solid #ebe6df;
+  text-align: center;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.k-compat-fallback strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #111;
+  font-weight: 600;
+}
+
+.k-compat-fallback-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.k-compat-fallback-actions a {
+  background: #fff;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  font-size: 13px;
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.k-compat-fallback-actions a:hover {
+  border-color: #888;
+}
+
+/* Compare drawer (iCandy pattern) */
+.k-compare-launch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 22px;
+  background: #fafaf8;
+  border: 1px solid #ebe6df;
+  margin-top: 56px;
+}
+
+.k-compare-launch-text strong {
+  display: block;
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 2px;
+}
+
+.k-compare-launch-text span {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.k-compare-launch button {
+  background: #111;
+  color: #fff;
+  border: 0;
+  padding: 0 18px;
+  height: 40px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.4px;
+}
+
+.k-compare-launch button:hover {
+  background: #333;
+}
+
+.k-compare-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 100;
+  display: none;
+}
+
+.k-compare-overlay.is-open {
+  display: block;
+}
+
+.k-compare-drawer {
+  position: fixed;
+  top: 0;
+  right: -640px;
+  width: 640px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 101;
+  transition: right 250ms ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.k-compare-drawer.is-open {
+  right: 0;
+}
+
+.k-compare-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--line);
+}
+
+.k-compare-drawer-head h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.k-compare-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 24px;
+}
+
+.k-compare-row-products {
+  display: grid;
+  grid-template-columns: 88px repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 20px;
+}
+
+.k-compare-row-products > div:first-child {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--muted);
+  align-self: end;
+  padding-bottom: 8px;
+}
+
+.k-compare-product {
+  text-align: center;
+}
+
+.k-compare-product img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f5f3ef;
+  margin-bottom: 8px;
+}
+
+.k-compare-product .name {
+  font-size: 12px;
+  font-weight: 600;
+  color: #111;
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.k-compare-product .price {
+  font-size: 12px;
+  color: #444;
+}
+
+.k-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.k-compare-table th,
+.k-compare-table td {
+  text-align: center;
+  padding: 12px 8px;
+  border-bottom: 1px solid var(--line);
+  font-size: 12px;
+}
+
+.k-compare-table th:first-child,
+.k-compare-table td:first-child {
+  text-align: left;
+  color: #111;
+  font-weight: 500;
+  width: 38%;
+}
+
+.k-compare-table td.tick {
+  color: var(--teal-dark);
+  font-weight: 700;
+}
+
+.k-compare-table td.dash {
+  color: #bbb;
+}
+
+.k-compare-drawer-close {
+  background: none;
+  border: 0;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  width: 36px;
+  height: 36px;
+}
+
+.k-compare-drawer-close:hover {
+  color: #111;
+}
+
+/* Hypothesis annotation system */
+.k-test-toggle {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  z-index: 90;
+  background: #ff5f9e;
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 11px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-weight: 600;
+  font-family: inherit;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+}
+
+.k-test-toggle:hover {
+  background: #e7488a;
+}
+
+.k-test-mark {
+  display: none;
+  background: #ff5f9e;
+  color: #fff;
+  font-size: 10px;
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-weight: 700;
+  margin-left: 4px;
+  vertical-align: super;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.4px;
+}
+
+body.show-tests .k-test-mark {
+  display: inline-block;
+}
+
+.k-test-panel {
+  position: fixed;
+  top: 0;
+  right: -420px;
+  width: 400px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 89;
+  transition: right 250ms ease;
+  border-left: 1px solid var(--line);
+  box-shadow: -8px 0 24px rgba(0,0,0,0.08);
+  padding: 64px 24px 24px;
+  overflow-y: auto;
+}
+
+body.show-tests .k-test-panel {
+  right: 0;
+}
+
+.k-test-panel h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: #111;
+}
+
+.k-test-panel > p {
+  font-size: 12px;
+  color: var(--muted);
+  margin: 0 0 22px;
+  line-height: 1.5;
+}
+
+.k-test-panel ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.k-test-panel li {
+  border-left: 3px solid #ff5f9e;
+  padding: 4px 0 4px 12px;
+}
+
+.k-test-panel li strong {
+  display: block;
+  font-size: 12px;
+  color: #111;
+  margin-bottom: 4px;
+}
+
+.k-test-panel li p {
+  font-size: 12px;
+  color: #444;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.k-test-panel li .hyp {
+  font-size: 11px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 4px;
+  display: block;
+}
+
+/* Saved bundle name softer wording in wizard result */
+.k-wizard-soft strong {
+  color: var(--teal-dark);
+  font-weight: 600;
+}
+
+.k-wizard-browse {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 13px;
+}
+
+.k-wizard-browse a {
+  color: var(--teal-dark);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
 /* ---- Mobile overrides ---- */
 
 .mobile-hamburger {
@@ -4050,5 +5143,57 @@ details.j-included li::before {
 
   .wizard-modal-content {
     padding: 36px 20px 24px;
+  }
+
+  /* v3 mobile */
+  .k-pdp-layout {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .k-editorial {
+    font-size: 22px;
+  }
+
+  .k-why-badges {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .k-real-trust {
+    gap: 10px;
+    font-size: 11px;
+  }
+
+  .k-bundle-includes-list {
+    gap: 0 6px;
+  }
+
+  .k-compat-grid,
+  .k-compat-extra {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .k-compare-drawer {
+    right: -100vw;
+    width: 100vw;
+  }
+
+  .k-compare-row-products {
+    grid-template-columns: 70px repeat(3, 1fr);
+  }
+
+  .k-test-panel {
+    right: -100vw;
+    width: 100vw;
+  }
+
+  .k-add-row {
+    flex-direction: column;
+  }
+
+  .k-baby-list {
+    width: 100%;
+    justify-content: center;
   }
 }
