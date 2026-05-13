@@ -3561,9 +3561,13 @@ details.j-included li::before {
 /* Cropped lifestyle hero (iCandy pattern — not full-bleed overlay) */
 .k-pdp-layout {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
   gap: 48px;
   margin-top: 20px;
+}
+
+.k-pdp-layout > * {
+  min-width: 0;
 }
 
 .k-gallery {
@@ -3640,46 +3644,50 @@ details.j-included li::before {
 .k-buybox {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
 
 .k-title-stack {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 2px;
+  margin-bottom: 2px;
 }
 
 .k-brand {
   font-size: 11px;
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--muted);
   font-weight: 600;
   margin: 0;
 }
 
+/* Editorial line — soft serif feel, sentence case, less aggressive */
 .k-editorial {
-  font-size: 30px;
-  font-weight: 600;
-  letter-spacing: -0.6px;
-  line-height: 1.05;
-  margin: 4px 0 6px;
-  text-transform: uppercase;
-  color: #111;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  line-height: 1.15;
+  margin: 8px 0 2px;
+  color: #1c1a18;
+  font-style: italic;
+  font-family: Georgia, 'Times New Roman', serif;
 }
 
 .k-h1 {
-  font-size: 22px;
-  font-weight: 400;
-  letter-spacing: -0.3px;
-  margin: 0;
-  color: #444;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  margin: 2px 0 0;
+  color: #111;
+  line-height: 1.15;
 }
 
 .k-subtitle {
   font-size: 13px;
   color: var(--muted);
-  margin: 0;
+  margin: 4px 0 0;
 }
 
 .k-rating-row {
@@ -3696,28 +3704,31 @@ details.j-included li::before {
   letter-spacing: 1.2px;
 }
 
-/* Real-only trust badges row */
+/* Real-only trust badges row — tone down: smaller, no loud green ticks */
 .k-real-trust {
   display: flex;
-  gap: 14px;
-  padding: 12px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-  font-size: 12px;
-  color: #333;
   flex-wrap: wrap;
+  gap: 14px;
+  padding: 0;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.3px;
 }
 
 .k-real-trust span {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .k-real-trust span::before {
-  content: "✓";
+  content: "•";
   color: var(--teal-dark);
   font-weight: 700;
+}
+
+.k-real-trust span:first-child::before {
+  content: "";
 }
 
 /* Price + inline saving (replaces "Worth" tooltip pattern) */
@@ -3759,32 +3770,39 @@ details.j-included li::before {
   color: #111;
 }
 
-/* Why-buy-me as icon badges (replaces wordy block) */
+/* Why-buy-me — minimal pill row, less emoji noise */
 .k-why-badges {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 8px;
-  padding: 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 6px 0 8px;
+  position: relative;
 }
 
 .k-why-badge {
-  display: flex;
-  flex-direction: column;
+  display: inline-flex;
   align-items: center;
-  text-align: center;
-  gap: 6px;
+  gap: 5px;
+  padding: 5px 10px;
+  background: #f5f3ef;
+  border-radius: 999px;
+  font-size: 11px;
+  color: #333;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
 .k-why-badge .icon {
-  font-size: 22px;
+  font-size: 11px;
   line-height: 1;
+  color: var(--teal-dark);
+  font-weight: 700;
 }
 
 .k-why-badge .label {
   font-size: 11px;
   color: #333;
-  font-weight: 600;
-  line-height: 1.25;
+  font-weight: 500;
 }
 
 /* Stock signals */
