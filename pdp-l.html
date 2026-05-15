@@ -47,6 +47,8 @@
               <!-- T18: Information baked into images (Silver Cross pattern) — marketing brief -->
               <div class="k-image-info-overlay">
                 <span class="k-image-info-tag">Birth to 22 kg</span>
+                <span class="k-image-info-tag">Reversible seat</span>
+                <span class="k-image-info-tag">One-handed fold</span>
                 <span class="k-image-info-tag">5-year guarantee</span>
                 <span class="k-test-mark">T18</span>
               </div>
@@ -93,6 +95,14 @@
                 <span class="k-test-mark">T12</span>
               </p>
             </div>
+
+            <!-- T3: Functional why-buy-me, integrated into editorial flow -->
+            <ul class="k-features">
+              <li>Reversible parent or world-facing seat <span class="k-test-mark">T3</span></li>
+              <li>All-wheel independent suspension</li>
+              <li>Compact one-handed fold</li>
+              <li>From newborn to 22 kg, around four years of use</li>
+            </ul>
 
             <div class="k-row">
               <p class="k-row-label">Colour <span class="k-row-value" id="k-colour-name">Americano</span></p>
@@ -217,6 +227,8 @@
             <ul class="k-meta-row">
               <li>In stock — dispatches within 1–2 days</li>
               <li>Free standard delivery &amp; 100-day returns</li>
+              <li>Tested to BS EN 1888-2:2018</li>
+              <li><strong>Price Match Promise</strong> — find it cheaper, we'll refund the difference</li>
               <li>Pay in 3 with Klarna · or PayPal Credit</li>
               <li>Click &amp; Collect available · Book a Buying for Baby appointment</li>
             </ul>
@@ -230,6 +242,37 @@
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <!-- T17: Go-In-Store live demo block — image-led, "live now" signal, clear CTA -->
+        <section class="k-live-demo">
+          <div class="k-live-demo-img">
+            <img src="https://placehold.co/720x520/3d3530/d8c8b8?text=M%26P+expert+%E2%80%94+Brent+Cross" alt="Mamas &amp; Papas in-store expert demonstrating the Ocarro 2" />
+            <span class="k-live-pulse">
+              <span class="k-live-pulse-dot"></span>
+              Live now · 4 experts ready
+            </span>
+          </div>
+          <div class="k-live-demo-text">
+            <p class="k-eyebrow">Mamas &amp; Papas in-store experts <span class="k-test-mark">T17</span></p>
+            <h2 class="k-live-demo-h">
+              See it in person,<br />
+              <strong>right now.</strong>
+            </h2>
+            <p class="k-live-demo-lede">
+              Talk to one of our in-store experts at Brent Cross over video. They'll fold the Ocarro 2 in front of you, fit it to your car make, and walk you through every bundle — live, from the sofa.
+            </p>
+            <ul class="k-live-demo-points">
+              <li>One-to-one with a real product expert</li>
+              <li>Fit it in your boot before you buy</li>
+              <li>No appointment needed</li>
+            </ul>
+            <div class="k-live-demo-actions">
+              <button class="btn-primary">Start a live video demo</button>
+              <a href="#" class="k-live-demo-call">Or call us · 0345 268 2000</a>
+            </div>
+            <p class="k-live-demo-meta">Free · Available 9am–5pm, Mon–Fri</p>
           </div>
         </section>
 
@@ -443,15 +486,39 @@
           </div>
         </section>
 
-        <!-- T11: Compare pushchairs — drawer launcher (NOT a page section) -->
-        <section class="k-compare-launch">
-          <div class="k-compare-launch-text">
-            <strong>Comparing pushchairs?</strong>
-            <span>See the Ocarro 2 alongside other M&amp;P pushchairs and key brands, side by side.</span>
+        <!-- T11: Compare pushchairs — drawer launcher with product preview thumbs -->
+        <section class="k-compare-section">
+          <div class="k-compare-preview">
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/3d3530/d8c8b8?text=" alt="Ocarro 2" />
+              <div class="name">Ocarro 2</div>
+              <div class="price">From £849</div>
+            </div>
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/675b4e/d8c8b8?text=" alt="Strada" />
+              <div class="name">Strada</div>
+              <div class="price">From £499</div>
+            </div>
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/889b97/3d3530?text=" alt="Bugaboo Fox 5" />
+              <div class="name">Bugaboo Fox 5</div>
+              <div class="price">From £1,099</div>
+            </div>
+            <div class="k-compare-preview-card k-compare-preview-add">
+              <span class="k-compare-preview-plus">+</span>
+              <div class="name">Add another</div>
+              <div class="price">12 more to compare</div>
+            </div>
           </div>
-          <button id="k-compare-open">
-            Compare pushchairs <span class="k-test-mark" style="margin-left:8px;">T11</span>
-          </button>
+          <div class="k-compare-launch">
+            <div class="k-compare-launch-text">
+              <strong>Compare side-by-side</strong>
+              <span>See features, weight, capacity and price for the Ocarro 2 against M&amp;P and brand pushchairs.</span>
+            </div>
+            <button id="k-compare-open">
+              Open comparison <span class="k-test-mark" style="margin-left:8px;">T11</span>
+            </button>
+          </div>
         </section>
 
         <!-- Reviews -->
@@ -508,7 +575,7 @@
             <li><strong>T14.</strong> UGC as three large tiles with named handles, not a grid of placeholders. <em>Hypothesis: fewer, larger, real-feeling photos read as authentic social proof; placeholder grids feel fake.</em></li>
             <li><strong>T15.</strong> Accessories upsell with live running total. <em>Hypothesis: showing the impact of each tick on the total is a clearer cross-sell than a static list.</em></li>
             <li><strong>T16.</strong> Remove quantity stepper. <em>Hypothesis: very few customers buy more than one pushchair; the stepper adds clutter without value.</em></li>
-            <li><strong>T17.</strong> Promote Go-In-Store live agent as the fallback CTA on the compatibility checker. <em>Hypothesis: contextual placement at the moment of friction drives more conversation starts than the floating chat-bot today.</em></li>
+            <li><strong>T17.</strong> Go-In-Store live demo as a major editorial block below the buybox — image-led, with an explicit "live now" indicator, named store, and a clear "right now" CTA. Also reinforced as a fallback CTA inside the compatibility checker. M&amp;P's unfair advantage as a multi-channel retailer (per Chris in the transcript). <em>Hypothesis: a prominent image-led, live-staffed block converts dramatically more video-demo sessions than the existing passive floating chat-bot, especially for high-consideration purchases.</em></li>
             <li><strong>T18.</strong> Information baked into hero imagery (age range, certifications). <em>Hypothesis: people scroll image galleries even when they skip text. Marketing/photography brief required.</em></li>
           </ol>
           <p style="font-size: 12px; color: var(--muted); margin: 28px 0 0;">
@@ -681,7 +748,7 @@
         <li><strong>T14 — Three large UGC tiles</strong><p>Named handles, lifestyle imagery.</p><span class="hyp">Fewer larger photos read as authentic; grids feel fake.</span></li>
         <li><strong>T15 — Live total accessories</strong><p>Running total updates with checkboxes.</p><span class="hyp">Clearer cross-sell than a static list.</span></li>
         <li><strong>T16 — Remove qty stepper</strong><p>Nobody buys multiple pushchairs.</p><span class="hyp">Less clutter without business risk.</span></li>
-        <li><strong>T17 — Go-In-Store CTA in context</strong><p>Promoted at compatibility checker as fallback.</p><span class="hyp">Contextual placement &gt; passive chat-bot overlay.</span></li>
+        <li><strong>T17 — Go-In-Store live demo block</strong><p>Image-led editorial moment with "live now" indicator, named store, clear "right now" CTA.</p><span class="hyp">M&amp;P's unfair advantage; converts more demos than the passive chat-bot floater.</span></li>
         <li><strong>T18 — Info-baked imagery</strong><p>Age range / certifications inside the lifestyle photo.</p><span class="hyp">People scroll images even when they skip text. Marketing brief required.</span></li>
       </ol>
     </aside>

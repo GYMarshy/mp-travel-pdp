@@ -1179,14 +1179,14 @@ body.drawer-open .bag-drawer {
 }
 
 .review-card .review-title {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 8px;
   color: #111;
 }
 
 .review-card .review-body {
-  font-size: 13px;
+  font-size: 14px;
   color: #444;
   line-height: 1.55;
   margin-bottom: 12px;
@@ -3162,6 +3162,176 @@ details.j-included li::before {
   font-size: 16px;
 }
 
+/* Go-In-Store live demo block — image-led, "live now" signal */
+.k-live-demo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 96px;
+  background: #fafaf8;
+  border: 1px solid #ebe6df;
+}
+
+.k-live-demo-img {
+  position: relative;
+  background: #2e2924;
+  overflow: hidden;
+  min-height: 460px;
+}
+
+.k-live-demo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.k-live-pulse {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #fff;
+  color: #1a1a1a;
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+.k-live-pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e63946;
+  position: relative;
+}
+
+.k-live-pulse-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #e63946;
+  opacity: 0.4;
+  animation: k-pulse 1.6s ease-out infinite;
+}
+
+@keyframes k-pulse {
+  0%   { transform: scale(0.9); opacity: 0.6; }
+  70%  { transform: scale(1.8); opacity: 0; }
+  100% { transform: scale(1.8); opacity: 0; }
+}
+
+.k-live-demo-text {
+  padding: 56px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.k-live-demo-text .k-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+.k-live-demo-h {
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: -0.6px;
+  line-height: 1.05;
+  margin: 0 0 16px;
+  color: #1a1a1a;
+}
+
+.k-live-demo-h strong {
+  font-weight: 500;
+  color: #1a1a1a;
+}
+
+.k-live-demo-lede {
+  font-size: 15px;
+  line-height: 1.55;
+  color: #444;
+  margin: 0 0 22px;
+  max-width: 460px;
+}
+
+.k-live-demo-points {
+  list-style: none;
+  margin: 0 0 28px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.k-live-demo-points li {
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.k-live-demo-points li::before {
+  content: "✓";
+  color: #1a1a1a;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.k-live-demo-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.k-live-demo-actions .btn-primary {
+  background: #323232;
+  color: #fff;
+  border: 0;
+  height: 56px;
+  padding: 0 32px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  min-width: 280px;
+}
+
+.k-live-demo-actions .btn-primary:hover {
+  background: #1a1a1a;
+}
+
+.k-live-demo-call {
+  font-size: 14px;
+  color: #555;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.k-live-demo-call:hover {
+  color: #1a1a1a;
+}
+
+.k-live-demo-meta {
+  font-size: 12px;
+  color: #888;
+  margin: 18px 0 0;
+  letter-spacing: 0.2px;
+}
+
 /* Proof videos — uniform row of small thumbnails (iCandy pattern) */
 .proof-row {
   margin-top: 120px;
@@ -3232,7 +3402,7 @@ details.j-included li::before {
 }
 
 .proof-row-caption {
-  font-size: 13px;
+  font-size: 14px;
   color: #1a1a1a;
   margin: 0;
   line-height: 1.4;
@@ -3242,7 +3412,7 @@ details.j-included li::before {
 .proof-row-cta {
   text-align: center;
   margin: 32px 0 0;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .proof-row-cta a {
@@ -3573,49 +3743,49 @@ details.j-included li::before {
 
 .k-gallery-pagination {
   position: absolute;
-  bottom: 14px;
-  right: 14px;
-  background: rgba(0,0,0,0.55);
-  color: #fff;
-  padding: 4px 10px;
-  font-size: 11px;
-  letter-spacing: 0.4px;
-  border-radius: 999px;
+  bottom: 18px;
+  right: 22px;
+  color: #555;
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 500;
 }
 
 .k-image-info-overlay {
   position: absolute;
-  left: 14px;
-  bottom: 14px;
+  left: 22px;
+  top: 22px;
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
 
 .k-image-info-tag {
-  background: rgba(255,255,255,0.95);
-  color: #1f4a4f;
-  padding: 4px 9px;
+  background: rgba(255,255,255,0.96);
+  color: #1a1a1a;
+  padding: 6px 12px;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.4px;
-  border-radius: 2px;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
 }
 
 .k-gallery-thumbs {
   display: flex;
   gap: 8px;
-  margin-top: 10px;
+  margin-top: 14px;
   flex-wrap: wrap;
 }
 
 .k-gallery-thumbs img {
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   object-fit: cover;
   cursor: pointer;
-  border: 1px solid #ddd;
-  background: #f5f3ef;
+  border: 1px solid transparent;
+  background: #f7f5f2;
+  transition: border-color 150ms;
 }
 
 .k-gallery-thumbs img.is-active {
@@ -3637,7 +3807,7 @@ details.j-included li::before {
 }
 
 .k-brand {
-  font-size: 11px;
+  font-size: 12px;
   letter-spacing: 2.4px;
   text-transform: uppercase;
   color: #888;
@@ -3671,7 +3841,7 @@ details.j-included li::before {
 }
 
 .k-rating {
-  font-size: 13px;
+  font-size: 14px;
   color: #444;
   display: flex;
   align-items: center;
@@ -3714,18 +3884,45 @@ details.j-included li::before {
 }
 
 .k-price-saving {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--sale);
   font-weight: 500;
   margin: 4px 0 0;
 }
 
 .k-key-info {
-  font-size: 12px;
-  color: #888;
+  font-size: 14px;
+  color: #666;
   margin: 4px 0 0;
   line-height: 1.5;
   letter-spacing: 0.1px;
+}
+
+/* Functional benefits (key features) — clean text list, editorial */
+.k-features {
+  list-style: none;
+  padding: 14px 0 0;
+  margin: 0;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.k-features li {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.45;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.k-features li::before {
+  content: "—";
+  color: #aaa;
+  flex-shrink: 0;
 }
 
 /* Row labels for colour, bundle */
@@ -3736,7 +3933,7 @@ details.j-included li::before {
 }
 
 .k-row-label {
-  font-size: 13px;
+  font-size: 14px;
   color: #1a1a1a;
   font-weight: 500;
   margin: 0;
@@ -3837,14 +4034,14 @@ details.j-included li::before {
 }
 
 .k-bundle-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #1a1a1a;
   letter-spacing: 0.1px;
 }
 
 .k-bundle-price-line {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 500;
   color: #1a1a1a;
   text-align: right;
@@ -3860,8 +4057,8 @@ details.j-included li::before {
 }
 
 .k-bundle-includes {
-  font-size: 12px;
-  color: #888;
+  font-size: 13px;
+  color: #666;
   margin: 10px 0 0 32px;
   line-height: 1.55;
   display: none;
@@ -3898,7 +4095,7 @@ details.j-included li::before {
 }
 
 .k-sub-label {
-  font-size: 12px;
+  font-size: 13px;
   color: #555;
   margin: 0 0 8px;
 }
@@ -3918,8 +4115,8 @@ details.j-included li::before {
 .k-sub-pill {
   border: 1px solid #ddd;
   background: #fff;
-  padding: 7px 14px;
-  font-size: 12px;
+  padding: 8px 14px;
+  font-size: 13px;
   cursor: pointer;
   font-family: inherit;
   color: #444;
@@ -3940,7 +4137,7 @@ details.j-included li::before {
 .k-sub-pill .delta {
   color: #888;
   margin-left: 4px;
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .k-sub-pill.is-active .delta {
@@ -3978,11 +4175,11 @@ details.j-included li::before {
 .k-included-wrap > summary {
   list-style: none;
   cursor: pointer;
-  padding: 16px 0;
+  padding: 18px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: #1a1a1a;
 }
@@ -4018,8 +4215,8 @@ details.j-included li::before {
 }
 
 .k-included-grid li {
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  color: #555;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -4036,7 +4233,7 @@ details.j-included li::before {
   background: none;
   border: 0;
   padding: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #555;
   cursor: pointer;
   font-family: inherit;
@@ -4065,8 +4262,8 @@ details.j-included li::before {
   flex: 1;
   background: #323232;
   color: #fff;
-  height: 54px;
-  font-size: 13px;
+  height: 56px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.4px;
   text-transform: uppercase;
@@ -4083,9 +4280,9 @@ details.j-included li::before {
 .k-baby-list {
   background: transparent;
   border: 1px solid #ccc;
-  height: 54px;
+  height: 56px;
   padding: 0 24px;
-  font-size: 13px;
+  font-size: 14px;
   cursor: pointer;
   font-family: inherit;
   display: inline-flex;
@@ -4106,8 +4303,8 @@ details.j-included li::before {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 12px;
-  color: #777;
+  font-size: 13px;
+  color: #666;
 }
 
 .k-meta-row li {
@@ -4119,7 +4316,7 @@ details.j-included li::before {
 .k-meta-row li::before {
   content: "✓";
   color: #555;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   flex-shrink: 0;
   margin-top: 2px;
@@ -4128,8 +4325,8 @@ details.j-included li::before {
 /* Store availability — quiet */
 .k-store-avail {
   background: #fafaf8;
-  padding: 16px 18px;
-  font-size: 13px;
+  padding: 18px 20px;
+  font-size: 14px;
   border: 1px solid #eee;
   margin-top: 4px;
 }
@@ -4144,7 +4341,7 @@ details.j-included li::before {
   display: block;
   margin-bottom: 4px;
   font-weight: 600;
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .k-store-avail-text a {
@@ -4196,14 +4393,14 @@ details.j-included li::before {
 }
 
 .k-compat-tile-name {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 600;
   color: #111;
   margin-bottom: 4px;
 }
 
 .k-compat-tile-status {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
   color: #555;
   letter-spacing: 0.6px;
@@ -4232,10 +4429,10 @@ details.j-included li::before {
 
 .k-compat-more {
   display: block;
-  margin: 16px auto 0;
+  margin: 20px auto 0;
   background: none;
   border: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #1a1a1a;
   font-weight: 600;
   text-decoration: underline;
@@ -4257,12 +4454,12 @@ details.j-included li::before {
 
 .k-compat-fallback {
   max-width: 920px;
-  margin: 24px auto 0;
-  padding: 18px 20px;
+  margin: 28px auto 0;
+  padding: 20px 24px;
   background: #fafaf8;
   border: 1px solid #ebe6df;
   text-align: center;
-  font-size: 13px;
+  font-size: 14px;
   color: #444;
   line-height: 1.6;
 }
@@ -4295,7 +4492,76 @@ details.j-included li::before {
   border-color: #888;
 }
 
-/* Compare drawer (iCandy pattern) */
+/* Compare section — preview thumbs + drawer launcher */
+.k-compare-section {
+  margin-top: 120px;
+}
+
+.k-compare-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.k-compare-preview-card {
+  text-align: left;
+}
+
+.k-compare-preview-card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  background: #f7f5f2;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.k-compare-preview-card .name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.k-compare-preview-card .price {
+  font-size: 13px;
+  color: #777;
+}
+
+.k-compare-preview-add {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fafaf8;
+  border: 1px dashed #d8d4cd;
+  aspect-ratio: 1 / 1;
+  padding: 16px;
+  margin-bottom: 0;
+  cursor: pointer;
+  transition: border-color 150ms;
+}
+
+.k-compare-preview-add:hover {
+  border-color: #1a1a1a;
+}
+
+.k-compare-preview-plus {
+  font-size: 32px;
+  color: #aaa;
+  font-weight: 300;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.k-compare-preview-add .name {
+  margin-bottom: 4px;
+}
+
+/* Compare drawer launcher (iCandy pattern) */
 .k-compare-launch {
   display: flex;
   align-items: center;
@@ -4304,7 +4570,7 @@ details.j-included li::before {
   padding: 24px 28px;
   background: #fafaf8;
   border: 1px solid #ebe6df;
-  margin-top: 120px;
+  margin-top: 0;
 }
 
 .k-compare-launch-text strong {
@@ -5142,6 +5408,44 @@ body.show-tests .k-test-panel {
   .proof-row-grid {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
+  }
+
+  /* v3 — Live demo block mobile */
+  .k-live-demo {
+    grid-template-columns: 1fr;
+  }
+
+  .k-live-demo-img {
+    min-height: 280px;
+  }
+
+  .k-live-demo-text {
+    padding: 36px 24px;
+  }
+
+  .k-live-demo-h {
+    font-size: 28px;
+  }
+
+  .k-live-demo-actions .btn-primary {
+    min-width: 0;
+    width: 100%;
+  }
+
+  /* v3 — Compare preview mobile */
+  .k-compare-preview {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .k-compare-launch {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .k-compare-launch button {
+    width: 100%;
   }
 
   .k-compare-drawer {
