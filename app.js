@@ -306,7 +306,7 @@
     var saveEl = document.getElementById('k-price-saving');
     if (saveEl) {
       if (bundle.saving > 0) {
-        saveEl.innerHTML = '£' + bundle.saving + ' less than separately <span class="k-test-mark">T4</span>';
+        saveEl.innerHTML = 'Save £' + bundle.saving + ' compared to buying separately '<span class="k-test-mark">T4</span>';
       } else {
         saveEl.innerHTML = '<a href="#tests" class="k-test-mark">T4</a>';
         saveEl.textContent = '';
