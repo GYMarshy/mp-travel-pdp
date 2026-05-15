@@ -81,9 +81,16 @@
             </div>
 
             <div class="k-price-area">
-              <div class="k-price" id="k-price">£1,499</div>
+              <div class="k-price-row">
+                <span class="k-price" id="k-price">£1,499</span>
+                <span class="k-price-delivery">Free standard delivery included</span>
+              </div>
               <p class="k-price-saving" id="k-price-saving">
                 Save £290 compared to buying separately
+              </p>
+              <p class="k-order-by-line">
+                <span class="k-order-by-icon">⏱</span>
+                Order in <strong>8h 0m</strong> for next-day delivery
               </p>
               <p class="k-key-info">
                 Suitable from birth to 22 kg · 5-year guarantee · Quality tested in the UK
@@ -115,7 +122,7 @@
               </p>
               <div class="k-bundle-picker">
 
-                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="pushchair">
+                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="pushchair" data-image="https://placehold.co/720x860/3d3530/d8c8b8?text=Ocarro+2+%E2%80%94+Pushchair+only">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">Pushchair only</span>
@@ -124,7 +131,7 @@
                   <p class="k-bundle-includes"><span>Includes:</span> Frame &amp; seat unit · Hood · Rain cover · Cup holder</p>
                 </div>
 
-                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carrycot">
+                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carrycot" data-image="https://placehold.co/720x860/4a4138/d8c8b8?text=Ocarro+2+%2B+Carrycot">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">+ Carrycot</span>
@@ -133,7 +140,7 @@
                   <p class="k-bundle-includes"><span>Adds:</span> Lie-flat carrycot · Carrycot mattress</p>
                 </div>
 
-                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carseat">
+                <div class="k-bundle-option" role="radio" tabindex="0" data-bundle="carseat" data-image="https://placehold.co/720x860/2e2924/d8c8b8?text=Ocarro+2+%2B+Car+Seat">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">+ Car Seat</span>
@@ -160,7 +167,7 @@
                   </div>
                 </div>
 
-                <div class="k-bundle-option is-active" role="radio" tabindex="0" data-bundle="travel">
+                <div class="k-bundle-option is-active" role="radio" tabindex="0" data-bundle="travel" data-image="https://placehold.co/720x860/3d3530/d8c8b8?text=Ocarro+2+%E2%80%94+Full+Travel+System">
                   <div class="k-bundle-option-head">
                     <span class="k-bundle-marker"></span>
                     <span class="k-bundle-name">Full Travel System</span>
@@ -221,13 +228,45 @@
               <button class="k-baby-list">♡ Add to Baby List</button>
             </div>
 
+            <!-- Payment blocks (Klarna + PayPal) — match production live PDP -->
+            <div class="k-payment-stack">
+              <div class="k-payment-block">
+                <span class="k-payment-logo k-payment-klarna">Klarna<span class="k-payment-dot">.</span></span>
+                <div class="k-payment-text">
+                  <p><strong>3 payments at 0% interest with Klarna</strong> · <a href="#">Learn more</a></p>
+                  <p class="k-payment-tos">18+, T&amp;C apply, credit subject to status.</p>
+                </div>
+              </div>
+              <div class="k-payment-block">
+                <span class="k-payment-logo k-payment-paypal">
+                  <span class="k-payment-paypal-p">Pay</span><span class="k-payment-paypal-pal">Pal</span>
+                </span>
+                <div class="k-payment-text">
+                  <p><strong>Pay in 3 interest-free payments</strong> of £499.67 · <a href="#">Learn more</a></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Click & Collect + store availability -->
+            <div class="k-fulfilment">
+              <p class="k-fulfilment-line">
+                <span class="k-fulfilment-pin">📍</span>
+                <strong>Available for Click &amp; Collect</strong>
+                · Free from any Mamas &amp; Papas store
+              </p>
+              <p class="k-fulfilment-line">
+                <span class="k-fulfilment-pin">🍼</span>
+                <strong>Book a Buying for Baby appointment</strong>
+                · 1-to-1 with an in-store expert
+              </p>
+            </div>
+
+            <!-- Tertiary trust signals — quiet single-line list -->
             <ul class="k-meta-row">
               <li>In stock — dispatches within 1–2 days</li>
-              <li>Free standard delivery &amp; 100-day returns</li>
+              <li>Free 100-day returns</li>
               <li>Tested to BS EN 1888-2:2018</li>
               <li><strong>Price Match Promise</strong> — find it cheaper, we'll refund the difference</li>
-              <li>Pay in 3 with Klarna · or PayPal Credit</li>
-              <li>Click &amp; Collect available · Book a Buying for Baby appointment</li>
             </ul>
 
             <div class="k-store-avail">
@@ -238,6 +277,67 @@
               </div>
             </div>
 
+          </div>
+        </section>
+
+        <!-- T7: What's in the box — pulled up, items open a detail drawer on click -->
+        <section class="section-block" style="margin-top: 96px;">
+          <div class="section-block-head">
+            <h2>What's in the box</h2>
+            <p>Showing the Full Travel System. Tap an item for details.</p>
+          </div>
+          <div class="j-carousel-wrap">
+            <div class="j-carousel" id="k-wib-carousel">
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Ocarro 2 chassis &amp; seat" data-image="https://placehold.co/720x540/3d3530/d8c8b8?text=Chassis+%26+seat" data-desc="The Ocarro 2's aircraft-grade aluminium frame and reversible seat unit. Suitable from birth to 22 kg." data-features="All-wheel suspension|Reversible parent/world-facing|Multi-position recline|13.9 kg total weight">
+                <img src="https://placehold.co/400x300/3d3530/d8c8b8?text=Chassis" alt="" />
+                <h4>Ocarro 2 chassis &amp; seat</h4>
+                <p>Reversible seat on aluminium frame. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Lie-flat carrycot" data-image="https://placehold.co/720x540/4a4138/d8c8b8?text=Lie-flat+carrycot" data-desc="Designed for newborn sleep on the move. Overnight-safe to 9 kg with a breathable mattress and a removable, washable cover." data-features="Lie-flat newborn position|Overnight-safe to 9 kg|Breathable cotton mattress|Removable washable cover">
+                <img src="https://placehold.co/400x300/4a4138/d8c8b8?text=Carrycot" alt="" />
+                <h4>Lie-flat carrycot</h4>
+                <p>Overnight-safe to 9 kg. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Cybex Cloud T car seat" data-image="https://placehold.co/720x540/2e2924/d8c8b8?text=Cybex+Cloud+T" data-desc="i-Size, 360° rotating infant car seat. Birth to 87 cm (around 15 months). Lie-flat mode when used on the chassis as a pram." data-features="i-Size · R129 approved|360° rotation|Newborn lie-flat mode|SensorSafe chest clip">
+                <img src="https://placehold.co/400x300/2e2924/d8c8b8?text=Car+Seat" alt="" />
+                <h4>Cybex Cloud T car seat</h4>
+                <p>i-Size · 360° rotating. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Cybex Base T isofix base" data-image="https://placehold.co/720x540/5a4f44/d8c8b8?text=Base+T" data-desc="ISOFIX base for the Cloud T with one-handed click-in installation and an audible click confirmation." data-features="ISOFIX install|Click-in click-out|Indicator confirms fit|Stay-in-car base">
+                <img src="https://placehold.co/400x300/5a4f44/d8c8b8?text=Base" alt="" />
+                <h4>Cybex Base T</h4>
+                <p>ISOFIX with one-handed click-in. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Car seat adapters" data-image="https://placehold.co/720x540/675b4e/d8c8b8?text=Adapters" data-desc="A small set of adapters that lets you click the Cybex Cloud T directly onto the Ocarro 2 chassis — no need to remove the seat unit first." data-features="Click-on attachment|Works with all bundle colours|Stay attached to the chassis">
+                <img src="https://placehold.co/400x300/675b4e/d8c8b8?text=Adapters" alt="" />
+                <h4>Car seat adapters</h4>
+                <p>Click the car seat to the chassis. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="UPF 50+ extendable hood" data-image="https://placehold.co/720x540/d8c8b8/3d3530?text=UPF+50%2B+hood" data-desc="Extendable UPF 50+ canopy. Pull forward fully for warm days or against wind; pulls back for cooler weather and visibility." data-features="UPF 50+ sun protection|Extendable canopy|Mesh ventilation panel|Removable for washing">
+                <img src="https://placehold.co/400x300/d8c8b8/3d3530?text=Hood" alt="" />
+                <h4>UPF 50+ hood</h4>
+                <p>Extends fully for sun and wind. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="All-weather rain cover" data-image="https://placehold.co/720x540/889b97/ffffff?text=Rain+cover" data-desc="Universal rain cover that fits the chassis, seat unit and carrycot. Clear front panel keeps baby in view." data-features="Fits chassis · seat · carrycot|Clear front panel|Ventilated|Folds flat for storage">
+                <img src="https://placehold.co/400x300/889b97/ffffff?text=Rain+cover" alt="" />
+                <h4>Rain cover</h4>
+                <p>Universal fit, clear panel. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Cup holder" data-image="https://placehold.co/720x540/b6a89e/3d3530?text=Cup+holder" data-desc="Detachable, dishwasher-safe cup holder. Clips to either side of the handlebar." data-features="Dishwasher-safe|Universal clip|Fits standard cups &amp; bottles">
+                <img src="https://placehold.co/400x300/b6a89e/3d3530?text=Cup+holder" alt="" />
+                <h4>Cup holder</h4>
+                <p>Clips to either side of the handlebar. <span class="k-wib-more">Details →</span></p>
+              </button>
+              <button class="j-carousel-card k-wib-card" data-wib data-name="Carrycot mattress" data-image="https://placehold.co/720x540/c8a882/3d3530?text=Mattress" data-desc="Breathable cotton mattress for the carrycot. Removable, machine-washable cover at 30°C." data-features="Breathable cotton|Removable cover|Machine-washable 30°C|Newborn-safe firmness">
+                <img src="https://placehold.co/400x300/c8a882/3d3530?text=Mattress" alt="" />
+                <h4>Carrycot mattress</h4>
+                <p>Removable, washable cover. <span class="k-wib-more">Details →</span></p>
+              </button>
+            </div>
+            <div class="j-carousel-controls">
+              <button data-carousel="k-wib-carousel" data-dir="-1" aria-label="Previous">‹</button>
+              <button data-carousel="k-wib-carousel" data-dir="1" aria-label="Next">›</button>
+            </div>
           </div>
         </section>
 
@@ -365,31 +465,6 @@
                 Start a live video call
               </a>
               <a href="#">Or find your nearest store</a>
-            </div>
-          </div>
-        </section>
-
-        <!-- What's in the box carousel — driven by selected config -->
-        <section class="section-block" style="margin-top: 120px;">
-          <div class="section-block-head">
-            <h2>What's in the box</h2>
-            <p>Showing the Full Travel System. Swipe through.</p>
-          </div>
-          <div class="j-carousel-wrap">
-            <div class="j-carousel" id="k-wib-carousel">
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/3d3530/d8c8b8?text=Chassis" alt="" /><h4>Ocarro 2 chassis &amp; seat</h4><p>Reversible seat on aluminium frame.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/4a4138/d8c8b8?text=Carrycot" alt="" /><h4>Lie-flat carrycot</h4><p>Overnight-safe to 9 kg.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/2e2924/d8c8b8?text=Car+Seat" alt="" /><h4>Cybex Cloud T car seat</h4><p>i-Size 360° rotating, birth to 87 cm.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/5a4f44/d8c8b8?text=Base" alt="" /><h4>Cybex Base T</h4><p>ISOFIX with one-handed click-in.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/675b4e/d8c8b8?text=Adapters" alt="" /><h4>Car seat adapters</h4><p>Click the Cloud T directly onto the chassis.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/d8c8b8/3d3530?text=Hood" alt="" /><h4>UPF 50+ hood</h4><p>Extends fully for sun and wind.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/889b97/ffffff?text=Rain+cover" alt="" /><h4>Rain cover</h4><p>Universal — fits chassis, seat or carrycot.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/b6a89e/3d3530?text=Cup+holder" alt="" /><h4>Cup holder</h4><p>Clips to either side of the handlebar.</p></div>
-              <div class="j-carousel-card"><img src="https://placehold.co/400x300/c8a882/3d3530?text=Mattress" alt="" /><h4>Carrycot mattress</h4><p>Removable, washable cover.</p></div>
-            </div>
-            <div class="j-carousel-controls">
-              <button data-carousel="k-wib-carousel" data-dir="-1" aria-label="Previous">‹</button>
-              <button data-carousel="k-wib-carousel" data-dir="1" aria-label="Next">›</button>
             </div>
           </div>
         </section>
@@ -609,6 +684,24 @@
         </p>
       </div>
     </details>
+
+    <!-- What's-in-the-box detail drawer -->
+    <div class="k-wib-overlay" id="k-wib-overlay" data-close-wib></div>
+    <aside class="k-wib-drawer" id="k-wib-drawer" aria-hidden="true">
+      <div class="k-wib-drawer-head">
+        <span class="k-wib-drawer-eyebrow">Included in this bundle</span>
+        <button class="k-wib-drawer-close" data-close-wib aria-label="Close">×</button>
+      </div>
+      <div class="k-wib-drawer-img">
+        <img id="k-wib-drawer-img" src="" alt="" />
+      </div>
+      <div class="k-wib-drawer-body">
+        <h2 id="k-wib-drawer-name">Component name</h2>
+        <p id="k-wib-drawer-desc">Description goes here.</p>
+        <h3 class="k-wib-drawer-sub">Key features</h3>
+        <ul id="k-wib-drawer-features"></ul>
+      </div>
+    </aside>
 
     <!-- Bag drawer (shared) -->
     <div class="drawer-overlay" data-close-drawer></div>

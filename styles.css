@@ -3793,7 +3793,9 @@ details.j-included li::before {
 }
 
 .k-gallery {
-  position: relative;
+  position: sticky;
+  top: 16px;
+  align-self: start;
 }
 
 .k-gallery-main {
@@ -3945,6 +3947,13 @@ details.j-included li::before {
   padding: 4px 0;
 }
 
+.k-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
 .k-price {
   font-size: 36px;
   line-height: 1;
@@ -3953,11 +3962,45 @@ details.j-included li::before {
   color: #1a1a1a;
 }
 
+.k-price-delivery {
+  font-size: 13px;
+  color: #1a7a5c;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.k-price-delivery::before {
+  content: "✓";
+  font-weight: 700;
+}
+
 .k-price-saving {
   font-size: 14px;
   color: var(--sale);
   font-weight: 500;
   margin: 4px 0 0;
+}
+
+.k-order-by-line {
+  font-size: 13px;
+  color: #333;
+  margin: 6px 0 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.k-order-by-icon {
+  font-size: 14px;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.k-order-by-line strong {
+  color: #1a1a1a;
+  font-weight: 600;
 }
 
 .k-key-info {
@@ -4374,6 +4417,122 @@ details.j-included li::before {
 
 .k-baby-list:hover {
   border-color: #1a1a1a;
+}
+
+/* Payment blocks — Klarna and PayPal Pay-in-3 */
+.k-payment-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.k-payment-block {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.k-payment-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  border-radius: 999px;
+}
+
+.k-payment-klarna {
+  background: #ffa8cd;
+  color: #0e1c2b;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.k-payment-klarna .k-payment-dot {
+  margin-left: 1px;
+}
+
+.k-payment-paypal {
+  background: transparent;
+  padding: 4px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.k-payment-paypal-p {
+  color: #003087;
+}
+
+.k-payment-paypal-pal {
+  color: #009cde;
+}
+
+.k-payment-text {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.45;
+}
+
+.k-payment-text p {
+  margin: 0;
+}
+
+.k-payment-text p + p {
+  margin-top: 4px;
+}
+
+.k-payment-text strong {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.k-payment-text a {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
+.k-payment-tos {
+  font-size: 12px;
+  color: #888;
+}
+
+/* Fulfilment lines — Click & Collect, Buying for Baby */
+.k-fulfilment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.k-fulfilment-line {
+  font-size: 14px;
+  color: #444;
+  margin: 0;
+  line-height: 1.4;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.k-fulfilment-pin {
+  font-size: 16px;
+  flex-shrink: 0;
+  filter: grayscale(1);
+  opacity: 0.7;
+}
+
+.k-fulfilment-line strong {
+  color: #1a1a1a;
+  font-weight: 600;
 }
 
 /* Meta row — tertiary trust signals */
@@ -4819,6 +4978,180 @@ details.j-included li::before {
 
 .k-compare-drawer-close:hover {
   color: #111;
+}
+
+/* What's in the box — clickable cards + detail drawer */
+.k-wib-card {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 200ms;
+  display: flex;
+  flex-direction: column;
+}
+
+.k-wib-card:hover {
+  transform: translateY(-2px);
+}
+
+.k-wib-card img {
+  transition: filter 200ms;
+}
+
+.k-wib-card:hover img {
+  filter: brightness(1.04);
+}
+
+.k-wib-more {
+  color: #1a1a1a;
+  font-weight: 500;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.k-wib-card:hover .k-wib-more {
+  text-decoration: underline;
+}
+
+.k-wib-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 100;
+  display: none;
+}
+
+.k-wib-overlay.is-open {
+  display: block;
+}
+
+.k-wib-drawer {
+  position: fixed;
+  top: 0;
+  right: -560px;
+  width: 560px;
+  max-width: 100vw;
+  height: 100vh;
+  background: #fff;
+  z-index: 101;
+  transition: right 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.k-wib-drawer.is-open {
+  right: 0;
+}
+
+.k-wib-drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 24px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 1;
+}
+
+.k-wib-drawer-eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: #888;
+  font-weight: 600;
+}
+
+.k-wib-drawer-close {
+  background: none;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  color: #888;
+  width: 36px;
+  height: 36px;
+}
+
+.k-wib-drawer-close:hover {
+  color: #1a1a1a;
+}
+
+.k-wib-drawer-img {
+  background: #f7f5f2;
+  aspect-ratio: 4 / 3;
+}
+
+.k-wib-drawer-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.k-wib-drawer-body {
+  padding: 32px 28px 40px;
+}
+
+.k-wib-drawer-body h2 {
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.4px;
+  margin: 0 0 12px;
+  color: #1a1a1a;
+  line-height: 1.15;
+}
+
+.k-wib-drawer-body p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.6;
+  margin: 0 0 24px;
+}
+
+.k-wib-drawer-sub {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #888;
+  margin: 0 0 12px;
+}
+
+.k-wib-drawer-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.k-wib-drawer-body ul li {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.5;
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.k-wib-drawer-body ul li::before {
+  content: "—";
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .k-wib-drawer {
+    right: -100vw;
+    width: 100vw;
+  }
 }
 
 /* Prototype framework — collapsible block below the footer */
@@ -5615,6 +5948,25 @@ body.show-tests .k-test-panel {
   .proof-row-grid {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
+  }
+
+  /* v3 — Sticky gallery off on mobile */
+  .k-gallery {
+    position: static;
+  }
+
+  /* v3 — Price row stacks on mobile */
+  .k-price-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  /* v3 — Payment blocks: thinner logo column */
+  .k-payment-block {
+    grid-template-columns: 60px 1fr;
+    gap: 10px;
+    padding: 12px 14px;
   }
 
   /* v3 — Help cluster mobile */

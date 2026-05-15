@@ -313,6 +313,15 @@
     var bnameEl = document.getElementById('k-bundle-name');
     if (bnameEl) bnameEl.textContent = bundle.name;
 
+    // Swap the main gallery image to match the selected bundle
+    var activeOpt = document.querySelector('.k-bundle-option.is-active');
+    var mainImg = document.getElementById('k-main-img');
+    if (activeOpt && mainImg && activeOpt.dataset.image) {
+      mainImg.src = activeOpt.dataset.image;
+      // Deactivate gallery thumbs since the active image is now from the bundle
+      document.querySelectorAll('.k-gallery-thumbs img').forEach(function (t) { t.classList.remove('is-active'); });
+    }
+
     var subtitle = document.getElementById('k-subtitle');
     if (subtitle) {
       var subStr = bundle.pieces + '-piece bundle';
@@ -385,6 +394,63 @@
     if (!sw) return;
     kState.pramColour = sw.dataset.colour;
     kRender();
+  });
+
+  /* ---- v3 (Variant K) — What's-in-the-box card opens detail drawer ---- */
+
+  function openWib(card) {
+    var nameEl     = document.getElementById('k-wib-drawer-name');
+    var descEl     = document.getElementById('k-wib-drawer-desc');
+    var imgEl      = document.getElementById('k-wib-drawer-img');
+    var featuresEl = document.getElementById('k-wib-drawer-features');
+    var drawer     = document.getElementById('k-wib-drawer');
+    var overlay    = document.getElementById('k-wib-overlay');
+
+    if (nameEl)    nameEl.textContent = card.dataset.name || '';
+    if (descEl)    descEl.textContent = card.dataset.desc || '';
+    if (imgEl)     { imgEl.src = card.dataset.image || ''; imgEl.alt = card.dataset.name || ''; }
+    if (featuresEl) {
+      featuresEl.innerHTML = '';
+      (card.dataset.features || '').split('|').forEach(function (f) {
+        if (!f) return;
+        var li = document.createElement('li');
+        li.innerHTML = f;
+        featuresEl.appendChild(li);
+      });
+    }
+    if (drawer)  drawer.classList.add('is-open');
+    if (overlay) overlay.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeWib() {
+    var drawer  = document.getElementById('k-wib-drawer');
+    var overlay = document.getElementById('k-wib-overlay');
+    if (drawer)  drawer.classList.remove('is-open');
+    if (overlay) overlay.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('click', function (e) {
+    var card = e.target.closest('.k-wib-card');
+    if (card) { openWib(card); return; }
+    if (e.target.closest('[data-close-wib]')) closeWib();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeWib();
+  });
+
+  /* ---- v3 (Variant K) — gallery thumbnails swap main image ---- */
+
+  document.addEventListener('click', function (e) {
+    var thumb = e.target.closest('.k-gallery-thumbs img');
+    if (!thumb) return;
+    var thumbs = thumb.closest('.k-gallery-thumbs');
+    thumbs.querySelectorAll('img').forEach(function (t) { t.classList.remove('is-active'); });
+    thumb.classList.add('is-active');
+    var main = document.getElementById('k-main-img');
+    if (main && thumb.dataset.full) main.src = thumb.dataset.full;
   });
 
   /* ---- v3 (Variant K) — show-more on compatibility list ---- */
