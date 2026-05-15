@@ -4821,7 +4821,133 @@ details.j-included li::before {
   color: #111;
 }
 
-/* Hypothesis annotation system */
+/* Prototype framework — collapsible block below the footer */
+.k-framework {
+  background: #1a1a1a;
+  color: #d8d4cd;
+  border-top: 1px solid #2a2a2a;
+}
+
+.k-framework > summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 14px 24px;
+  max-width: 1260px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.k-framework > summary::-webkit-details-marker {
+  display: none;
+}
+
+.k-framework-tag {
+  display: inline-block;
+  background: #ff5f9e;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.k-framework-summary {
+  font-size: 13px;
+  color: #d8d4cd;
+  letter-spacing: 0.2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.k-framework-arrow {
+  font-size: 14px;
+  color: #888;
+  transition: transform 200ms;
+}
+
+.k-framework[open] .k-framework-arrow {
+  transform: rotate(180deg);
+}
+
+.k-framework-inner {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 8px 24px 48px;
+}
+
+.k-framework-lede {
+  font-size: 14px;
+  color: #c8c4bd;
+  line-height: 1.55;
+  margin: 0 0 28px;
+  max-width: 760px;
+}
+
+.k-framework-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 32px;
+}
+
+.k-framework-list li {
+  font-size: 13px;
+  line-height: 1.55;
+  color: #b8b4ad;
+  border-left: 2px solid #ff5f9e;
+  padding: 2px 0 2px 14px;
+}
+
+.k-framework-list li strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.k-framework-list li em {
+  color: #888;
+  font-style: italic;
+  display: block;
+  margin-top: 4px;
+}
+
+.k-framework-notes {
+  font-size: 12px;
+  color: #888;
+  line-height: 1.6;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 24px;
+  margin: 0;
+}
+
+.k-framework-notes strong {
+  color: #d8d4cd;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .k-framework-list {
+    grid-template-columns: 1fr;
+  }
+  .k-framework > summary,
+  .k-framework-inner {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+/* (Legacy) Hypothesis annotation system — kept for any remaining references */
 .k-test-toggle {
   position: fixed;
   bottom: 20px;

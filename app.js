@@ -305,12 +305,9 @@
 
     var saveEl = document.getElementById('k-price-saving');
     if (saveEl) {
-      if (bundle.saving > 0) {
-        saveEl.innerHTML = 'Save £' + bundle.saving + ' compared to buying separately '<span class="k-test-mark">T4</span>';
-      } else {
-        saveEl.innerHTML = '<a href="#tests" class="k-test-mark">T4</a>';
-        saveEl.textContent = '';
-      }
+      saveEl.textContent = bundle.saving > 0
+        ? 'Save £' + bundle.saving + ' compared to buying separately'
+        : '';
     }
 
     var bnameEl = document.getElementById('k-bundle-name');
@@ -421,26 +418,6 @@
   document.addEventListener('click', function (e) {
     if (e.target.closest('#k-compare-open')) openCompare();
     if (e.target.closest('#k-compare-close') || e.target.closest('[data-close-compare]')) closeCompare();
-  });
-
-  /* ---- v3 (Variant K) — test framework toggle ---- */
-
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('#k-test-toggle')) return;
-    var on = document.body.classList.toggle('show-tests');
-    var btn = document.getElementById('k-test-toggle');
-    if (btn) btn.textContent = on ? 'Hide test framework' : 'Show test framework';
-  });
-
-  /* ---- v3 (Variant K) — test mark click → scroll to tests section ---- */
-
-  document.addEventListener('click', function (e) {
-    var mark = e.target.closest('.k-test-mark');
-    if (!mark) return;
-    e.preventDefault();
-    e.stopPropagation();
-    var tests = document.getElementById('tests');
-    if (tests) tests.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 
   /* ---- v3 (Variant K) — keyboard support for div-based bundle options ---- */
