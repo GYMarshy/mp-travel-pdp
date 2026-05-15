@@ -3162,11 +3162,81 @@ details.j-included li::before {
   font-size: 16px;
 }
 
+/* Mini live-expert CTA — small contextual signal that pings the live demo block */
+.k-live-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #1a1a1a;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 1px;
+  transition: border-color 150ms, color 150ms;
+}
+
+.k-live-mini:hover {
+  border-bottom-color: #1a1a1a;
+}
+
+.k-live-mini-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #e63946;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.k-live-mini-dot::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: #e63946;
+  opacity: 0.4;
+  animation: k-pulse 1.6s ease-out infinite;
+}
+
+.k-live-mini-count {
+  color: #888;
+  font-weight: 400;
+}
+
+/* Mini CTA below the Compare launcher */
+.k-compare-live-cue {
+  margin: 18px 0 0;
+  text-align: center;
+}
+
+/* Compat fallback primary action — uses live mini dot too */
+.k-compat-fallback-primary {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a1a !important;
+  color: #fff !important;
+  border-color: #1a1a1a !important;
+}
+
+.k-compat-fallback-primary:hover {
+  background: #000 !important;
+}
+
+.k-compat-fallback-primary .k-live-mini-dot {
+  background: #ffffff;
+}
+
+.k-compat-fallback-primary .k-live-mini-dot::after {
+  background: #ffffff;
+}
+
 /* Go-In-Store live demo block — image-led, "live now" signal */
 .k-live-demo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-top: 96px;
+  margin-top: 120px;
   background: #fafaf8;
   border: 1px solid #ebe6df;
 }
@@ -4226,6 +4296,17 @@ details.j-included li::before {
   content: "·";
   color: #aaa;
   font-weight: 700;
+}
+
+/* Help cluster — wizard link + live-expert mini CTA, side by side */
+.k-help-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 18px;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 /* Help me choose — text link only, no dashed box */
@@ -5407,6 +5488,13 @@ body.show-tests .k-test-panel {
 
   .proof-row-grid {
     grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  /* v3 — Help cluster mobile */
+  .k-help-cluster {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 14px;
   }
 

@@ -214,10 +214,16 @@
               </ul>
             </details>
 
-            <button class="k-help-link" id="k-wizard-open">
-              Not sure which to pick? <strong>Help me choose →</strong>
-              <span class="k-test-mark">T8</span>
-            </button>
+            <div class="k-help-cluster">
+              <button class="k-help-link" id="k-wizard-open">
+                Not sure which to pick? <strong>Help me choose →</strong>
+                <span class="k-test-mark">T8</span>
+              </button>
+              <a href="#k-live-demo" class="k-live-mini">
+                <span class="k-live-mini-dot"></span>
+                Or talk to a live expert <span class="k-live-mini-count">· 4 online now</span>
+              </a>
+            </div>
 
             <div class="k-add-row">
               <button class="btn-primary" data-add-to-bag>Add to Bag <span class="k-test-mark">T16</span></button>
@@ -242,37 +248,6 @@
               </div>
             </div>
 
-          </div>
-        </section>
-
-        <!-- T17: Go-In-Store live demo block — image-led, "live now" signal, clear CTA -->
-        <section class="k-live-demo">
-          <div class="k-live-demo-img">
-            <img src="https://placehold.co/720x520/3d3530/d8c8b8?text=M%26P+expert+%E2%80%94+Brent+Cross" alt="Mamas &amp; Papas in-store expert demonstrating the Ocarro 2" />
-            <span class="k-live-pulse">
-              <span class="k-live-pulse-dot"></span>
-              Live now · 4 experts ready
-            </span>
-          </div>
-          <div class="k-live-demo-text">
-            <p class="k-eyebrow">Mamas &amp; Papas in-store experts <span class="k-test-mark">T17</span></p>
-            <h2 class="k-live-demo-h">
-              See it in person,<br />
-              <strong>right now.</strong>
-            </h2>
-            <p class="k-live-demo-lede">
-              Talk to one of our in-store experts at Brent Cross over video. They'll fold the Ocarro 2 in front of you, fit it to your car make, and walk you through every bundle — live, from the sofa.
-            </p>
-            <ul class="k-live-demo-points">
-              <li>One-to-one with a real product expert</li>
-              <li>Fit it in your boot before you buy</li>
-              <li>No appointment needed</li>
-            </ul>
-            <div class="k-live-demo-actions">
-              <button class="btn-primary">Start a live video demo</button>
-              <a href="#" class="k-live-demo-call">Or call us · 0345 268 2000</a>
-            </div>
-            <p class="k-live-demo-meta">Free · Available 9am–5pm, Mon–Fri</p>
           </div>
         </section>
 
@@ -392,11 +367,14 @@
           </div>
           <!-- T17: Promote Go-In-Store live agent at moment of friction -->
           <div class="k-compat-fallback">
-            <strong>Can't find your car seat?</strong>
-            Our in-store experts can confirm compatibility and demo the seat live.
+            <strong>Can't see your car seat?</strong>
+            One of our experts can confirm compatibility over a live video call — they'll demo the seat in front of you.
             <div class="k-compat-fallback-actions">
-              <a href="#">📞 Speak to an in-store expert</a>
-              <a href="#">📍 Find your nearest store</a>
+              <a href="#k-live-demo" class="k-compat-fallback-primary">
+                <span class="k-live-mini-dot"></span>
+                Start a live video call
+              </a>
+              <a href="#">Or find your nearest store</a>
             </div>
             <span class="k-test-mark" style="position: relative; top: 4px;">T17</span>
           </div>
@@ -424,6 +402,37 @@
               <button data-carousel="k-wib-carousel" data-dir="-1" aria-label="Previous">‹</button>
               <button data-carousel="k-wib-carousel" data-dir="1" aria-label="Next">›</button>
             </div>
+          </div>
+        </section>
+
+        <!-- T17: Go-In-Store live video demo block — image-led, "live now" signal, clear CTA -->
+        <section class="k-live-demo" id="k-live-demo">
+          <div class="k-live-demo-img">
+            <img src="https://placehold.co/720x520/3d3530/d8c8b8?text=M%26P+expert+on+a+video+call" alt="Mamas &amp; Papas expert demonstrating the Ocarro 2 over video" />
+            <span class="k-live-pulse">
+              <span class="k-live-pulse-dot"></span>
+              Live now · 4 experts online
+            </span>
+          </div>
+          <div class="k-live-demo-text">
+            <p class="k-eyebrow">Mamas &amp; Papas live experts <span class="k-test-mark">T17</span></p>
+            <h2 class="k-live-demo-h">
+              See it live,<br />
+              <strong>right now.</strong>
+            </h2>
+            <p class="k-live-demo-lede">
+              Jump on a video call with one of our experts from the Brent Cross showroom. They'll fold the Ocarro 2 on camera, walk you through every bundle, and answer your questions — live, from your sofa.
+            </p>
+            <ul class="k-live-demo-points">
+              <li>One-to-one with a Mamas &amp; Papas product expert</li>
+              <li>See the fold, the recline, the suspension — on camera</li>
+              <li>Free, no appointment, no obligation</li>
+            </ul>
+            <div class="k-live-demo-actions">
+              <button class="btn-primary">Start a video call</button>
+              <a href="#" class="k-live-demo-call">Or call us · 0345 268 2000</a>
+            </div>
+            <p class="k-live-demo-meta">Live now · Mon–Fri, 9am–5pm</p>
           </div>
         </section>
 
@@ -519,6 +528,12 @@
               Open comparison <span class="k-test-mark" style="margin-left:8px;">T11</span>
             </button>
           </div>
+          <p class="k-compare-live-cue">
+            <a href="#k-live-demo" class="k-live-mini">
+              <span class="k-live-mini-dot"></span>
+              Want a hand choosing? Talk to a live expert <span class="k-live-mini-count">· 4 online now</span>
+            </a>
+          </p>
         </section>
 
         <!-- Reviews -->
