@@ -441,6 +441,67 @@
     if (e.key === 'Escape') closeWib();
   });
 
+  /* ---- v3 (Variant K) — Features carousel tabs + scroll arrows ---- */
+
+  document.addEventListener('click', function (e) {
+    var tab = e.target.closest('.k-features-tab[data-features-tab]');
+    if (!tab) return;
+    var key = tab.dataset.featuresTab;
+    var section = tab.closest('.k-features-section');
+    section.querySelectorAll('.k-features-tab').forEach(function (t) { t.classList.remove('is-active'); });
+    tab.classList.add('is-active');
+    section.querySelectorAll('.k-features-panel').forEach(function (p) {
+      p.hidden = p.dataset.featuresPanel !== key;
+    });
+  });
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.k-features-scroll');
+    if (!btn) return;
+    var section = btn.closest('.k-features-section');
+    var visible = section.querySelector('.k-features-panel:not([hidden]) .k-features-carousel');
+    if (!visible) return;
+    var dir = parseInt(btn.dataset.featuresDir, 10) || 1;
+    visible.scrollBy({ left: dir * 300, behavior: 'smooth' });
+  });
+
+  /* ---- v3 (Variant K) — Style your way: swatch swaps name + tints the detail grid ---- */
+
+  document.addEventListener('click', function (e) {
+    var sw = e.target.closest('.k-syw-swatch[data-syw-name]');
+    if (!sw) return;
+    var group = sw.closest('.k-syw-swatch-row');
+    group.querySelectorAll('.k-syw-swatch').forEach(function (s) { s.classList.remove('is-active'); });
+    sw.classList.add('is-active');
+
+    var name = sw.dataset.sywName;
+    var tint = sw.dataset.sywTint;
+    var nameEl    = document.getElementById('k-syw-name');
+    var ctaNameEl = document.getElementById('k-syw-cta-name');
+    if (nameEl)    nameEl.textContent    = name;
+    if (ctaNameEl) ctaNameEl.textContent = name;
+
+    document.querySelectorAll('.k-syw-tile img').forEach(function (img) {
+      var alt = img.getAttribute('alt') || '';
+      var label = encodeURIComponent(alt);
+      img.src = 'https://placehold.co/420x420/' + tint + '/d8c8b8?text=' + label;
+    });
+  });
+
+  /* ---- v3 (Variant K) — Style your way: arrow keys cycle swatches ---- */
+
+  document.addEventListener('click', function (e) {
+    var arrow = e.target.closest('.k-syw-arrow');
+    if (!arrow) return;
+    var row = arrow.parentElement.querySelector('.k-syw-swatch-row');
+    if (!row) return;
+    var swatches = Array.from(row.querySelectorAll('.k-syw-swatch'));
+    var activeIdx = swatches.findIndex(function (s) { return s.classList.contains('is-active'); });
+    var dir = arrow.previousElementSibling ? 1 : -1; // first arrow = prev, second = next
+    var nextIdx = (activeIdx + dir + swatches.length) % swatches.length;
+    swatches[nextIdx].click();
+  });
+
   /* ---- v3 (Variant K) — gallery thumbnails swap main image ---- */
 
   document.addEventListener('click', function (e) {
