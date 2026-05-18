@@ -3780,12 +3780,13 @@ details.j-included li::before {
    VARIANT K — Refined v3 (consolidating Jade + Chris transcript feedback)
    ============================================================ */
 
-/* Cropped lifestyle hero (iCandy pattern — not full-bleed overlay) */
+/* Silver Cross-style split pane: scrolling mosaic gallery + sticky buybox */
 .k-pdp-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-  gap: 48px;
-  margin-top: 20px;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 56px;
+  margin-top: 24px;
+  align-items: start;
 }
 
 .k-pdp-layout > * {
@@ -3793,37 +3794,144 @@ details.j-included li::before {
 }
 
 .k-gallery {
-  position: sticky;
-  top: 16px;
-  align-self: start;
+  position: static;
 }
 
-.k-gallery-main {
-  width: 100%;
-  aspect-ratio: 5 / 6;
-  background: #f5f3ef;
-  overflow: hidden;
+/* Mosaic gallery — all imagery visible, 2-col grid with variable spans */
+.k-gallery-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.k-mosaic-tile {
   position: relative;
+  background: #f7f5f2;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
 
-.k-gallery-main img {
+.k-mosaic-tile img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-.k-gallery-pagination {
+.k-mosaic-tile-hero {
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
+
+.k-mosaic-tile-wide {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+}
+
+/* Video tiles — clickable button with caption underneath */
+button.k-mosaic-tile {
+  border: 0;
+  padding: 0;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  aspect-ratio: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.k-mosaic-tile-video.k-mosaic-tile-wide {
+  aspect-ratio: auto;
+}
+
+.k-mosaic-video-img {
+  position: relative;
+  display: block;
+  background: #2e2924;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.k-mosaic-tile-video:not(.k-mosaic-tile-wide) .k-mosaic-video-img {
+  aspect-ratio: 1 / 1;
+}
+
+.k-mosaic-video-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 250ms, opacity 200ms;
+  opacity: 0.94;
+}
+
+.k-mosaic-tile-video:hover .k-mosaic-video-img img {
+  transform: scale(1.04);
+  opacity: 1;
+}
+
+.k-mosaic-play {
   position: absolute;
-  bottom: 18px;
-  right: 22px;
-  color: #555;
-  font-size: 12px;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.96);
+  color: #1a1a1a;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  pointer-events: none;
+  padding-left: 3px;
+}
+
+.k-mosaic-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 11px;
+  padding: 3px 8px;
+  letter-spacing: 0.4px;
   font-weight: 500;
 }
 
+.k-mosaic-caption {
+  padding: 18px 4px 8px;
+  display: block;
+}
+
+.k-mosaic-caption-title {
+  display: block;
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: -0.3px;
+  color: #1a1a1a;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+.k-mosaic-caption-body {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.55;
+}
+
+.k-mosaic-note {
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  margin: 24px 0 0;
+  letter-spacing: 0.4px;
+}
+
+/* Image-info overlay tags now live on the hero tile only */
 .k-image-info-overlay {
   position: absolute;
   left: 22px;
@@ -3831,6 +3939,7 @@ details.j-included li::before {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
+  z-index: 2;
 }
 
 .k-image-info-tag {
@@ -3843,25 +3952,11 @@ details.j-included li::before {
   text-transform: uppercase;
 }
 
-.k-gallery-thumbs {
-  display: flex;
-  gap: 8px;
-  margin-top: 14px;
-  flex-wrap: wrap;
-}
-
-.k-gallery-thumbs img {
-  width: 68px;
-  height: 68px;
-  object-fit: cover;
-  cursor: pointer;
-  border: 1px solid transparent;
-  background: #f7f5f2;
-  transition: border-color 150ms;
-}
-
-.k-gallery-thumbs img.is-active {
-  border-color: #1a1a1a;
+/* Sticky buybox on the right — gallery scrolls beneath it */
+.k-buybox {
+  position: sticky;
+  top: 16px;
+  align-self: start;
 }
 
 /* === Editorial buybox — calm, generous, disciplined === */
