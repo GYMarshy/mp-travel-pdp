@@ -4488,29 +4488,14 @@ button.k-mosaic-tile {
   text-transform: uppercase;
 }
 
-/* Sticky buybox on the right — independently scrollable */
+/* Sticky buybox on the right (Gardener's Dream pattern) — naturally sized,
+   no internal scrollbar. Sticks at top:16 while the taller gallery scrolls
+   past. When the parent's bottom catches up, sticky releases and the rest
+   of the page below the layout flows normally. */
 .k-buybox {
   position: sticky;
   top: 16px;
   align-self: start;
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
-  padding-right: 8px;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-}
-
-.k-buybox::-webkit-scrollbar {
-  width: 6px;
-}
-
-.k-buybox::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-.k-buybox::-webkit-scrollbar-track {
-  background: transparent;
 }
 
 /* === Editorial buybox — calm, generous, disciplined === */
