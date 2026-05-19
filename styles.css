@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600&display=swap");
+
 :root {
   --page-bg: #ffffff;
-  --text: #111111;
+  --text: #323232;
   --muted: #6b6b6b;
   --line: #e5e5e5;
-  --teal: #3bb7a9;
-  --teal-dark: #249f92;
+  --teal: #47bb9c;
+  --teal-dark: #3aaa8e;
   --sale: #d44d4d;
   --promo: #bc7a2e;
   --footer-bg: #f7f5f2;
@@ -20,7 +22,8 @@ body {
   padding: 0;
   background: var(--page-bg);
   color: var(--text);
-  font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
   overflow-x: hidden;
 }
 
@@ -4522,10 +4525,10 @@ button.k-mosaic-tile {
 }
 
 .k-h1 {
-  font-size: 40px;
-  font-weight: 300;
-  letter-spacing: -0.8px;
-  line-height: 1.05;
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: 0;
+  line-height: 1.2;
   margin: 4px 0 0;
   color: #1a1a1a;
 }
@@ -6992,7 +6995,7 @@ body.show-tests .k-test-panel {
   }
 
   .k-h1 {
-    font-size: 30px;
+    font-size: 21px;
   }
 
   .k-price {
