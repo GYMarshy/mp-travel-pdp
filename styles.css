@@ -4740,6 +4740,51 @@ button.k-mosaic-tile {
   gap: 12px;
 }
 
+/* Prominent compare-bundles CTA — sits below the bundle picker, opens the drawer */
+.k-bundle-compare-cta {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 14px;
+  row-gap: 2px;
+  width: 100%;
+  margin: 14px 0 4px;
+  padding: 16px 18px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 1px solid #1a1a1a;
+  cursor: pointer;
+  text-align: left;
+  transition: background 150ms, transform 150ms;
+}
+.k-bundle-compare-cta:hover {
+  background: #323232;
+}
+.k-bundle-compare-cta:active {
+  transform: translateY(1px);
+}
+.k-bundle-compare-cta-label {
+  grid-column: 1;
+  grid-row: 1;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+}
+.k-bundle-compare-cta-sub {
+  grid-column: 1;
+  grid-row: 2;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+}
+.k-bundle-compare-cta-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+  font-size: 22px;
+  line-height: 1;
+}
+
 .k-bundle-heading {
   text-align: center;
   font-size: 16px;
@@ -7042,10 +7087,71 @@ body.show-tests .k-test-panel {
     font-size: 12px;
   }
 
-  /* v3 — Compare drawer: bundle matrix mobile */
+  /* v3 — Gallery on mobile: horizontal swipable carousel (replaces 2-col mosaic) */
+  .k-gallery-mosaic {
+    display: flex;
+    flex-direction: row;
+    grid-template-columns: none;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-padding: 0 16px;
+    padding-bottom: 6px;
+  }
+
+  .k-mosaic-tile {
+    flex: 0 0 85vw;
+    scroll-snap-align: start;
+    aspect-ratio: 1 / 1;
+  }
+
+  .k-mosaic-tile-hero,
+  .k-mosaic-tile-wide {
+    grid-column: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  /* v3 — Compare drawer mobile: horizontal scroll with sticky first column */
+  .k-compare-drawer-body {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .k-compare-row-products,
+  .k-compare-actions-row,
+  .k-compare-table {
+    min-width: 640px;
+  }
+
   .k-compare-row-products,
   .k-compare-actions-row {
-    grid-template-columns: 90px repeat(4, 1fr);
+    grid-template-columns: 110px repeat(4, 140px);
+  }
+
+  .k-compare-row-products-cross,
+  .k-compare-row-products-cross + .k-compare-actions-row {
+    grid-template-columns: 110px repeat(3, 150px);
+  }
+
+  /* Sticky first column — row labels stay in view while user scrolls horizontally */
+  .k-compare-row-products > .k-compare-row-label,
+  .k-compare-actions-row > :first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 2;
+  }
+
+  .k-compare-table th:first-child,
+  .k-compare-table td:first-child {
+    position: sticky;
+    left: 0;
+    background: #fff;
+    z-index: 1;
+  }
+  .k-compare-table thead th:first-child {
+    z-index: 3;
   }
 
   .k-compare-product .name,
@@ -7056,7 +7162,7 @@ body.show-tests .k-test-panel {
   .k-compare-table th,
   .k-compare-table td {
     font-size: 11px;
-    padding: 8px 4px;
+    padding: 8px 6px;
   }
 
   /* v3 — Price row stacks on mobile */
@@ -7121,10 +7227,6 @@ body.show-tests .k-test-panel {
   .k-compare-drawer {
     right: -100vw;
     width: 100vw;
-  }
-
-  .k-compare-row-products {
-    grid-template-columns: 70px repeat(3, 1fr);
   }
 
   .k-test-panel {
