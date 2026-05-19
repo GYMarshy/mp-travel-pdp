@@ -739,6 +739,41 @@
           </p>
         </section>
 
+        <!-- Cross-product compare — Ocarro 2 alongside other pushchairs (reinstated) -->
+        <section class="k-compare-section k-compare-section-cross">
+          <div class="k-compare-preview">
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/3d3530/d8c8b8?text=" alt="Ocarro 2" />
+              <div class="name">Ocarro 2</div>
+              <div class="price">From £849</div>
+            </div>
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/675b4e/d8c8b8?text=" alt="Strada" />
+              <div class="name">Strada</div>
+              <div class="price">From £499</div>
+            </div>
+            <div class="k-compare-preview-card">
+              <img src="https://placehold.co/200x200/889b97/3d3530?text=" alt="Bugaboo Fox 5" />
+              <div class="name">Bugaboo Fox 5</div>
+              <div class="price">From £1,099</div>
+            </div>
+            <div class="k-compare-preview-card k-compare-preview-add">
+              <span class="k-compare-preview-plus">+</span>
+              <div class="name">Add another</div>
+              <div class="price">12 more to compare</div>
+            </div>
+          </div>
+          <div class="k-compare-launch">
+            <div class="k-compare-launch-text">
+              <strong>Compare against other pushchairs</strong>
+              <span>See how the Ocarro 2 stacks up against the Strada, Bugaboo Fox 5 and other M&amp;P-stocked pushchairs.</span>
+            </div>
+            <button id="k-product-compare-open">
+              Open pushchair comparison
+            </button>
+          </div>
+        </section>
+
         <!-- Reviews -->
         <section class="reviews-summary" style="margin-top: 120px;">
           <div class="reviews-summary-head">
@@ -1152,6 +1187,70 @@
         </p>
       </div>
     </aside>
+
+    <!-- Cross-product compare drawer (reinstated alongside bundle matrix) -->
+    <div class="k-compare-overlay" id="k-product-compare-overlay" data-close-product-compare></div>
+    <aside class="k-compare-drawer" id="k-product-compare-drawer">
+      <div class="k-compare-drawer-head">
+        <h2>Compare pushchairs</h2>
+        <button class="k-compare-drawer-close" id="k-product-compare-close" aria-label="Close">×</button>
+      </div>
+      <div class="k-compare-drawer-body">
+        <p class="k-compare-intro">See how the Ocarro 2 stacks up against M&amp;P's other pushchairs and key competitor brands.</p>
+
+        <div class="k-compare-row-products k-compare-row-products-cross">
+          <div class="k-compare-row-label">Comparing</div>
+          <div class="k-compare-product k-compare-product-active">
+            <span class="k-compare-product-flag">You're viewing</span>
+            <img src="https://placehold.co/120x120/3d3530/d8c8b8?text=Ocarro+2" alt="" />
+            <div class="name">Ocarro 2</div>
+            <div class="price">From £849</div>
+            <div class="saving">M&amp;P own brand</div>
+          </div>
+          <div class="k-compare-product">
+            <img src="https://placehold.co/120x120/675b4e/d8c8b8?text=Strada" alt="" />
+            <div class="name">Strada</div>
+            <div class="price">From £499</div>
+            <div class="saving">M&amp;P own brand</div>
+          </div>
+          <div class="k-compare-product">
+            <img src="https://placehold.co/120x120/889b97/3d3530?text=Bugaboo" alt="" />
+            <div class="name">Bugaboo Fox 5</div>
+            <div class="price">From £1,099</div>
+            <div class="saving">3rd-party brand</div>
+          </div>
+        </div>
+
+        <table class="k-compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th><th>Ocarro 2</th><th>Strada</th><th>Fox 5</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Birth to 22 kg</td><td class="tick">✓</td><td class="dash">—</td><td class="tick">✓</td></tr>
+            <tr><td>Reversible seat</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr><td>One-handed fold</td><td class="tick">✓</td><td class="tick">✓</td><td class="dash">—</td></tr>
+            <tr><td>All-wheel suspension</td><td class="tick">✓</td><td class="dash">—</td><td class="tick">✓</td></tr>
+            <tr><td>Lie-flat carrycot in bundle</td><td class="tick">✓</td><td class="dash">—</td><td class="dash">—</td></tr>
+            <tr><td>Folds with seat attached</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr><td>Compact fold</td><td class="tick">✓</td><td class="tick">✓</td><td class="dash">—</td></tr>
+            <tr><td>Puncture-proof tyres</td><td class="tick">✓</td><td class="dash">—</td><td class="dash">—</td></tr>
+            <tr><td>Adjustable handlebar</td><td class="tick">✓</td><td class="dash">—</td><td class="tick">✓</td></tr>
+            <tr><td>i-Size car seat compatible</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr class="k-compare-row-meta"><td>Weight (chassis + seat)</td><td>13.9 kg</td><td>10.2 kg</td><td>10.5 kg</td></tr>
+            <tr class="k-compare-row-meta"><td>Basket capacity</td><td>5 kg</td><td>3 kg</td><td>22 L</td></tr>
+            <tr class="k-compare-row-meta"><td>UPF 50+ hood</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+            <tr class="k-compare-row-meta"><td>Available in-store</td><td class="tick">✓</td><td class="tick">✓</td><td class="tick">✓</td></tr>
+          </tbody>
+        </table>
+
+        <p class="k-compare-footnote">
+          Comparison data is curated by Mamas &amp; Papas using publicly available product specifications. Each brand has been informed of the comparison criteria. <a href="#k-live-demo">Not sure which fits your life? Talk to a live expert →</a>
+        </p>
+      </div>
+    </aside>
+
 <script src="./app.js"></script>
   </body>
 </html>

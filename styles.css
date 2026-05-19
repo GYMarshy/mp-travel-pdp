@@ -4274,7 +4274,7 @@ details.j-included li::before {
    VARIANT K — Refined v3 (consolidating Jade + Chris transcript feedback)
    ============================================================ */
 
-/* Silver Cross-style split pane: scrolling mosaic gallery + sticky buybox */
+/* Silver Cross-style split pane: each pane scrolls independently within the viewport */
 .k-pdp-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
@@ -4287,8 +4287,30 @@ details.j-included li::before {
   min-width: 0;
 }
 
+/* Each column sticks at top:16 and scrolls internally when content overflows.
+   They release together when the page scrolls past the entire layout. */
 .k-gallery {
-  position: static;
+  position: sticky;
+  top: 16px;
+  align-self: start;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+  padding-right: 4px;
+}
+
+.k-gallery::-webkit-scrollbar {
+  width: 6px;
+}
+
+.k-gallery::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.k-gallery::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* Mosaic gallery — all imagery visible, 2-col grid with variable spans */
@@ -4446,11 +4468,29 @@ button.k-mosaic-tile {
   text-transform: uppercase;
 }
 
-/* Sticky buybox on the right — gallery scrolls beneath it */
+/* Sticky buybox on the right — independently scrollable */
 .k-buybox {
   position: sticky;
   top: 16px;
   align-self: start;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+  padding-right: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.k-buybox::-webkit-scrollbar {
+  width: 6px;
+}
+
+.k-buybox::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+.k-buybox::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 /* === Editorial buybox — calm, generous, disciplined === */
@@ -5324,6 +5364,16 @@ button.k-mosaic-tile {
 /* Compare section — preview thumbs + drawer launcher */
 .k-compare-section {
   margin-top: 120px;
+}
+
+/* Second compare section (cross-product) sits closer to the first one */
+.k-compare-section-cross {
+  margin-top: 24px;
+}
+
+/* Cross-product header row gets the standard 4-column layout */
+.k-compare-row-products-cross {
+  grid-template-columns: 120px repeat(3, 1fr);
 }
 
 .k-compare-preview {

@@ -527,7 +527,7 @@
       : 'Show more compatible seats ▾';
   });
 
-  /* ---- v3 (Variant K) — compare drawer ---- */
+  /* ---- v3 (Variant K) — compare drawers (bundle matrix + cross-product) ---- */
 
   function openCompare() {
     document.getElementById('k-compare-drawer').classList.add('is-open');
@@ -542,9 +542,24 @@
     document.body.style.overflow = '';
   }
 
+  function openProductCompare() {
+    document.getElementById('k-product-compare-drawer').classList.add('is-open');
+    document.getElementById('k-product-compare-overlay').classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeProductCompare() {
+    var d = document.getElementById('k-product-compare-drawer');
+    var o = document.getElementById('k-product-compare-overlay');
+    if (d) d.classList.remove('is-open');
+    if (o) o.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
   document.addEventListener('click', function (e) {
     if (e.target.closest('#k-compare-open')) openCompare();
     if (e.target.closest('#k-compare-close') || e.target.closest('[data-close-compare]')) closeCompare();
+    if (e.target.closest('#k-product-compare-open')) openProductCompare();
+    if (e.target.closest('#k-product-compare-close') || e.target.closest('[data-close-product-compare]')) closeProductCompare();
   });
 
   /* ---- v3 (Variant K) — keyboard support for div-based bundle options ---- */
