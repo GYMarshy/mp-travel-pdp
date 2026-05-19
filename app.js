@@ -287,7 +287,6 @@
     var name = tile.dataset.name || '';
     var price = parseFloat(tile.dataset.price);
     var saving = parseFloat(tile.dataset.saving);
-    var pieces = tile.dataset.pieces || '';
     var image = tile.dataset.image || '';
 
     // Price
@@ -312,10 +311,6 @@
     // Swap the hero gallery image
     var mainImg = document.getElementById('k-main-img');
     if (mainImg && image) mainImg.src = image;
-
-    // What's-included count
-    var countEl = document.getElementById('k-piece-count');
-    if (countEl) countEl.textContent = pieces;
   });
 
   // Track pram colour swatch changes

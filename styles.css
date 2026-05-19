@@ -4762,23 +4762,21 @@ button.k-mosaic-tile {
 }
 
 .k-bundle-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
 }
 
 .k-bundle-tile {
-  display: grid;
-  grid-template-columns: 84px 1fr 22px;
-  gap: 12px;
-  align-items: center;
-  padding: 14px;
+  display: block;
+  padding: 0;
   border: 1px solid var(--line);
   cursor: pointer;
   background: #fff;
   transition: border-color 150ms, background 150ms;
   font-family: inherit;
   text-align: left;
+  overflow: hidden;
 }
 
 .k-bundle-tile:hover {
@@ -4790,11 +4788,13 @@ button.k-mosaic-tile {
   background: #f0faf8;
 }
 
-/* Orphan tile (odd-count last item) centres itself across both columns */
-.k-bundle-tile-orphan {
-  grid-column: 1 / -1;
-  max-width: calc(50% - 5px);
-  justify-self: center;
+/* Tile head — the always-visible row */
+.k-bundle-tile-head {
+  display: grid;
+  grid-template-columns: 84px 1fr 22px;
+  gap: 14px;
+  align-items: center;
+  padding: 14px 16px;
 }
 
 .k-bundle-tile-img {
@@ -4810,7 +4810,7 @@ button.k-mosaic-tile {
 }
 
 .k-bundle-tile-name {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
   color: #1a1a1a;
   margin: 0 0 6px;
@@ -4818,18 +4818,18 @@ button.k-mosaic-tile {
 }
 
 .k-bundle-tile-price {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 600;
   color: #1a1a1a;
   line-height: 1.1;
 }
 
 .k-bundle-tile-save {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--sale);
   margin-top: 4px;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.3px;
 }
 
 .k-bundle-tile-radio {
@@ -4840,6 +4840,7 @@ button.k-mosaic-tile {
   position: relative;
   align-self: start;
   margin-top: 4px;
+  flex-shrink: 0;
 }
 
 .k-bundle-tile.is-active .k-bundle-tile-radio {
@@ -4858,6 +4859,68 @@ button.k-mosaic-tile {
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
+}
+
+/* Inline what's-included panel — appears under the head when the tile is active */
+.k-bundle-tile-includes {
+  display: none;
+  padding: 4px 18px 18px 114px; /* indents to align with body column above */
+  border-top: 1px solid #e0eeec;
+  background: transparent;
+}
+
+.k-bundle-tile.is-active .k-bundle-tile-includes {
+  display: block;
+  animation: k-bundle-expand 220ms ease;
+}
+
+@keyframes k-bundle-expand {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.k-bundle-includes-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: #1a1a1a;
+  margin: 12px 0 10px;
+}
+
+.k-bundle-includes-label span {
+  color: #888;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  margin-left: 4px;
+  font-size: 13px;
+}
+
+.k-bundle-includes-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 16px;
+}
+
+.k-bundle-includes-list li {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.5;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.k-bundle-includes-list li::before {
+  content: "✓";
+  color: var(--teal-dark);
+  font-weight: 700;
+  font-size: 11px;
+  flex-shrink: 0;
 }
 
 /* (legacy) Bundle picker — clean rows, includes only when active */
@@ -6846,15 +6909,13 @@ body.show-tests .k-test-panel {
     position: static;
   }
 
-  /* v3 — Bundle grid to single column on mobile */
-  .k-bundle-grid {
+  /* v3 — Bundle includes panel: single column on mobile */
+  .k-bundle-includes-list {
     grid-template-columns: 1fr;
   }
 
-  .k-bundle-tile-orphan {
-    grid-column: auto;
-    max-width: none;
-    justify-self: stretch;
+  .k-bundle-tile-includes {
+    padding-left: 18px;
   }
 
   /* v3 — Style your way mobile */
