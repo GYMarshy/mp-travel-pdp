@@ -24,7 +24,10 @@ body {
   color: var(--text);
   font-family: "Poppins", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  overflow-x: hidden;
+  /* `clip` (not `hidden`) — `hidden` implicitly forces overflow-y: auto,
+     which makes html/body a scroll container and silently breaks
+     position: sticky against the viewport. */
+  overflow-x: clip;
 }
 
 a {
