@@ -5498,9 +5498,10 @@ button.k-mosaic-tile {
   margin-top: 120px;
 }
 
-/* Second compare section (cross-product) sits closer to the first one */
+/* Second compare section (cross-product) sits a bit closer than a full
+   section break but still breathes — each now has its own .section-block-head */
 .k-compare-section-cross {
-  margin-top: 24px;
+  margin-top: 96px;
 }
 
 /* Cross-product header row gets the standard 4-column layout */
