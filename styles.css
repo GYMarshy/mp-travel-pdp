@@ -4287,30 +4287,11 @@ details.j-included li::before {
   min-width: 0;
 }
 
-/* Each column sticks at top:16 and scrolls internally when content overflows.
-   They release together when the page scrolls past the entire layout. */
+/* Gallery flows naturally — all 25 mosaic tiles visible as the user scrolls
+   the page. Buybox is the sticky pane (defined further down) that follows
+   alongside until the layout ends. */
 .k-gallery {
-  position: sticky;
-  top: 16px;
-  align-self: start;
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #ccc transparent;
-  padding-right: 4px;
-}
-
-.k-gallery::-webkit-scrollbar {
-  width: 6px;
-}
-
-.k-gallery::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-.k-gallery::-webkit-scrollbar-track {
-  background: transparent;
+  position: static;
 }
 
 /* Mosaic gallery — all imagery visible, 2-col grid with variable spans */
@@ -4342,6 +4323,45 @@ details.j-included li::before {
 .k-mosaic-tile-wide {
   grid-column: span 2;
   aspect-ratio: 2 / 1;
+}
+
+/* Text-overlay tiles — cream background with editorial copy laid over (Silver Cross pattern) */
+.k-mosaic-tile-overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  background: #f1ede5;
+}
+
+.k-mosaic-tile-overlay img {
+  opacity: 0.06;
+}
+
+.k-mosaic-overlay-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-size: 22px;
+  font-weight: 300;
+  color: #1a1a1a;
+  letter-spacing: -0.3px;
+  line-height: 1.2;
+}
+
+.k-mosaic-overlay-text small {
+  font-size: 12px;
+  font-weight: 400;
+  color: #555;
+  margin-top: 8px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: block;
 }
 
 /* Video tiles — clickable button with caption underneath */
