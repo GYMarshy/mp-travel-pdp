@@ -4508,7 +4508,7 @@ button.k-mosaic-tile {
 .k-buybox {
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
   padding-top: 8px;
 }
 
