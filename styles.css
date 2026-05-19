@@ -5301,6 +5301,31 @@ button.k-mosaic-tile {
   gap: 10px;
 }
 
+/* Combined single-line payment row — Klarna + PayPal inline */
+.k-payment-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  background: #fff;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+}
+.k-payment-line .k-payment-logo {
+  flex: 0 0 auto;
+}
+.k-payment-line-text {
+  flex: 1 1 200px;
+  min-width: 0;
+}
+.k-payment-line-text a {
+  color: #1a1a1a;
+  text-decoration: underline;
+}
+
 .k-payment-block {
   display: grid;
   grid-template-columns: 72px 1fr;
