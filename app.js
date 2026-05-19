@@ -274,118 +274,48 @@
     });
   });
 
-  /* ---- v3 (Variant K) bundle picker — base + delta + car-seat sub-selector ---- */
-
-  var K_BUNDLES = {
-    pushchair: { name: 'Pushchair only',     pieces: 4,  basePrice:  849, saving:   0, hasCarSeat: false,
-                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder'] },
-    carrycot:  { name: 'Pushchair + Carrycot', pieces: 6, basePrice: 1048, saving:  30, hasCarSeat: false,
-                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'Lie-flat carrycot', 'Carrycot mattress'] },
-    carseat:   { name: 'Pushchair + Car Seat', pieces: 7, basePrice: 1349, saving:  80, hasCarSeat: true,
-                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'i-Size car seat', 'Isofix base', 'Car seat adapters'] },
-    travel:    { name: 'Full Travel System',   pieces: 9, basePrice: 1499, saving: 290, hasCarSeat: true,
-                 baseItems: ['Frame & seat unit', 'Hood', 'Rain cover', 'Cup holder', 'Lie-flat carrycot', 'Carrycot mattress', 'i-Size car seat', 'Isofix base', 'Car seat adapters'] },
-  };
-
-  var kState = {
-    bundleKey: 'travel',
-    carSeatName: 'Cybex Cloud T',
-    carSeatDelta: 0,
-    carSeatColour: 'Sand',
-    pramColour: 'Americano',
-  };
-
-  function kRender() {
-    var bundle = K_BUNDLES[kState.bundleKey];
-    if (!bundle) return;
-
-    var totalPrice = bundle.basePrice + (bundle.hasCarSeat ? kState.carSeatDelta : 0);
-    var priceEl = document.getElementById('k-price');
-    if (priceEl) priceEl.textContent = '£' + totalPrice.toLocaleString();
-
-    var saveEl = document.getElementById('k-price-saving');
-    if (saveEl) {
-      saveEl.textContent = bundle.saving > 0
-        ? 'Save £' + bundle.saving + ' compared to buying separately'
-        : '';
-    }
-
-    var bnameEl = document.getElementById('k-bundle-name');
-    if (bnameEl) bnameEl.textContent = bundle.name;
-
-    // Swap the main gallery image to match the selected bundle
-    var activeOpt = document.querySelector('.k-bundle-option.is-active');
-    var mainImg = document.getElementById('k-main-img');
-    if (activeOpt && mainImg && activeOpt.dataset.image) {
-      mainImg.src = activeOpt.dataset.image;
-      // Deactivate gallery thumbs since the active image is now from the bundle
-      document.querySelectorAll('.k-gallery-thumbs img').forEach(function (t) { t.classList.remove('is-active'); });
-    }
-
-    var subtitle = document.getElementById('k-subtitle');
-    if (subtitle) {
-      var subStr = bundle.pieces + '-piece bundle';
-      if (bundle.hasCarSeat) subStr = bundle.pieces + '-piece bundle with ' + kState.carSeatName;
-      if (kState.bundleKey === 'pushchair') subStr = 'Frame, seat, hood &amp; rain cover';
-      subtitle.innerHTML = subStr + ' — ' + kState.pramColour;
-    }
-
-    var countEl = document.getElementById('k-piece-count');
-    if (countEl) countEl.textContent = bundle.pieces + ' pieces';
-
-    var listEl = document.getElementById('k-included-list');
-    if (listEl) {
-      listEl.innerHTML = '';
-      bundle.baseItems.forEach(function (item) {
-        var li = document.createElement('li');
-        var displayItem = item;
-        if (bundle.hasCarSeat && /car seat/i.test(item) && !/adapters/i.test(item)) {
-          displayItem = kState.carSeatName;
-        }
-        if (bundle.hasCarSeat && /isofix base/i.test(item)) {
-          displayItem = kState.carSeatName.indexOf('Maxi') === 0 ? 'Maxi-Cosi FamilyFix 360' : 'Cybex Base T isofix base';
-        }
-        li.textContent = displayItem;
-        listEl.appendChild(li);
-      });
-    }
-  }
+  /* ---- v3 (Variant K) bundle selector — production-style 7-tile grid (V1) ---- */
 
   document.addEventListener('click', function (e) {
-    var opt = e.target.closest('.k-bundle-option');
-    if (!opt) return;
+    var tile = e.target.closest('.k-bundle-tile');
+    if (!tile) return;
 
-    // Don't trigger bundle change if click is on a sub-selector
-    if (e.target.closest('.k-sub-selector')) {
-      // sub-selector clicks (car seat / car seat colour)
-      var pill = e.target.closest('.k-sub-pill');
-      if (pill) {
-        var group = pill.closest('.k-sub-pills');
-        group.querySelectorAll('.k-sub-pill').forEach(function (p) { p.classList.remove('is-active'); });
-        pill.classList.add('is-active');
-        kState.carSeatName = pill.dataset.csName;
-        kState.carSeatDelta = parseInt(pill.dataset.csDelta, 10) || 0;
-        document.querySelectorAll('[id^="k-cs-name-"]').forEach(function (el) { el.textContent = kState.carSeatName; });
-        kRender();
-        return;
+    // Mark active
+    document.querySelectorAll('.k-bundle-tile').forEach(function (t) { t.classList.remove('is-active'); });
+    tile.classList.add('is-active');
+
+    var name = tile.dataset.name || '';
+    var price = parseFloat(tile.dataset.price);
+    var saving = parseFloat(tile.dataset.saving);
+    var pieces = tile.dataset.pieces || '';
+    var image = tile.dataset.image || '';
+
+    // Price
+    var priceEl = document.getElementById('k-price');
+    if (priceEl && !isNaN(price)) priceEl.textContent = '£' + price.toLocaleString();
+
+    // Saving
+    var saveEl = document.getElementById('k-price-saving');
+    if (saveEl) {
+      if (!isNaN(saving) && saving > 0) {
+        var saveStr = saving % 1 === 0 ? saving.toFixed(0) : saving.toFixed(2);
+        saveEl.textContent = 'Save £' + saveStr + ' compared to buying separately';
+      } else {
+        saveEl.textContent = '';
       }
-      var sw = e.target.closest('.k-sub-swatches button');
-      if (sw) {
-        var group2 = sw.closest('.k-sub-swatches');
-        group2.querySelectorAll('button').forEach(function (b) { b.classList.remove('is-active'); });
-        sw.classList.add('is-active');
-        kState.carSeatColour = sw.dataset.csColour;
-        document.querySelectorAll('[id^="k-cs-colour-"]').forEach(function (el) { el.textContent = kState.carSeatColour; });
-        return;
-      }
-      return;
     }
 
-    // Bundle option selected
-    document.querySelectorAll('.k-bundle-option').forEach(function (o) { o.classList.remove('is-active'); });
-    opt.classList.add('is-active');
-    kState.bundleKey = opt.dataset.bundle;
-    kRender();
+    // Selected bundle name (shown above the grid)
+    var nameEl = document.getElementById('k-bundle-name');
+    if (nameEl) nameEl.textContent = name;
+
+    // Swap the hero gallery image
+    var mainImg = document.getElementById('k-main-img');
+    if (mainImg && image) mainImg.src = image;
+
+    // What's-included count
+    var countEl = document.getElementById('k-piece-count');
+    if (countEl) countEl.textContent = pieces;
   });
 
   // Track pram colour swatch changes

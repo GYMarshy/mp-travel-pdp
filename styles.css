@@ -4733,7 +4733,134 @@ button.k-mosaic-tile {
   flex-shrink: 0;
 }
 
-/* Bundle picker — clean rows, includes only when active */
+/* Production-style bundle selector — 7-tile 2-column grid */
+.k-bundle-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.k-bundle-heading {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  margin: 0 0 4px;
+  color: #1a1a1a;
+}
+
+.k-bundle-selected {
+  text-align: center;
+  font-size: 14px;
+  color: #1a1a1a;
+  margin: 0 0 12px;
+}
+
+.k-bundle-selected strong {
+  font-weight: 600;
+}
+
+.k-bundle-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.k-bundle-tile {
+  display: grid;
+  grid-template-columns: 84px 1fr 22px;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  background: #fff;
+  transition: border-color 150ms, background 150ms;
+  font-family: inherit;
+  text-align: left;
+}
+
+.k-bundle-tile:hover {
+  border-color: #888;
+}
+
+.k-bundle-tile.is-active {
+  border-color: var(--teal);
+  background: #f0faf8;
+}
+
+/* Orphan tile (odd-count last item) centres itself across both columns */
+.k-bundle-tile-orphan {
+  grid-column: 1 / -1;
+  max-width: calc(50% - 5px);
+  justify-self: center;
+}
+
+.k-bundle-tile-img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: #f7f5f2;
+  display: block;
+}
+
+.k-bundle-tile-body {
+  min-width: 0;
+}
+
+.k-bundle-tile-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  line-height: 1.3;
+}
+
+.k-bundle-tile-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  line-height: 1.1;
+}
+
+.k-bundle-tile-save {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--sale);
+  margin-top: 4px;
+  letter-spacing: 0.2px;
+}
+
+.k-bundle-tile-radio {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid #ccc;
+  position: relative;
+  align-self: start;
+  margin-top: 4px;
+}
+
+.k-bundle-tile.is-active .k-bundle-tile-radio {
+  border-color: var(--teal);
+  background: var(--teal);
+}
+
+.k-bundle-tile.is-active .k-bundle-tile-radio::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* (legacy) Bundle picker — clean rows, includes only when active */
 .k-bundle-picker {
   display: flex;
   flex-direction: column;
@@ -6716,6 +6843,17 @@ body.show-tests .k-test-panel {
   /* v3 — Buybox sticky off on mobile */
   .k-buybox {
     position: static;
+  }
+
+  /* v3 — Bundle grid to single column on mobile */
+  .k-bundle-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .k-bundle-tile-orphan {
+    grid-column: auto;
+    max-width: none;
+    justify-self: stretch;
   }
 
   /* v3 — Style your way mobile */
