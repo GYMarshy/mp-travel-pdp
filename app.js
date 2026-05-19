@@ -487,6 +487,17 @@
     if (e.target.closest('#k-product-compare-close') || e.target.closest('[data-close-product-compare]')) closeProductCompare();
   });
 
+  /* ---- v3 (Variant K) — hot-reload inspector toggle ---- */
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('#k-hot-toggle');
+    if (!btn) return;
+    var on = document.body.classList.toggle('show-hot-reload');
+    btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    var label = btn.querySelector('.k-hot-toggle-label');
+    if (label) label.textContent = on ? 'Hide bundle-reload areas' : 'Show bundle-reload areas';
+  });
+
   /* ---- v3 (Variant K) — keyboard support for div-based bundle options ---- */
 
   document.addEventListener('keydown', function (e) {

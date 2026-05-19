@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <!-- Prototype-only: highlight which areas would hot-reload when the bundle changes -->
+    <button class="k-hot-toggle" id="k-hot-toggle" aria-pressed="false">
+      <span class="k-hot-toggle-dot"></span>
+      <span class="k-hot-toggle-label">Show bundle-reload areas</span>
+    </button>
+
     <div class="site-shell">
       <div class="top-strip">Order by 7pm for next day delivery.</div>
       <header class="header-main">
@@ -43,7 +49,7 @@
             <div class="k-gallery-mosaic">
 
               <!-- Hero — bundle-driven, full width -->
-              <div class="k-mosaic-tile k-mosaic-tile-hero" id="k-mosaic-hero">
+              <div class="k-mosaic-tile k-mosaic-tile-hero" id="k-mosaic-hero" data-hot-reload="Hero image">
                 <img id="k-main-img" src="https://placehold.co/720x540/3d3530/d8c8b8?text=Ocarro+2+%E2%80%94+Full+Travel+System" alt="Ocarro 2 Full Travel System in Americano" />
                 <div class="k-image-info-overlay">
                   <span class="k-image-info-tag">Birth to 22 kg</span>
@@ -156,7 +162,7 @@
               <a href="#">284 reviews</a>
             </div>
 
-            <div class="k-price-area">
+            <div class="k-price-area" data-hot-reload="Price &amp; saving">
               <div class="k-price-row">
                 <span class="k-price" id="k-price">£1,499</span>
                 <span class="k-price-delivery">Free standard delivery included</span>
@@ -194,7 +200,7 @@
 
             <!-- Bundle selector — production 7-tile grid (V1 baseline per the transcript) -->
             <!-- Bundle selector — full-width tiles, active tile expands inline to show what's included -->
-            <div class="k-bundle-section">
+            <div class="k-bundle-section" data-hot-reload="Bundle selector">
               <h3 class="k-bundle-heading">Ocarro 2 Features</h3>
               <p class="k-bundle-selected">
                 Selected Bundle: <strong id="k-bundle-name">9 Piece Bundle With Cloud T Car Seat</strong>
@@ -763,7 +769,7 @@
             <h2>Compare bundles</h2>
             <p>All four Ocarro 2 bundles side by side — what's in each, what changes, what you save.</p>
           </div>
-          <div class="k-compare-preview">
+          <div class="k-compare-preview" data-hot-reload="Bundle preview thumbs">
             <div class="k-compare-preview-card">
               <img src="https://placehold.co/200x200/3d3530/d8c8b8?text=" alt="Pushchair only" />
               <div class="name">Pushchair only</div>
@@ -936,12 +942,14 @@
               <p>Upgraded wheels and brakes for greater off-road efficiency, plush fabrics for superior cocoon-like comfort, and a compact fold-and-carry for effortless collapse and storage. An overnight-sleep-approved carrycot and stand are included for safe sleeping anytime, anywhere.</p>
               <p>Combining the convenience you need and the style you crave with the adaptability to nurture your little one from birth to 4 years*, Ocarro 2 raises the 'all-rounder' bar to a whole new level.</p>
               <p class="k-details-fineprint">*Up to 22 kg.</p>
-              <h4>This bundle includes</h4>
-              <p>Ocarro 2 Pushchair, Ocarro 2 Carrycot, Carrycot Stand, Ocarro 2 Footmuff, Cybex Cloud T i-Size Rotating Baby Car Seat, Cybex Base T 360° Rotating ISOFIX Car Seat Base, Utilitarian Backpack, Car Seat Adaptors (Armadillo, Flip XT, Ocarro and Ocarro 2 — Cybex/Maxi-Cosi), Cup Holder and Rain Cover.</p>
+              <div data-hot-reload="Bundle inclusions">
+                <h4>This bundle includes</h4>
+                <p>Ocarro 2 Pushchair, Ocarro 2 Carrycot, Carrycot Stand, Ocarro 2 Footmuff, Cybex Cloud T i-Size Rotating Baby Car Seat, Cybex Base T 360° Rotating ISOFIX Car Seat Base, Utilitarian Backpack, Car Seat Adaptors (Armadillo, Flip XT, Ocarro and Ocarro 2 — Cybex/Maxi-Cosi), Cup Holder and Rain Cover.</p>
+              </div>
             </div>
           </details>
 
-          <details class="k-details-item">
+          <details class="k-details-item" data-hot-reload="Specifications">
             <summary>
               <span class="k-details-summary-text">Specifications</span>
               <span class="k-details-summary-icon"></span>

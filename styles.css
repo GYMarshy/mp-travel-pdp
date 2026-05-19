@@ -6094,6 +6094,89 @@ button.k-mosaic-tile {
   }
 }
 
+/* Hot-reload area toggle — prototype-only inspector for "what changes
+   when the bundle changes". Floating bottom-right; subtle pill that
+   highlights tagged areas with a dashed outline + label on click. */
+
+.k-hot-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1a1a;
+  color: #fff;
+  border: 0;
+  padding: 10px 16px;
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: background 150ms;
+}
+
+.k-hot-toggle:hover {
+  background: #000;
+}
+
+.k-hot-toggle-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #888;
+  flex-shrink: 0;
+  transition: background 150ms;
+}
+
+body.show-hot-reload .k-hot-toggle {
+  background: #f97316;
+}
+
+body.show-hot-reload .k-hot-toggle:hover {
+  background: #e25e0c;
+}
+
+body.show-hot-reload .k-hot-toggle-dot {
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+}
+
+/* The dashed outline + label appear only when the toggle is on */
+body.show-hot-reload [data-hot-reload] {
+  position: relative;
+  outline: 2px dashed #f97316;
+  outline-offset: 6px;
+}
+
+body.show-hot-reload [data-hot-reload]::before {
+  content: attr(data-hot-reload);
+  position: absolute;
+  top: -28px;
+  left: 0;
+  background: #f97316;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 2px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+/* Slight padding to make sure outlines don't get clipped by parent overflow */
+body.show-hot-reload .k-mosaic-tile-hero {
+  z-index: 1;
+}
+
 /* Prototype framework — collapsible block below the footer */
 .k-framework {
   background: #1a1a1a;
