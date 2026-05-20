@@ -7266,10 +7266,48 @@ body.show-tests .k-test-panel {
     width: 100%;
   }
 
-  /* v3 — Compare preview mobile */
+  /* v3 — Cross-product compare preview mobile.
+     The bug: the "Add another" tile had aspect-ratio: 1/1 on the *card*
+     while regular cards had aspect-ratio only on the inner <img>, so cards
+     in a row had different intrinsic heights and the grid stretched them
+     unevenly. Fix: force every card to behave as image-on-top + text-below
+     with align-items: start, and constrain columns to equal width via
+     minmax(0, 1fr). */
   .k-compare-preview {
-    grid-template-columns: 1fr 1fr;
-    gap: 12px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+  }
+  .k-compare-preview-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  .k-compare-preview-card img {
+    aspect-ratio: 1 / 1;
+    margin-bottom: 8px;
+  }
+  .k-compare-preview-card .name {
+    font-size: 13px;
+  }
+  .k-compare-preview-card .price {
+    font-size: 12px;
+  }
+  /* Add-another tile: match the image box of regular cards (square),
+     centred content sits within that square — not the whole card */
+  .k-compare-preview-add {
+    aspect-ratio: 1 / 1;
+    padding: 12px;
+  }
+  .k-compare-preview-plus {
+    font-size: 26px;
+    margin-bottom: 4px;
+  }
+  .k-compare-preview-add .name {
+    font-size: 13px;
+  }
+  .k-compare-preview-add .price {
+    font-size: 11px;
   }
 
   .k-compare-launch {
@@ -7294,21 +7332,25 @@ body.show-tests .k-test-panel {
 
   .k-add-row {
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
   }
 
-  /* Add to Bag — primary mobile commerce action, full size */
+  /* Add to Bag — primary mobile commerce action. Match the live PDP's
+     proportions: tall (72px), Title Case (not all-caps), 18px text. */
   .k-add-row .btn-primary {
     width: 100%;
-    height: 56px;
-    font-size: 15px;
-    letter-spacing: 1.2px;
+    height: 72px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 0.2px;
+    text-transform: none;
   }
 
   .k-baby-list {
     width: 100%;
-    height: 52px;
+    height: 56px;
     justify-content: center;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 500;
   }
 }
