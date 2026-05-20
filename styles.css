@@ -4310,7 +4310,8 @@ details.j-included li::before {
 .k-mosaic-tile {
   position: relative;
   background: #f7f5f2;
-  aspect-ratio: 1 / 1;
+  /* Brand-mandated portrait ratio for every gallery asset */
+  aspect-ratio: 1696 / 2048;
   overflow: hidden;
 }
 
@@ -4321,14 +4322,12 @@ details.j-included li::before {
   display: block;
 }
 
-.k-mosaic-tile-hero {
-  grid-column: span 2;
-  aspect-ratio: 4 / 3;
-}
-
+/* Brand-mandated single ratio across all assets — drop the historic span-2
+   modifiers so every tile sits in a uniform two-column portrait grid. */
+.k-mosaic-tile-hero,
 .k-mosaic-tile-wide {
-  grid-column: span 2;
-  aspect-ratio: 2 / 1;
+  grid-column: auto;
+  aspect-ratio: 1696 / 2048;
 }
 
 /* Text-overlay tiles — cream background with editorial copy laid over (Silver Cross pattern) */
@@ -4392,12 +4391,13 @@ button.k-mosaic-tile {
   position: relative;
   display: block;
   background: #2e2924;
-  aspect-ratio: 16 / 10;
+  /* Match the uniform gallery ratio for every video thumbnail */
+  aspect-ratio: 1696 / 2048;
   overflow: hidden;
 }
 
 .k-mosaic-tile-video:not(.k-mosaic-tile-wide) .k-mosaic-video-img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 1696 / 2048;
 }
 
 .k-mosaic-video-img img {
@@ -7134,13 +7134,13 @@ body.show-tests .k-test-panel {
   .k-mosaic-tile {
     flex: 0 0 85vw;
     scroll-snap-align: start;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1696 / 2048;
   }
 
   .k-mosaic-tile-hero,
   .k-mosaic-tile-wide {
     grid-column: auto;
-    aspect-ratio: 1 / 1;
+    aspect-ratio: 1696 / 2048;
   }
 
   /* v3 — Compare drawer mobile: horizontal scroll with sticky first column */
