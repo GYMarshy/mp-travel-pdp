@@ -5256,46 +5256,57 @@ button.k-mosaic-tile {
 }
 
 /* CTA row */
+/* Add-to-bag + Baby List — matches the live mamasandpapas.com treatment:
+   primary teal button stacked full-width, with a low-emphasis underlined
+   Baby List link beneath. Same layout on desktop and mobile. */
 .k-add-row {
   display: flex;
-  gap: 10px;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .k-add-row .btn-primary {
-  flex: 1;
-  background: #323232;
+  width: 100%;
+  background: var(--teal);
   color: #fff;
-  height: 56px;
-  font-size: 14px;
+  height: 64px;
+  font-size: 18px;
   font-weight: 600;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  text-transform: none;
   border: 0;
   cursor: pointer;
   min-width: 0;
   font-family: inherit;
+  transition: background 150ms;
 }
 
 .k-add-row .btn-primary:hover {
-  background: #1a1a1a;
+  background: var(--teal-dark);
 }
 
+/* Baby List — outline-less, centred, with stroked heart and underlined label */
 .k-baby-list {
   background: transparent;
-  border: 1px solid #ccc;
-  height: 56px;
-  padding: 0 24px;
-  font-size: 14px;
+  border: 0;
+  width: 100%;
+  height: auto;
+  padding: 4px 0;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
   font-family: inherit;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   color: #1a1a1a;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .k-baby-list:hover {
-  border-color: #1a1a1a;
+  color: #000;
 }
 
 /* Payment blocks — Klarna and PayPal Pay-in-3 */
@@ -7330,27 +7341,9 @@ body.show-tests .k-test-panel {
     width: 100vw;
   }
 
-  .k-add-row {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  /* Add to Bag — primary mobile commerce action. Match the live PDP's
-     proportions: tall (72px), Title Case (not all-caps), 18px text. */
+  /* Add-to-bag stack — same treatment as desktop, but a touch taller on
+     mobile to read as the primary commerce moment of the page */
   .k-add-row .btn-primary {
-    width: 100%;
-    height: 72px;
-    font-size: 18px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    text-transform: none;
-  }
-
-  .k-baby-list {
-    width: 100%;
-    height: 56px;
-    justify-content: center;
-    font-size: 15px;
-    font-weight: 500;
+    height: 68px;
   }
 }
