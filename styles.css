@@ -4723,6 +4723,21 @@ button.k-mosaic-tile {
   align-self: start;
 }
 
+/* Classic gallery variant — flip the sticky pane. The classic gallery is
+   shorter than the buybox, so it makes sense to freeze the gallery in
+   view while the longer buy panel scrolls past it. */
+@media (min-width: 769px) {
+  body.g-classic .k-buybox {
+    position: static;
+    top: auto;
+  }
+  body.g-classic .k-gallery {
+    position: sticky;
+    top: 16px;
+    align-self: start;
+  }
+}
+
 /* === Editorial buybox — calm, generous, disciplined === */
 .k-buybox {
   display: flex;
