@@ -91,13 +91,16 @@
   }
 
   /* Classic gallery — populated at runtime from the mosaic markup so the
-     image list stays single-source. */
+     image list stays single-source. Thumbnail strip behaves like the live
+     PDP: horizontally scrollable, arrow/click triggers a smooth recentre
+     so the active thumb sits at the centre of the strip. */
   function initClassicGallery() {
     if (!document.body.classList.contains('g-classic')) return;
     var container = document.querySelector('.k-gallery-classic');
     if (!container) return;
     var mainImg = container.querySelector('#k-classic-main-img');
     var strip = container.querySelector('.k-classic-thumbs');
+    var counter = container.querySelector('#k-classic-counter');
     if (!mainImg || !strip) return;
 
     var sources = [];
@@ -105,32 +108,54 @@
       sources.push(img.src);
     });
     if (!sources.length) return;
-    mainImg.src = sources[0];
+
+    function setActive(idx) {
+      var thumbs = strip.querySelectorAll('.k-classic-thumb');
+      thumbs.forEach(function (t, i) {
+        t.classList.toggle('is-active', i === idx);
+      });
+      mainImg.src = sources[idx];
+      if (counter) counter.textContent = 'image ' + (idx + 1) + '/' + sources.length;
+      // Recentre the strip on the active thumb — mirrors the live PDP
+      // where interaction slides the next thumb to the pointer position.
+      var target = thumbs[idx];
+      if (target && target.scrollIntoView) {
+        target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      }
+    }
 
     sources.forEach(function (src, i) {
       var btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'k-classic-thumb' + (i === 0 ? ' is-active' : '');
+      btn.className = 'k-classic-thumb';
       btn.innerHTML = '<img src="' + src + '" alt="" />';
-      btn.addEventListener('click', function () {
-        strip.querySelectorAll('.k-classic-thumb').forEach(function (t) { t.classList.remove('is-active'); });
-        btn.classList.add('is-active');
-        mainImg.src = src;
-      });
+      btn.addEventListener('click', function () { setActive(i); });
       strip.appendChild(btn);
     });
 
-    var prev = container.querySelector('.k-classic-arrow-prev');
-    var next = container.querySelector('.k-classic-arrow-next');
+    // Initial state — no scroll animation on the very first paint
+    var thumbs = strip.querySelectorAll('.k-classic-thumb');
+    thumbs[0].classList.add('is-active');
+    mainImg.src = sources[0];
+    if (counter) counter.textContent = 'image 1/' + sources.length;
+
     function step(dir) {
-      var thumbs = strip.querySelectorAll('.k-classic-thumb');
-      var idx = 0;
-      thumbs.forEach(function (t, i) { if (t.classList.contains('is-active')) idx = i; });
-      var nextIdx = (idx + dir + thumbs.length) % thumbs.length;
-      thumbs[nextIdx].click();
+      var current = 0;
+      strip.querySelectorAll('.k-classic-thumb').forEach(function (t, i) {
+        if (t.classList.contains('is-active')) current = i;
+      });
+      setActive((current + dir + sources.length) % sources.length);
     }
-    if (prev) prev.addEventListener('click', function () { step(-1); });
-    if (next) next.addEventListener('click', function () { step(1); });
+    // Main-image arrows
+    var mainPrev = container.querySelector('.k-classic-arrow-prev');
+    var mainNext = container.querySelector('.k-classic-arrow-next');
+    if (mainPrev) mainPrev.addEventListener('click', function () { step(-1); });
+    if (mainNext) mainNext.addEventListener('click', function () { step(1); });
+    // Thumb-strip flanking arrows
+    var stripPrev = container.querySelector('.k-thumbs-arrow-prev');
+    var stripNext = container.querySelector('.k-thumbs-arrow-next');
+    if (stripPrev) stripPrev.addEventListener('click', function () { step(-1); });
+    if (stripNext) stripNext.addEventListener('click', function () { step(1); });
   }
 
   // Expose for the click handler further down the file
