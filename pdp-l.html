@@ -44,8 +44,22 @@
         </div>
 
         <section class="k-pdp-layout">
-          <!-- Gallery: Silver Cross-style scrollable mosaic — all imagery visible, videos folded in -->
+          <!-- Gallery: two treatments. Mosaic (default) and Classic (?gallery=classic).
+               JS hides the unused one via body classes (g-mosaic / g-classic). -->
           <div class="k-gallery">
+
+            <!-- Alt: classic main-image + thumbnail strip. Thumbs are
+                 populated from the mosaic markup below, so the image list
+                 stays single-source. -->
+            <div class="k-gallery-classic">
+              <div class="k-classic-main">
+                <button class="k-classic-arrow k-classic-arrow-prev" type="button" aria-label="Previous image">‹</button>
+                <img id="k-classic-main-img" alt="Ocarro 2 main image" />
+                <button class="k-classic-arrow k-classic-arrow-next" type="button" aria-label="Next image">›</button>
+              </div>
+              <div class="k-classic-thumbs" role="tablist" aria-label="Gallery thumbnails"></div>
+            </div>
+
             <div class="k-gallery-mosaic">
 
               <!-- Hero — bundle-driven, full width -->

@@ -1,4 +1,141 @@
 (function () {
+  /* ---- Variant routing (gallery × picker × bundle) ----
+     URL params drive three independent variants of this PDP without
+     duplicating the file. We default to the original behaviour so existing
+     links keep working.
+       ?gallery=mosaic|classic
+       ?picker=inline|links
+       ?bundle=<data-bundle key>      (only meaningful in picker=links mode —
+                                       simulates a reload landing on that
+                                       bundle's expanded panel)
+  */
+  var kParams = new URLSearchParams(window.location.search);
+  var kGallery = kParams.get('gallery') === 'classic' ? 'classic' : 'mosaic';
+  var kPicker = kParams.get('picker') === 'links' ? 'links' : 'inline';
+  var kBundle = kParams.get('bundle') || '';
+
+  // Script is at end of body, so body exists by now — apply classes
+  // immediately to avoid a flash of the wrong gallery treatment.
+  document.documentElement.classList.add('g-' + kGallery, 'p-' + kPicker);
+  document.body.classList.add('g-' + kGallery, 'p-' + kPicker);
+
+  // The rest needs the full DOM (bundle tiles etc.) ready — defer.
+  function kInitVariants() {
+    renderVariantChip();
+    initClassicGallery();
+    if (kPicker === 'links' && kBundle) {
+      var target = document.querySelector('.k-bundle-tile[data-bundle="' + kBundle + '"]');
+      if (target) activateBundleTile(target);
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', kInitVariants);
+  } else {
+    kInitVariants();
+  }
+
+  function renderVariantChip() {
+    var chip = document.createElement('div');
+    chip.className = 'k-variant-chip';
+    chip.innerHTML =
+      '<div class="k-variant-chip-label">Prototype variants</div>' +
+      '<div class="k-variant-chip-row">' +
+      '  <span class="k-variant-chip-leader">Gallery</span>' +
+      '  <button class="k-variant-chip-btn ' + (kGallery==='mosaic'?'is-active':'') + '" data-set="gallery=mosaic">Mosaic</button>' +
+      '  <button class="k-variant-chip-btn ' + (kGallery==='classic'?'is-active':'') + '" data-set="gallery=classic">Classic</button>' +
+      '</div>' +
+      '<div class="k-variant-chip-row">' +
+      '  <span class="k-variant-chip-leader">Picker</span>' +
+      '  <button class="k-variant-chip-btn ' + (kPicker==='inline'?'is-active':'') + '" data-set="picker=inline">Inline expand</button>' +
+      '  <button class="k-variant-chip-btn ' + (kPicker==='links'?'is-active':'') + '" data-set="picker=links">Links + reload</button>' +
+      '</div>';
+    document.body.appendChild(chip);
+    chip.addEventListener('click', function (e) {
+      var btn = e.target.closest('.k-variant-chip-btn');
+      if (!btn) return;
+      var parts = btn.dataset.set.split('=');
+      var url = new URL(window.location.href);
+      url.searchParams.set(parts[0], parts[1]);
+      // When flipping the picker mode away from links, drop the bundle param
+      if (parts[0] === 'picker' && parts[1] !== 'links') url.searchParams.delete('bundle');
+      window.location.href = url.toString();
+    });
+  }
+
+  /* Bundle activation — extracted so both the click handler and the
+     on-load (links + ?bundle=) path can call it. */
+  function activateBundleTile(tile) {
+    document.querySelectorAll('.k-bundle-tile').forEach(function (t) { t.classList.remove('is-active'); });
+    tile.classList.add('is-active');
+    var name = tile.dataset.name || '';
+    var price = parseFloat(tile.dataset.price);
+    var saving = parseFloat(tile.dataset.saving);
+    var image = tile.dataset.image || '';
+    var priceEl = document.getElementById('k-price');
+    if (priceEl && !isNaN(price)) priceEl.textContent = '£' + price.toLocaleString();
+    var saveEl = document.getElementById('k-price-saving');
+    if (saveEl) {
+      if (!isNaN(saving) && saving > 0) {
+        var saveStr = saving % 1 === 0 ? saving.toFixed(0) : saving.toFixed(2);
+        saveEl.textContent = 'Save £' + saveStr + ' compared to buying separately';
+      } else {
+        saveEl.textContent = '';
+      }
+    }
+    var nameEl = document.getElementById('k-bundle-name');
+    if (nameEl) nameEl.textContent = name;
+    var mainImg = document.getElementById('k-main-img');
+    if (mainImg && image) mainImg.src = image;
+    var classicMain = document.getElementById('k-classic-main-img');
+    if (classicMain && image) classicMain.src = image;
+  }
+
+  /* Classic gallery — populated at runtime from the mosaic markup so the
+     image list stays single-source. */
+  function initClassicGallery() {
+    if (!document.body.classList.contains('g-classic')) return;
+    var container = document.querySelector('.k-gallery-classic');
+    if (!container) return;
+    var mainImg = container.querySelector('#k-classic-main-img');
+    var strip = container.querySelector('.k-classic-thumbs');
+    if (!mainImg || !strip) return;
+
+    var sources = [];
+    document.querySelectorAll('.k-gallery-mosaic .k-mosaic-tile img').forEach(function (img) {
+      sources.push(img.src);
+    });
+    if (!sources.length) return;
+    mainImg.src = sources[0];
+
+    sources.forEach(function (src, i) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'k-classic-thumb' + (i === 0 ? ' is-active' : '');
+      btn.innerHTML = '<img src="' + src + '" alt="" />';
+      btn.addEventListener('click', function () {
+        strip.querySelectorAll('.k-classic-thumb').forEach(function (t) { t.classList.remove('is-active'); });
+        btn.classList.add('is-active');
+        mainImg.src = src;
+      });
+      strip.appendChild(btn);
+    });
+
+    var prev = container.querySelector('.k-classic-arrow-prev');
+    var next = container.querySelector('.k-classic-arrow-next');
+    function step(dir) {
+      var thumbs = strip.querySelectorAll('.k-classic-thumb');
+      var idx = 0;
+      thumbs.forEach(function (t, i) { if (t.classList.contains('is-active')) idx = i; });
+      var nextIdx = (idx + dir + thumbs.length) % thumbs.length;
+      thumbs[nextIdx].click();
+    }
+    if (prev) prev.addEventListener('click', function () { step(-1); });
+    if (next) next.addEventListener('click', function () { step(1); });
+  }
+
+  // Expose for the click handler further down the file
+  window.__kActivateBundleTile = activateBundleTile;
+
   /* ---- Bag drawer ---- */
 
   function openDrawer() { document.body.classList.add('drawer-open'); }
@@ -276,42 +413,26 @@
 
   /* ---- v3 (Variant K) bundle selector — production-style 7-tile grid (V1) ---- */
 
+  // Capture-phase handler so we can intercept in p-links mode before the
+  // default inline-expand behaviour runs.
   document.addEventListener('click', function (e) {
     var tile = e.target.closest('.k-bundle-tile');
     if (!tile) return;
 
-    // Mark active
-    document.querySelectorAll('.k-bundle-tile').forEach(function (t) { t.classList.remove('is-active'); });
-    tile.classList.add('is-active');
-
-    var name = tile.dataset.name || '';
-    var price = parseFloat(tile.dataset.price);
-    var saving = parseFloat(tile.dataset.saving);
-    var image = tile.dataset.image || '';
-
-    // Price
-    var priceEl = document.getElementById('k-price');
-    if (priceEl && !isNaN(price)) priceEl.textContent = '£' + price.toLocaleString();
-
-    // Saving
-    var saveEl = document.getElementById('k-price-saving');
-    if (saveEl) {
-      if (!isNaN(saving) && saving > 0) {
-        var saveStr = saving % 1 === 0 ? saving.toFixed(0) : saving.toFixed(2);
-        saveEl.textContent = 'Save £' + saveStr + ' compared to buying separately';
-      } else {
-        saveEl.textContent = '';
-      }
+    if (document.body.classList.contains('p-links')) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      // Simulate a full PDP reload landing on the chosen bundle
+      var url = new URL(window.location.href);
+      url.searchParams.set('picker', 'links');
+      url.searchParams.set('bundle', tile.dataset.bundle || '');
+      window.location.href = url.toString();
+      return;
     }
 
-    // Selected bundle name (shown above the grid)
-    var nameEl = document.getElementById('k-bundle-name');
-    if (nameEl) nameEl.textContent = name;
-
-    // Swap the hero gallery image
-    var mainImg = document.getElementById('k-main-img');
-    if (mainImg && image) mainImg.src = image;
-  });
+    // Inline mode — activate in place
+    if (window.__kActivateBundleTile) window.__kActivateBundleTile(tile);
+  }, true);
 
   // Track pram colour swatch changes
   document.addEventListener('click', function (e) {

@@ -121,15 +121,28 @@
           <p>Working wireframes for the revised product detail page. Select a variant below to review.</p>
         </div>
 
-        <div class="hub-label">Headline direction</div>
-        <div class="variant-grid" style="grid-template-columns: 1fr; margin-bottom: 16px;">
+        <div class="hub-label">Variant K (v3 framework) — three treatments</div>
+        <div class="variant-grid" style="margin-bottom: 16px;">
           <a href="./pdp-l.html" class="variant-card" style="border-color: var(--teal); box-shadow: 0 4px 18px rgba(59,183,169,0.12);">
-            <div class="variant-card-label" style="color: var(--teal-dark);">Variant K · Refined v3 — Chris &amp; Jade transcript synthesis</div>
-            <h3>The framework: brand-first title with editorial line, base+delta bundle picker with car-seat sub-selector, embedded compatibility list, compare drawer — all tagged with test hypotheses</h3>
-            <p>Brand-first title hierarchy with a Black+Blum-style editorial headline. Visual why-buy-me badges replace text. Bundle picker uses a base+delta pattern with car seat as an inline sub-selector (mocking the Ken V2 data model). What's-included is a collapsible details element. Compatibility checker uses the iCandy embedded-tiles pattern with Go-In-Store fallback at the moment of friction. Comparison moves to a drawer launched by a button. Trust badges are real ones only. Inline saving copy ("£X less than buying separately") replaces the tooltip. Pram-level store availability. Quantity stepper removed. Toggle the pink button top-right to surface 18 inline test hypotheses.</p>
-            <div class="variant-card-arrow">Open the refined framework →</div>
+            <div class="variant-card-label" style="color: var(--teal-dark);">Default · Mosaic + Inline expand</div>
+            <h3>Portrait mosaic gallery, bundle picker expands the selected tile inline</h3>
+            <p>The reference framework. Hero portrait tile spans both columns; remaining tiles uniform 1696:2048. Bundle picker is a vertical list; the active tile expands in-place. Compare bundles available via drawer CTA.</p>
+            <div class="variant-card-arrow">Open default →</div>
+          </a>
+          <a href="./pdp-l.html?gallery=classic" class="variant-card">
+            <div class="variant-card-label">Alt · Classic gallery</div>
+            <h3>Conventional main-image + thumbnail strip, picker unchanged</h3>
+            <p>Single large main image with arrow nav and a six-up thumb strip beneath. For comparing the editorial mosaic against a more familiar gallery pattern. Bundle picker still expands inline.</p>
+            <div class="variant-card-arrow">Open classic gallery →</div>
+          </a>
+          <a href="./pdp-l.html?picker=links" class="variant-card">
+            <div class="variant-card-label">Alt · Picker as links</div>
+            <h3>Bundle tiles trigger a fresh PDP load (matches current live). Compare CTA promoted</h3>
+            <p>Today's M&amp;P behaviour: each tile is a link, only the active bundle panel is open, changing bundle reloads the page. Because customers lose in-page comparison, the Compare CTA gets a more prominent teal treatment. Reload is simulated — no extra PDPs to build.</p>
+            <div class="variant-card-arrow">Open links picker →</div>
           </a>
         </div>
+        <p style="font-size: 12px; color: var(--muted); margin: 0 0 32px;">A switcher chip at the bottom-left of each PDP page lets you flip Gallery and Picker independently — mix any combination of Mosaic/Classic × Inline-expand/Links without leaving the page.</p>
 
         <div class="hub-label" style="margin-top: 18px;">Earlier consolidation (superseded by v3)</div>
         <div class="variant-grid" style="grid-template-columns: 1fr; margin-bottom: 16px;">
